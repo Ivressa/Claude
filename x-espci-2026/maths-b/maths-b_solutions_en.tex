@@ -1,0 +1,530 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{solutions}
+\begin{document}
+\doctitle{Mathematics B}{MP--MPI track \,$\cdot$\, Paper no.~3 \,$\cdot$\, Tuesday 14 April 2026}
+         {4 hours, no calculator}{Worked solutions}
+
+\begin{remark}
+Notation follows the paper: $\Sp(M)$ is the real spectrum of $M$ with multiplicities, and
+$S_f(M) = \frac1n\sum_{(\lambda,m_\lambda)\in\Sp(M)} m_\lambda f(\lambda)$. As the paper allows,
+each question may use the results of the previous ones. $\intent{p}{q}$ denotes the set of
+integers between $p$ and $q$.
+\end{remark}
+
+%==========================================================================
+\partheading{Preliminary}
+
+\question{Question 1}
+The sequence satisfies a linear recurrence of order 2 with constant coefficients. Its
+characteristic equation is $r^2 - \alpha r + 1 = 0$, with discriminant $\Delta = \alpha^2 - 4$.
+The two roots (in $\C$) have sum $\alpha$ and product $1$.
+
+\textbf{Case $|\alpha| > 2$.} There are two distinct real roots
+$r_\pm = \frac{\alpha \pm \sqrt{\alpha^2-4}}{2}$, and $u_n = \lambda r_+^n + \mu r_-^n$.
+The condition $u_0 = 0$ gives $\mu = -\lambda$, and $u_1 = 1$ gives
+$\lambda(r_+ - r_-) = 1$ with $r_+ - r_- = \sqrt{\alpha^2-4}$. Hence
+\[
+  u_n = \frac{1}{\sqrt{\alpha^2-4}}\left[\left(\frac{\alpha+\sqrt{\alpha^2-4}}{2}\right)^{\!n}
+        - \left(\frac{\alpha-\sqrt{\alpha^2-4}}{2}\right)^{\!n}\right].
+\]
+
+\textbf{Case $|\alpha| < 2$.} Write $\alpha = 2\cos\theta$ with
+$\theta = \arccos(\alpha/2) \in \,]0,\pi[$. The roots are $\ee^{\pm\ii\theta}$ (distinct,
+complex conjugate), so the real solutions are the sequences
+$\lambda\cos(n\theta) + \mu\sin(n\theta)$. The condition $u_0 = 0$ gives $\lambda = 0$, and
+$u_1 = 1$ gives $\mu = 1/\sin\theta$ (note $\sin\theta > 0$):
+\[
+  u_n = \frac{\sin(n\theta)}{\sin\theta}, \qquad \theta = \arccos\frac{\alpha}{2}.
+\]
+
+\textbf{Case $\alpha = 2$.} Here $1$ is a double root, so $u_n = \lambda + \mu n$, and the
+initial conditions give $u_n = n$.
+
+\textbf{Case $\alpha = -2$.} Here $-1$ is a double root, so $u_n = (\lambda + \mu n)(-1)^n$;
+$u_0 = 0$ gives $\lambda = 0$ and $u_1 = -\mu = 1$ gives $u_n = (-1)^{n+1}\,n$.
+
+\begin{remark}
+Whenever the two roots $r_+ \neq r_-$ are distinct (real or complex),
+$u_n = \dfrac{r_+^n - r_-^n}{r_+ - r_-}$. This is the form used again in question~5c.
+\end{remark}
+
+%==========================================================================
+\partheading{Part One}
+
+\question{Question 2}
+The function $f$ is continuous on the segment $[0,1]$, hence uniformly continuous
+(Heine's theorem). Let
+$\omega(h) = \sup\{|f(x)-f(y)| : x,y\in[0,1],\ |x-y|\le h\}$; then $\omega(h) \to 0$ as
+$h \to 0$. Let $R_n = \frac1n\sum_{k=1}^n f\!\left(\frac kn\right)$. This is a Riemann sum
+for the regular subdivision of step $1/n$, so $R_n \to \int_0^1 f(t)\,\dd t$.
+
+For $1 \le k \le n$,
+\[
+  \left|\frac{k}{n+1} - \frac kn\right| = \frac{k}{n(n+1)} \le \frac{1}{n+1},
+  \qquad
+  \left|\frac{2k}{2n+1} - \frac kn\right| = \frac{k}{n(2n+1)} \le \frac{1}{2n+1}.
+\]
+Hence $|v_n - R_n| \le \omega\!\left(\frac1{n+1}\right) \to 0$ and
+$|w_n - R_n| \le \omega\!\left(\frac1{2n+1}\right) \to 0$.
+\begin{result}
+Both sequences converge, and they have the same limit:
+$\displaystyle\lim v_n = \lim w_n = \int_0^1 f(t)\,\dd t$.
+\end{result}
+
+\question{Question 3a}
+\emph{Convergence.} The function $f$ is continuous on $[-2,2]$, hence bounded by some $M$.
+For $x \in [0,2[$ we have
+$\sqrt{4-x^2} = \sqrt{2-x}\,\sqrt{2+x} \ge \sqrt2\,\sqrt{2-x}$, so
+$\frac{|f(x)|}{\sqrt{4-x^2}} \le \frac{M}{\sqrt2}(2-x)^{-1/2}$. This bound is integrable near
+$2$ (Riemann exponent $\frac12 < 1$). The same argument works near $-2$, so $I(f)$ converges
+absolutely.
+
+\emph{Change of variable.} The map $\varphi : \theta \mapsto 2\cos\theta$ is a $C^1$,
+strictly decreasing bijection from $]0,\pi[$ onto $]-2,2[$, with
+$\varphi'(\theta) = -2\sin\theta$. Moreover $\sqrt{4-4\cos^2\theta} = 2\sin\theta$ because
+$\sin\theta > 0$ on $]0,\pi[$. By the change-of-variable theorem for improper integrals (both
+integrals have the same nature),
+\[
+  \int_{-2}^{2}\frac{f(x)}{\sqrt{4-x^2}}\,\dd x
+  = \int_{\pi}^{0}\frac{f(2\cos\theta)}{2\sin\theta}\,(-2\sin\theta)\,\dd\theta
+  = \int_0^\pi f(2\cos\theta)\,\dd\theta,
+\]
+so $I(f) = \frac1\pi\int_0^\pi f(2\cos\theta)\,\dd\theta$. The right-hand side is an ordinary
+integral of a continuous function over a segment.
+
+\question{Question 3b}
+$I(f_0) = \frac1\pi\int_0^\pi\dd\theta = 1$, \quad
+$I(f_1) = \frac2\pi\int_0^\pi\cos\theta\,\dd\theta = 0$, \quad
+$I(f_2) = \frac1\pi\int_0^\pi 4\cos^2\theta\,\dd\theta
+        = \frac1\pi\int_0^\pi 2(1+\cos2\theta)\,\dd\theta = 2$.
+
+\question{Question 3c}
+Expand $(2\cos\theta)^n = (\ee^{\ii\theta} + \ee^{-\ii\theta})^n
+= \sum_{k=0}^n \binom nk \ee^{\ii(2k-n)\theta}$. The function $\theta \mapsto (2\cos\theta)^n$
+is even, so $\int_0^\pi = \frac12\int_{-\pi}^{\pi}$. For $m \in \Z$ we have
+$\int_{-\pi}^{\pi}\ee^{\ii m\theta}\,\dd\theta = 2\pi\,\delta_{m,0}$, so only the term with
+$2k = n$ survives:
+\[
+  \int_0^\pi (2\cos\theta)^n\,\dd\theta =
+  \begin{cases} \pi\dbinom{n}{n/2} & n \text{ even},\\[4pt] 0 & n \text{ odd}.\end{cases}
+\]
+\begin{result}
+$I(f_n) = \dbinom{n}{n/2} = \dfrac{n!}{((n/2)!)^2}$ if $n$ is even, and $I(f_n) = 0$ if $n$ is
+odd. (Check: this gives $1, 0, 2$ for $n = 0,1,2$.)
+\end{result}
+
+\question{Question 4a}
+By definition of $U_n$,
+$\E\!\left[f\!\left(2\cos\frac{\pi U_n}{n+1}\right)\right]
+ = \frac1n\sum_{k=1}^n f\!\left(2\cos\frac{k\pi}{n+1}\right)
+ = \frac1n\sum_{k=1}^n g\!\left(\frac{k}{n+1}\right)$,
+where $g(t) = f(2\cos\pi t)$ is continuous on $[0,1]$. By question~2 (the sequence $v_n$ for
+$g$), this tends to
+$\int_0^1 f(2\cos\pi t)\,\dd t = \frac1\pi\int_0^\pi f(2\cos\theta)\,\dd\theta$, which equals
+$\frac1\pi\int_{-2}^{2}\frac{f(x)}{\sqrt{4-x^2}}\,\dd x$ by 3a.
+
+\question{Question 4b}
+Let $y \in [-2,2]$ and $a = \frac1\pi\arccos\frac y2 \in [0,1]$. The function $\arccos$ is a
+strictly decreasing bijection from $[-1,1]$ onto $[0,\pi]$, and $\frac{k\pi}{n+1} \in \,]0,\pi[$
+for $k \in \intent1n$. Hence
+\[
+  2\cos\frac{k\pi}{n+1} < y \iff \frac{k\pi}{n+1} > \arccos\frac y2 \iff k > (n+1)a.
+\]
+So the probability is $N_n/n$, where $N_n = \#\{k\in\intent1n : k > (n+1)a\}$.
+
+If $(n+1)a \le n$, then $N_n = n - \lfloor (n+1)a\rfloor$. Otherwise $N_n = 0$ and
+$n - (n+1)a \in [-1,0[$. In both cases $|N_n - (n - (n+1)a)| \le 1$, so
+$N_n/n \to 1 - a$. On the other hand, $x \mapsto -\arccos\frac x2$ is a primitive of
+$\frac1{\sqrt{4-x^2}}$ on $]-2,2[$, so
+\[
+  \frac1\pi\int_{-2}^{y}\frac{\dd x}{\sqrt{4-x^2}}
+  = \frac1\pi\left(\arccos(-1) - \arccos\frac y2\right) = 1 - a,
+\]
+which proves the claim.
+\begin{remark}
+The same result follows from 4a by squeezing $\mathbf 1_{]-\infty,y[}$ between continuous
+functions. The direct count above is shorter.
+\end{remark}
+
+%==========================================================================
+\partheading{Part Two}
+
+\question{Question 5a}
+$\chi_2 = \det\begin{pmatrix} X & -1\\ -1 & X\end{pmatrix} = X^2 - 1$, so
+$\Sp(T_2) = \{(-1,1), (1,1)\}$.
+
+Expanding along the first row,
+$\chi_3 = X(X^2-1) + 1\cdot\det\begin{pmatrix}-1&-1\\0&X\end{pmatrix}
+        = X^3 - X - X = X(X^2-2)$, so $\Sp(T_3) = \{(-\sqrt2,1),(0,1),(\sqrt2,1)\}$.
+
+\question{Question 5b}
+Expand $\det(XI_n - T_n)$ along its last column. It has two nonzero entries: $X$ in position
+$(n,n)$ and $-1$ in position $(n-1,n)$.
+\begin{itemize}
+\item The cofactor of $(n,n)$ is $\chi_{n-1}$.
+\item Deleting row $n-1$ and column $n$ leaves the block matrix
+  $\begin{pmatrix} XI_{n-2}-T_{n-2} & * \\ 0 & -1\end{pmatrix}$, whose determinant is
+  $-\chi_{n-2}$. The cofactor sign is $(-1)^{(n-1)+n} = -1$.
+\end{itemize}
+Therefore $\chi_n = X\chi_{n-1} + (-1)(-1)(-\chi_{n-2})$, that is,
+\begin{result}
+$\chi_n = X\,\chi_{n-1} - \chi_{n-2}$ \quad for $n \ge 4$.
+\end{result}
+With the conventions $\chi_0 = 1$ and $\chi_1 = X$, this relation also holds for $n = 2$ and
+$n = 3$ (by 5a).
+
+\question{Question 5c}
+Let $\alpha\in\C$ with $|\alpha| < 2$. Then $\alpha^2 \ne 4$; let $\delta$ be a square root of
+$4 - \alpha^2$, so $\delta \ne 0$. The formula does not depend on which root is chosen:
+replacing $\delta$ by $-\delta$ changes the sign of both the bracket and the prefactor.
+
+Set $r_\pm = \frac{\alpha \pm \ii\delta}{2}$. Then $r_+ + r_- = \alpha$,
+$r_+r_- = \frac{\alpha^2+\delta^2}{4} = 1$ and $r_+ - r_- = \ii\delta \ne 0$. So $r_\pm$ are
+the two distinct roots of $r^2 = \alpha r - 1$. Define
+$s_n = \dfrac{r_+^{n+1} - r_-^{n+1}}{r_+ - r_-}$ (the right-hand side of the formula).
+Multiplying $r_\pm^2 = \alpha r_\pm - 1$ by $r_\pm^{n-1}$ gives
+$s_n = \alpha s_{n-1} - s_{n-2}$. The initial values are
+\[
+  s_0 = 1 = \chi_0(\alpha), \qquad s_1 = r_+ + r_- = \alpha = \chi_1(\alpha).
+\]
+By 5b, $(\chi_n(\alpha))_n$ satisfies the same recurrence, so $s_n = \chi_n(\alpha)$ for all $n$
+by (double) induction:
+\[
+  \chi_n(\alpha) = \frac{1}{\ii\sqrt{4-\alpha^2}}\left[\left(\frac{\alpha+\ii\sqrt{4-\alpha^2}}{2}\right)^{n+1}
+    - \left(\frac{\alpha-\ii\sqrt{4-\alpha^2}}{2}\right)^{n+1}\right].
+\]
+(For real $\alpha$, $\chi_n(\alpha) = u_{n+1}$ with $u$ from question~1.)
+
+\question{Question 5d}
+By the binomial formula,
+$(\alpha+\ii\delta)^{n+1} - (\alpha-\ii\delta)^{n+1}
+ = \sum_k\binom{n+1}{k}\alpha^{n+1-k}(\ii\delta)^k\bigl(1-(-1)^k\bigr)$.
+Only odd $k = 2j+1$ remain, and $(\ii\delta)^{2j} = (-\delta^2)^j = (\alpha^2-4)^j$. Dividing by
+$2^{n+1}\ii\delta$ gives
+\[
+  \chi_n(\alpha) = \frac1{2^n}\sum_{j=0}^{\lfloor n/2\rfloor}\binom{n+1}{2j+1}\,\alpha^{n-2j}\,(\alpha^2-4)^j .
+\]
+The two sides are polynomials in $\alpha$ that agree on the infinite set
+$\{|\alpha|<2\}$, so they are equal as polynomials. Expanding
+$(X^2-4)^j = \sum_{m=0}^{j}\binom jm(-4)^m X^{2j-2m}$ and collecting powers gives
+\begin{result}
+$\displaystyle \chi_n = \sum_{m=0}^{\lfloor n/2\rfloor} c_{n,m}\,X^{n-2m},\qquad
+ c_{n,m} = (-1)^m\,2^{2m-n}\sum_{j=m}^{\lfloor n/2\rfloor}\binom{n+1}{2j+1}\binom jm ,$
+\end{result}
+and all the coefficients of $X^{n-2m-1}$ are zero.
+\begin{remark}
+These sums simplify to $c_{n,m} = (-1)^m\binom{n-m}{m}$, which is
+$\chi_n(X) = U_n(X/2)$ (Chebyshev polynomial of the second kind). Proof: the polynomials
+$\sum_m(-1)^m\binom{n-m}{m}X^{n-2m}$ equal $X^2-1$ and $X^3-2X$ for $n = 2, 3$. They also
+satisfy the recurrence of 5b, by Pascal's rule
+$\binom{n-1-m}{m} + \binom{n-1-m}{m-1} = \binom{n-m}{m}$.
+\end{remark}
+
+\question{Question 6}
+For $\theta\in\,]0,\pi[$, set $\alpha = 2\cos\theta \in \,]-2,2[$ and take
+$\delta = 2\sin\theta$ in 5c, so that $r_\pm = \ee^{\pm\ii\theta}$. Then
+\[
+  \chi_n(2\cos\theta) = \frac{\ee^{\ii(n+1)\theta} - \ee^{-\ii(n+1)\theta}}{2\ii\sin\theta}
+  = \frac{\sin((n+1)\theta)}{\sin\theta}.
+\]
+For $\theta_k = \frac{k\pi}{n+1}$ with $k\in\intent1n$, we have $\theta_k\in\,]0,\pi[$ and
+$\sin((n+1)\theta_k) = 0$, so each $2\cos\theta_k$ is a root of $\chi_n$. These $n$ values are
+distinct, because $\cos$ is injective on $]0,\pi[$. Since $\chi_n$ is monic of degree $n$,
+\begin{result}
+$\chi_n = \prod_{k=1}^n\left(X - 2\cos\frac{k\pi}{n+1}\right)$: the eigenvalues of $T_n$ are
+the $2\cos\frac{k\pi}{n+1}$, $k = 1,\dots,n$, all simple.
+\end{result}
+
+\question{Question 7}
+By question~6,
+$S_f(T_n) = \frac1n\sum_{k=1}^n f\!\left(2\cos\frac{k\pi}{n+1}\right)
+ = \E\!\left[f\!\left(2\cos\frac{\pi U_n}{n+1}\right)\right]$. By 4a, this tends to
+$\frac1\pi\int_{-2}^2\frac{f(x)}{\sqrt{4-x^2}}\,\dd x$.
+
+\question{Question 8a}
+Since $T_n(a,b,c) = aI_n + T_n(0,b,c)$,
+$\chi_{T_n(a,b,c)}(X) = \det\bigl((X-a)I_n - T_n(0,b,c)\bigr) = \chi_{T_n(0,b,c)}(X-a)$.
+So $\lambda$ is a root of multiplicity $m$ of the first polynomial if and only if $\lambda - a$
+is a root of multiplicity $m$ of the second:
+\[
+  \Sp(T_n(a,b,c)) = \{(a+\mu,\,m) : (\mu,m)\in\Sp(T_n(0,b,c))\}.
+\]
+
+\question{Question 8b}
+Let $D_n = \det(XI_n - T_n(0,b,c))$ and expand along the last column as in 5b. The
+entries $-b$ in position $(n-1,n)$ and $-c$ in position $(n,n-1)$ now appear, and one gets
+\[
+  D_n = X D_{n-1} - bc\,D_{n-2}\quad(n\ge3), \qquad D_1 = X,\quad D_2 = X^2 - bc .
+\]
+The sequence $(D_n)$ therefore depends on $(b,c)$ only through the product $bc$. The matrix
+$T_n(0,bc,1)$ has the same product $bc\cdot1$, hence the same characteristic polynomial, and
+so the same spectrum. By 8a,
+\begin{result}
+$\Sp(T_n(a,b,c)) = \{(a+\mu,\,m) : (\mu,m)\in\Sp(T_n(0,bc,1))\}$.
+\end{result}
+\begin{remark}
+When $c\ne0$ this is also a similarity: with $D = \mathrm{diag}(1, c^{-1},\dots,c^{-(n-1)})$,
+we get $D\,T_n(0,b,c)\,D^{-1} = T_n(0,bc,1)$.
+\end{remark}
+
+\question{Question 8c}
+Assume $bc > 0$ and put $s = \sqrt{bc} > 0$. Then $s\cdot s = bc$, so by 8b the matrices
+$T_n(0,b,c)$ and $T_n(0,s,s) = s\,T_n$ have the same characteristic polynomial. By question~6,
+the eigenvalues of $sT_n$ are $2s\cos\frac{k\pi}{n+1}$. By 8a:
+\begin{result}
+The eigenvalues of $T_n(a,b,c)$ are
+$\displaystyle\lambda_k = a + 2\sqrt{bc}\,\cos\frac{k\pi}{n+1},\ k = 1,\dots,n$.
+\end{result}
+These are $n$ distinct real numbers, so they are all the complex eigenvalues of
+$T_n(a,b,c)$, and each is simple.
+
+\question{Question 9a}
+By 8c, $S_f(T_n(a,b,c)) = \frac1n\sum_{k=1}^n f\!\left(a + \sqrt{bc}\cdot2\cos\frac{k\pi}{n+1}\right)
+= S_g(T_n)$, where $g(x) = f(a + \sqrt{bc}\,x)$ is continuous on $[-2,2]$. Question~7 gives
+$\displaystyle\lim_{n\to\infty}S_f(T_n(a,b,c)) = \frac1\pi\int_{-2}^2\frac{f(a+\sqrt{bc}\,x)}{\sqrt{4-x^2}}\,\dd x$.
+
+\question{Question 9b}
+Let $t = \frac{y-a}{2\sqrt{bc}}$. Then
+$q_n(y) = \#\{k\in\intent1n : \cos\frac{k\pi}{n+1} \le t\}$.
+\begin{itemize}
+\item If $t \ge 1$, i.e.\ $y \ge a + 2\sqrt{bc}$: every eigenvalue is $\le y$, so
+  $q_n(y) = n$.
+\item If $t \le -1$, i.e.\ $y \le a - 2\sqrt{bc}$: $\cos\frac{k\pi}{n+1} > -1 \ge t$, so
+  $q_n(y) = 0$ for every $n$.
+\item If $-1 < t < 1$, let $\varphi = \arccos t \in\,]0,\pi[$. Then
+  $\cos\frac{k\pi}{n+1}\le t \iff k \ge u := \frac{(n+1)\varphi}{\pi}$. Counting integers as
+  in 4b gives $|q_n(y) - (n-u)| \le 1$, so $q_n(y)/n \to 1 - \varphi/\pi > 0$.
+\end{itemize}
+\begin{result}
+For $a - 2\sqrt{bc} < y < a + 2\sqrt{bc}$:
+$\displaystyle q_n(y)\ \underset{n\to\infty}{\sim}\
+ \frac n\pi\arccos\!\left(\frac{a-y}{2\sqrt{bc}}\right)
+ = \frac n\pi\int_{-2}^{(y-a)/\sqrt{bc}}\frac{\dd x}{\sqrt{4-x^2}}$.
+For $y \ge a+2\sqrt{bc}$, $q_n(y) = n$; for $y \le a-2\sqrt{bc}$, $q_n(y) = 0$.
+\end{result}
+This agrees with 9a: the fraction of eigenvalues below $y$ follows the arcsine law.
+
+%==========================================================================
+\partheading{Part Three --- Weierstrass's theorem}
+
+Recall $Q_n = (1-X^n)^{2^n}$ and $P_n = Q_n\!\left(\frac{1-X}{2}\right)$. For
+$x\in[-1,1]$ we have $\frac{1-x}2\in[0,1]$, so $0 \le P_n(x) \le 1$. This bound is used in
+question~12.
+
+\question{Question 10a}
+Let $0\le\kappa<\frac12$ and $n\ge1$.
+
+\emph{On $[0,\kappa]$.} Let $u = x^n\in[0,\kappa^n]$. Bernoulli's inequality
+$(1-u)^N \ge 1 - Nu$ (for $u\in[0,1]$, $N\in\N$) gives
+\[
+  1 \ \ge\ Q_n(x) = (1-u)^{2^n} \ \ge\ 1 - 2^n\kappa^n = 1 - (2\kappa)^n,
+\]
+so $\sup_{[0,\kappa]}|Q_n - 1| \le (2\kappa)^n \to 0$, because $0\le 2\kappa < 1$.
+
+\emph{On $[1-\kappa,1]$.} Here $u = x^n \ge (1-\kappa)^n$. Using $1-u\le\ee^{-u}$,
+\[
+  0 \ \le\ Q_n(x) \ \le\ \exp(-2^n u) \ \le\ \exp\!\bigl(-(2(1-\kappa))^n\bigr) \longrightarrow 0,
+\]
+because $2(1-\kappa) > 1$. Both convergences are uniform. (The condition $\kappa<\frac12$ is
+exactly what makes both bounds work.)
+
+\question{Question 10b}
+Let $0<\eta\le1$ and $\kappa = \frac{1-\eta}2\in[0,\frac12[$.
+\begin{itemize}
+\item If $x\in[\eta,1]$, then $\frac{1-x}2\in[0,\kappa]$ and $H(x) = 1$. So
+  $|P_n(x) - H(x)| \le \sup_{[0,\kappa]}|Q_n-1| \to 0$.
+\item If $x\in[-1,-\eta]$, then $\frac{1-x}2\in[\frac{1+\eta}2,1] = [1-\kappa,1]$ and
+  $H(x) = 0$. So $|P_n(x)| \le \sup_{[1-\kappa,1]}Q_n \to 0$.
+\end{itemize}
+Hence $P_n \to H$ uniformly on $\{x\in[-1,1] : |x|\ge\eta\}$, which contains
+$[-1,1]\setminus[-\eta,\eta]$.
+
+\question{Question 11}
+The function $f$ is uniformly continuous on $[-1,1]$, so there is $\delta>0$ such that
+$|x-x'|\le\delta \Rightarrow |f(x)-f(x')|\le\varepsilon$. Choose $N\ge1$ with
+$\frac2{N+1}\le\delta$ and set $c_i = -1 + \frac{2i}{N+1}$ for $0\le i\le N+1$. Then
+$c_0 = -1$, $c_{N+1} = 1$ and $-1 < c_1 < \dots < c_N < 1$. For $1 \le i \le N$, put
+\[
+  a_i = f(c_i) - f(c_{i-1}), \qquad\text{so that } |a_i|\le\varepsilon .
+\]
+Let $x\in[-1,1]$ and let $j\in\intent0N$ be the largest index with $c_j\le x$. Then
+$H(x-c_i) = 1 \iff i \le j$. Since $f(c_0) = f(-1) = 0$, the sum telescopes:
+\[
+  \sum_{i=1}^N a_i H(x-c_i) = \sum_{i=1}^{j}\bigl(f(c_i)-f(c_{i-1})\bigr) = f(c_j).
+\]
+As $0\le x-c_j\le c_{j+1}-c_j\le\delta$, we get
+$\bigl|f(x) - \sum_i a_iH(x-c_i)\bigr| = |f(x)-f(c_j)| \le \varepsilon$.
+
+\question{Question 12}
+Replacing $f$ by $f - f(-1)$ (and adding the constant back at the end), we may assume
+$f(-1) = 0$. Apply question~11 with $\varepsilon/3$. This gives $c_1<\dots<c_N$ in $]-1,1[$
+and $|a_i|\le\varepsilon/3$ such that $g = \sum_i a_iH(\cdot-c_i)$ satisfies
+$|f-g|\le\varepsilon/3$ on $[-1,1]$.
+
+\emph{Domain issue.} For $x\in[-1,1]$, $x - c_i$ ranges over $]-2,2[$. Outside $[-1,1]$,
+$P_n$ does not approximate $H$; for instance $P_n(t)\to+\infty$ for $t<-1$. We therefore
+rescale. The polynomial $\widetilde P_n(X) = P_n(X/2)$ satisfies, for $t\in[-2,2]$:
+$0\le\widetilde P_n(t)\le1$, and $\widetilde P_n(t)\to H(t/2) = H(t)$ uniformly on
+$\{|t|\ge2\eta\}$ by 10b. We use the polynomial suggested by the hint, with $\widetilde P_n$
+in place of $P_n$:
+\[
+  F_{\varepsilon,n} = \sum_{i=1}^N a_i\,\widetilde P_n(X-c_i).
+\]
+Choose $\eta>0$ such that the intervals $[c_i-2\eta,\,c_i+2\eta]$ are pairwise disjoint. Let
+$\rho_n = \sup\{|\widetilde P_n(t)-H(t)| : t\in[-2,2],\ |t|\ge2\eta\}$, so that
+$\rho_n\to0$, and let $A = \sum_i|a_i|$.
+
+Fix $x\in[-1,1]$. At most one index $j$ satisfies $|x-c_j|<2\eta$. For that index, bound the
+term by $|a_j|\cdot1\le\varepsilon/3$, since both $\widetilde P_n(x-c_j)$ and $H$ lie in
+$[0,1]$. For every other index, the term is at most $|a_i|\rho_n$. Hence
+\[
+  |F_{\varepsilon,n}(x) - g(x)| \le \frac\varepsilon3 + A\rho_n ,
+\]
+and for $n$ large enough $A\rho_n\le\varepsilon/3$. Then, on all of $[-1,1]$,
+$|f - F_{\varepsilon,n}| \le |f-g| + |g - F_{\varepsilon,n}| \le \varepsilon$.
+\begin{result}
+Every continuous function on $[-1,1]$ is a uniform limit of polynomials (Weierstrass). By an
+affine change of variable, the same holds on any segment $[\alpha,\beta]$.
+\end{result}
+The steps of $g$ have height $|a_i|\le\varepsilon/3$. This is why question~11 requires
+$a_i\in[-\varepsilon,\varepsilon]$: near each jump, the error of $P_n$ is at most one step.
+
+%==========================================================================
+\partheading{Part Four --- The semicircle law}
+
+\question{Question 13a}
+For every $\omega$, the matrix $X_n(\omega)$ is real symmetric. By the spectral theorem it
+is orthogonally diagonalisable, $X_n = PDP^{\mathsf T}$, with real eigenvalues
+$\lambda_1,\dots,\lambda_n$ listed with multiplicity. So its real spectrum accounts for all
+$n$ eigenvalues. Then $X_n^k = PD^kP^{\mathsf T}$ and
+$\Tr(X_n^k) = \sum_i\lambda_i^k = \sum_{(\lambda,m)\in\Sp(X_n)} m\lambda^k$, so
+$S_n(f_k) = \frac1n\Tr(X_n^k)$, pointwise in $\omega$.
+
+\question{Question 13b}
+For odd $k$ the integrand is odd, so $\Sigma(f_k) = 0$. For $k = 2p$, substitute
+$x = 2\cos\theta$: then $\sqrt{4-x^2}\,\dd x$ becomes $4\sin^2\theta\,\dd\theta$, and
+$4\sin^2\theta = 4 - (2\cos\theta)^2$. With the integrals of 3c,
+\[
+  \Sigma(f_{2p}) = \frac1{2\pi}\int_0^\pi(2\cos\theta)^{2p}\bigl(4-(2\cos\theta)^2\bigr)\dd\theta
+  = 2\binom{2p}{p} - \frac12\binom{2p+2}{p+1}.
+\]
+Since $\binom{2p+2}{p+1} = \frac{2(2p+1)}{p+1}\binom{2p}{p}$, this becomes
+$\binom{2p}p\bigl(2 - \frac{2p+1}{p+1}\bigr)$.
+\begin{result}
+$\Sigma(f_k) = 0$ for odd $k$, and
+$\Sigma(f_{2p}) = \dfrac{1}{p+1}\dbinom{2p}{p} = C_p$ (the Catalan numbers
+$1, 1, 2, 5, 14,\dots$).
+\end{result}
+
+\question{Question 13c}
+$(H_0)$: $\Tr(X_n^0) = n$, so both limits equal $1 = \Sigma(f_0) = \Sigma(f_0)^2$.
+
+$(H_1)$: $\Tr X_n = n^{-1/2}\sum_iW_{i,i}$, so $\E(\Tr X_n) = 0 = \Sigma(f_1)$. By independence
+and centring, $\E\bigl((\Tr X_n)^2\bigr) = \frac1n\sum_{i,j}\E(W_{i,i}W_{j,j})
+= \frac1n\sum_i\E(W_{i,i}^2) = 1$. Hence $\frac1{n^2}\E((\Tr X_n)^2) = \frac1{n^2}\to0 = \Sigma(f_1)^2$.
+
+$(H_2)$: $\Tr(X_n^2) = \sum_{i,j}(X_n)_{i,j}^2 = \frac1n A_n$, where
+$A_n = \sum_iW_{i,i}^2 + 2\sum_{i<j}W_{i,j}^2$. Then $\E(A_n) = n + n(n-1) = n^2$, so
+$\frac1n\E(\Tr X_n^2) = 1 = \Sigma(f_2)$. The variables $Y_{i,j} = W_{i,j}^2$ ($i\le j$) are
+independent, with mean $1$ and variance $\sigma^2 = \E(W_{1,1}^4)-1 < \infty$. So
+\[
+  \mathrm{Var}(A_n) = \sigma^2\bigl(n + 4\cdot\tfrac{n(n-1)}2\bigr) = \sigma^2(2n^2-n),
+  \qquad \E(A_n^2) = n^4 + \sigma^2(2n^2-n).
+\]
+Hence $\frac1{n^2}\E\bigl((\Tr X_n^2)^2\bigr) = \frac{\E(A_n^2)}{n^4}\to1 = \Sigma(f_2)^2$.
+
+\question{Question 14}
+For every real $x$, $0\le g_{k,B}(x)\le\frac{x^{2k}}{B^k}$. Indeed, if $|x|\le B$ the left
+side is $0$; if $|x|>B$, then $|x|^{2k} = |x|^k|x|^k\ge|x|^kB^k$. The map $h\mapsto S_n(h)$ is
+linear and nondecreasing (an average with nonnegative weights), so
+$0\le S_n(g_{k,B})\le S_n(f_{2k})/B^k$. Markov's inequality then gives
+\[
+  \PP\bigl(S_n(g_{k,B})\ge\varepsilon\bigr)\le\frac{\E(S_n(g_{k,B}))}{\varepsilon}
+  \le\frac{\E(S_n(f_{2k}))}{\varepsilon B^k}.
+\]
+The expectation on the right is finite: $\Tr(X_n^{2k})$ is a polynomial in the $W_{i,j}$,
+which have finite moments of every order.
+
+\question{Question 15}
+Let $k'\ge k$. For $|x|>B>1$ we have $|x|^k\le|x|^{k'}$, so $g_{k,B}\le g_{k',B}$. Then, by
+question~14,
+\[
+  \PP(S_n(g_{k,B})\ge\varepsilon)\le\PP(S_n(g_{k',B})\ge\varepsilon)
+  \le\frac{\E(S_n(f_{2k'}))}{\varepsilon B^{k'}} .
+\]
+By 13a and $(H_{2k'})$, $\E(S_n(f_{2k'})) = \frac1n\E(\Tr X_n^{2k'})\to\Sigma(f_{2k'})\le4^{k'}$,
+because $x^{2k'}\le4^{k'}$ on $[-2,2]$ and $\Sigma(f_0) = 1$. Hence, for every $k'\ge k$,
+\[
+  \limsup_{n\to\infty}\PP(S_n(g_{k,B})\ge\varepsilon)\le\frac1\varepsilon\left(\frac4B\right)^{k'}.
+\]
+Letting $k'\to\infty$ (with $4/B<1$) gives $\lim_n\PP(S_n(g_{k,B})\ge\varepsilon) = 0$.
+
+\question{Question 16}
+By the Bienaymé--Chebyshev inequality,
+\[
+  \PP\bigl(|S_n(f_k)-\E S_n(f_k)|\ge\varepsilon\bigr)\le\frac{\mathrm{Var}(S_n(f_k))}{\varepsilon^2},
+\]
+and by $(H_k)$,
+\[
+  \mathrm{Var}(S_n(f_k)) = \frac1{n^2}\E\bigl((\Tr X_n^k)^2\bigr) - \Bigl(\frac1n\E(\Tr X_n^k)\Bigr)^2
+  \longrightarrow \Sigma(f_k)^2 - \Sigma(f_k)^2 = 0 .
+\]
+
+\question{Question 17a}
+Weierstrass's theorem (Part Three) on $[-B,B]$ gives a polynomial
+$P = \sum_{k=0}^dp_kX^k$ with $\sup_{[-B,B]}|f-P|\le\varepsilon/6$. By linearity, 13a and the
+$(H_k)$, $\E(S_n(P)) = \sum_kp_k\frac1n\E(\Tr X_n^k)\to\sum_kp_k\Sigma(f_k) = \Sigma(P)$. So
+there is an integer $N$ such that $|\E(S_n(P))-\Sigma(P)|\le\varepsilon/6$ for all $n\ge N$.
+
+Since $f = f\,\mathbf1_{|x|\le B}$, linearity of $S_n$ gives the identity
+\begin{align*}
+  S_n(f)-\Sigma(f) = {}& S_n\bigl((f-P)\mathbf1_{|x|\le B}\bigr) - S_n\bigl(P\mathbf1_{|x|>B}\bigr)
+  + \bigl[S_n(P)-\E S_n(P)\bigr]\\
+  &+ \bigl[\E S_n(P)-\Sigma(P)\bigr] + \bigl[\Sigma(P)-\Sigma(f)\bigr].
+\end{align*}
+Three of these terms are small:
+\begin{itemize}
+\item $\bigl|S_n((f-P)\mathbf1_{|x|\le B})\bigr|\le\varepsilon/6$, since it is an average of
+  values bounded by $\varepsilon/6$;
+\item $|\Sigma(P)-\Sigma(f)|\le\frac\varepsilon6\Sigma(f_0) = \frac\varepsilon6$, since
+  $[-2,2]\subset[-B,B]$;
+\item $|\E S_n(P)-\Sigma(P)|\le\varepsilon/6$ for $n\ge N$.
+\end{itemize}
+So for $n\ge N$, if $|S_n(f)-\Sigma(f)|\ge\varepsilon$, then
+$|S_n(P\mathbf1_{|x|>B})| + |S_n(P)-\E S_n(P)|\ge\varepsilon/2$, and one of the two terms is at
+least $\varepsilon/4$. The union bound gives
+\[
+  \PP(|S_n(f)-\Sigma(f)|\ge\varepsilon)\le\PP\bigl(|S_n(P\mathbf1_{|x|>B})|\ge\tfrac\varepsilon4\bigr)
+  + \PP\bigl(|S_n(P)-\E(S_n(P))|\ge\tfrac\varepsilon4\bigr).
+\]
+
+\question{Question 17b}
+Let $K = \{k\le d : p_k\ne0\}$ and $\varepsilon_k = \frac{\varepsilon}{4(d+1)|p_k|}$ for
+$k\in K$.
+\begin{itemize}
+\item Since $|P(x)|\mathbf1_{|x|>B}\le\sum_k|p_k|\,g_{k,B}(x)$, we have
+  $|S_n(P\mathbf1_{|x|>B})|\le\sum_k|p_k|S_n(g_{k,B})$. If this sum is at least
+  $\varepsilon/4$, then some $k\in K$ has $S_n(g_{k,B})\ge\varepsilon_k$. So
+  $\PP(|S_n(P\mathbf1_{|x|>B})|\ge\varepsilon/4)\le\sum_{k\in K}\PP(S_n(g_{k,B})\ge\varepsilon_k)$,
+  and each term tends to $0$ by question~15.
+\item Likewise
+  $S_n(P)-\E S_n(P) = \sum_kp_k\bigl(S_n(f_k)-\E S_n(f_k)\bigr)$, so
+  $\PP(|S_n(P)-\E S_n(P)|\ge\varepsilon/4)\le\sum_{k\in K}\PP(|S_n(f_k)-\E S_n(f_k)|\ge\varepsilon_k)$,
+  and each term tends to $0$ by question~16.
+\end{itemize}
+With 17a:
+\begin{result}
+$\displaystyle\lim_{n\to\infty}\PP\bigl(|S_n(f)-\Sigma(f)|\ge\varepsilon\bigr) = 0$: the
+empirical spectral distribution of $X_n$ converges in probability to the semicircle law
+$\frac1{2\pi}\sqrt{4-x^2}\,\dd x$ on $[-2,2]$ (Wigner's theorem).
+\end{result}
+Compare with Parts One and Two: for the deterministic matrices $T_n$ the limit was the
+arcsine law $\frac{\dd x}{\pi\sqrt{4-x^2}}$. For random symmetric matrices it is the
+semicircle.
+
+\par\vspace{8mm}
+\begin{center}\small\color{black!55}
+Unofficial worked solutions. The questions are those of the X--ESPCI 2026 Mathematics~B paper
+(MP--MPI track); the original French paper is in this folder.
+\end{center}
+\end{document}

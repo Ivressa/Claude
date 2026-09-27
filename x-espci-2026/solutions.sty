@@ -1,0 +1,75 @@
+% solutions.sty -- shared layout for the X-ESPCI 2026 translation and solutions
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{solutions}[2026/09/27 X-ESPCI 2026 solutions]
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage[scaled=0.92]{helvet}
+\RequirePackage[english]{babel}
+\RequirePackage[a4paper,left=24mm,right=24mm,top=20mm,bottom=22mm]{geometry}
+\RequirePackage{amsmath,amssymb,mathtools}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{siunitx}
+\RequirePackage{graphicx}
+\RequirePackage{microtype}
+\RequirePackage[hidelinks]{hyperref}
+\sisetup{exponent-product=\times, group-minimum-digits=5}
+
+\definecolor{heading}{RGB}{25,55,120}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist{nosep, leftmargin=6mm, topsep=2pt}
+
+\newcommand{\papername}{}
+\newcommand{\doctype}{Solutions}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\sffamily X--ESPCI 2026 \,$\cdot$\, \papername}
+\fancyhead[R]{\small\sffamily \doctype}
+\fancyfoot[C]{\small\thepage\,/\,\pageref{LastPage}}
+\fancyfoot[R]{\scriptsize\color{black!45}Unofficial}
+
+% \doctitle{Paper}{Track / paper number}{Duration line}{Document type}
+\newcommand{\doctitle}[4]{%
+  \renewcommand{\papername}{#1}\renewcommand{\doctype}{#4}%
+  \thispagestyle{plain}%
+  \begin{center}
+    {\sffamily\small ÉCOLE POLYTECHNIQUE \,--\, ESPCI \,$\cdot$\, ADMISSION EXAM 2026}\\[6pt]
+    {\sffamily\bfseries\LARGE\color{heading} #1}\\[4pt]
+    {\sffamily\large #2}\\[2pt]
+    {\small #3}\\[8pt]
+    {\sffamily\bfseries\large #4}
+  \end{center}
+  \vspace{2pt}\noindent\rule{\textwidth}{0.6pt}\par\vspace{4pt}}
+
+\newcommand{\partheading}[1]{\par\bigskip\noindent{\sffamily\bfseries\Large\color{heading} #1}\par
+  \vspace{2pt}\noindent{\color{heading}\rule{\textwidth}{0.4pt}}\par\medskip}
+\newcommand{\subpart}[1]{\par\medskip\noindent{\sffamily\bfseries\color{heading} #1}\par\smallskip}
+\newcommand{\question}[1]{\par\medskip\noindent{\sffamily\bfseries\color{heading} #1.}\enspace}
+
+% boxed result
+\newtcolorbox{result}{enhanced, colback=heading!4, colframe=heading!55, boxrule=0.5pt, arc=1mm,
+  left=2mm, right=2mm, top=1mm, bottom=1mm, before skip=4pt, after skip=4pt}
+% remark
+\newtcolorbox{remark}{enhanced, colback=black!3, colframe=black!35, boxrule=0.4pt, arc=1mm,
+  left=2mm, right=2mm, top=1mm, bottom=1mm, before skip=4pt, after skip=4pt,
+  fontupper=\small}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Sp}{Sp}
+\newcommand{\intent}[2]{[\![#1,#2]\!]}
+\endinput
