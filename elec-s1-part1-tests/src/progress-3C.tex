@@ -1,0 +1,110 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 3.C --- Elec-S1}
+         {3.C \,$\cdot$\, Operating point of a circuit}
+         {10 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Maximum power}{1 mark}
+A source has $\ETh = \qty{12}{V}$ and $\RTh = \qty{6.0}{\ohm}$. Give the maximum power it
+can deliver to a resistive load.
+\answer{1}{2.2cm}{%
+  Matching $R_c = \RTh$: \quad
+  $P_c^{\max} = \dfrac{\ETh^2}{4\RTh} = \dfrac{144}{4\times6.0}\ \mathrm{W}$ \qquad
+  $\boxed{P_c^{\max} = 6.0\ \mathrm{W}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$P_c^{\max} = 6.0\ \mathrm{W}$.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{The operating point}{5 marks}
+A linear network, described by its Thévenin model $(\ETh, \RTh)$, feeds a load resistor
+$R_c$. Define the operating point. Write down the characteristic of the source and that of
+the load, and deduce the analytical expressions of $u^\star$ and $i^\star$.
+\answer{2,2,1}{7.0cm}{%
+  \begin{minipage}[c]{0.6\linewidth}\raggedright
+    The \textbf{operating point} is the actual state of the circuit: the unique pair
+    $(u^\star, i^\star)$ that satisfies \emph{simultaneously} the characteristic of the
+    source and that of the load. Graphically, it is the \textbf{intersection} of the two
+    characteristics.\\[4pt]
+    Source (generator convention): $u = \ETh - \RTh\, i$\\[2pt]
+    Load (receiver convention): $u = R_c\, i$
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.37\linewidth}\centering
+  \begin{tikzpicture}[scale=0.82, >={Latex[length=1.6mm]}, line width=0.5pt]
+    \draw[->] (0,0) -- (3.5,0) node[below] {$u$};
+    \draw[->] (0,0) -- (0,2.45) node[left] {$i$};
+    \draw[thick] (3,0) -- (0,2);
+    \draw[thick, dashed] (0,0) -- (3.3,1.65);
+    \fill (1.714,0.857) circle (1.6pt);
+    \draw[densely dotted] (1.714,0) -- (1.714,0.857) -- (0,0.857);
+    \node[below, font=\scriptsize] at (3,0) {$\ETh$};
+    \node[left, font=\scriptsize] at (0,2) {$\ETh/\RTh$};
+    \node[below, font=\scriptsize] at (1.714,0) {$u^\star$};
+    \node[left, font=\scriptsize] at (0,0.857) {$i^\star$};
+    \node[font=\scriptsize, anchor=north] at (3.1,1.45) {load};
+    \node[font=\scriptsize, anchor=west] at (0.55,1.85) {source};
+  \end{tikzpicture}
+  \end{minipage}\\[5pt]
+  $R_c\, i^\star = \ETh - \RTh\, i^\star$ \quad$\Rightarrow$\quad
+  $\boxed{i^\star = \dfrac{\ETh}{\RTh + R_c}}$ \qquad
+  $\boxed{u^\star = R_c\, i^\star = \dfrac{R_c}{\RTh + R_c}\,\ETh}$}
+\begin{scheme}
+\pt{1}{2 pts}{Pair $(u^\star, i^\star)$ satisfying both characteristics (1~pt); intersection
+  of the two curves (1~pt).}
+\pt{2}{2 pts}{$u = \ETh - \RTh i$ (1~pt) and $u = R_c i$ (1~pt).}
+\pt{3}{1 pt}{Both $i^\star$ and $u^\star$.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Power transfer}{3 marks}
+\question{When the load resistance tends to infinity (open circuit):}
+\opttwo{0}{$u^\star \to 0$ and $i^\star \to \ETh/\RTh$}{1}{$u^\star \to \ETh$ and
+        $i^\star \to 0$}{0}{$u^\star \to \ETh$ and $i^\star \to \ETh/\RTh$}{0}{$u^\star \to 0$
+        and $i^\star \to 0$}
+\why{$i^\star = \ETh/(\RTh + R_c) \to 0$ and $u^\star \to \ETh$: the point reaches the
+  voltage axis, and the load receives no power.}
+\question{When the load is matched to the source ($R_c = \RTh$), the efficiency $\eta$ of the
+  transfer is:}
+\opts{0}{100\,\%}{0}{75\,\%}{1}{50\,\%}{0}{25\,\%}
+\why{$\eta = R_c/(\RTh + R_c) = 1/2$: as much power is lost in $\RTh$ as reaches the load.}
+\question{To transmit electric power over long distances, one chooses:}
+\optlist{0}{matching, $R_c = \RTh$, to obtain the maximum power;}
+        {1}{a high efficiency, $R_c \gg \RTh$, to limit the losses;}
+        {0}{$R_c \ll \RTh$, to obtain the maximum current;}
+        {0}{a short circuit at the end of the line.}
+\why{energy is costly and losses cause heating, so efficiency wins. Matching is for tiny
+  signals (antenna, sensor), where extracting the most power is what matters.}
+
+% ---------------------------------------------------------------------------
+\exercise{Operating point, power and efficiency}{5 marks}
+A source with $\ETh = \qty{12}{V}$ and $\RTh = \qty{4.0}{\ohm}$ feeds a load
+$R_c = \qty{8.0}{\ohm}$. Determine the operating point $(u^\star, i^\star)$, the power $P_c$
+received by the load and the efficiency $\eta$ of the transfer. Check the power balance.
+\data{$\ETh = \qty{12}{V}$ \hspace{14mm} $\RTh = \qty{4.0}{\ohm}$ \hspace{14mm}
+      $R_c = \qty{8.0}{\ohm}$}
+\answer{1,1,1,1,1}{6.6cm}{%
+  $i^\star = \dfrac{\ETh}{\RTh + R_c} = \dfrac{12\ \mathrm{V}}{12\ \Omega}$ \qquad
+  $\boxed{i^\star = 1.0\ \mathrm{A}}$ \qquad\qquad
+  $u^\star = R_c\, i^\star$ \qquad $\boxed{u^\star = 8.0\ \mathrm{V}}$\\[4pt]
+  $P_c = R_c\, {i^\star}^2 = 8.0\ \Omega\times(1.0\ \mathrm{A})^2$ \qquad
+  $\boxed{P_c = 8.0\ \mathrm{W}}$\\[4pt]
+  $\eta = \dfrac{P_c}{\ETh\, i^\star} = \dfrac{R_c}{\RTh + R_c} = \dfrac{8.0}{12}$ \qquad
+  $\boxed{\eta = 2/3 \approx 67\,\%}$\\[4pt]
+  Balance: produced by the ideal source $\ETh i^\star = 12\ \mathrm{W}$ $=$ lost in $\RTh$,
+  $\RTh {i^\star}^2 = 4.0\ \mathrm{W}$, $+$ received by the load, $8.0\ \mathrm{W}$.
+  \checkmark}
+\begin{scheme}
+\pt{1}{1 pt}{$i^\star = 1.0\ \mathrm{A}$.}
+\pt{2}{1 pt}{$u^\star = 8.0\ \mathrm{V}$.}
+\pt{3}{1 pt}{$P_c = 8.0\ \mathrm{W}$.}
+\pt{4}{1 pt}{$\eta = 2/3 \approx 67\,\%$.}
+\pt{5}{1 pt}{Balance $12\ \mathrm{W} = 4.0\ \mathrm{W} + 8.0\ \mathrm{W}$.}
+\end{scheme}
+\begin{tip}
+$\eta$ is the ratio of the power received by the load to the power produced by the
+\emph{ideal} source $\ETh i^\star$, not to $P_c^{\max}$.
+\end{tip}
+
+\finish
+\end{document}

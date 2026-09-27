@@ -1,0 +1,109 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 1.A --- Elec-S1}
+         {1.A \,$\cdot$\, From potential to electric voltage}
+         {7 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Unit conversion}{1 mark}
+Convert the voltage $u = \qty{0.0258}{\mega\volt}$ into millivolts. Give the exact
+result in scientific notation, without rounding.
+\answer{1}{2.2cm}{%
+  $u = 0.0258\times10^{6}\ \mathrm{V} = 2.58\times10^{4}\ \mathrm{V}
+      = 2.58\times10^{4}\times10^{3}\ \mathrm{mV}$\\[2pt]
+  $\boxed{u = 2.58\times10^{7}\ \mathrm{mV}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$2.58\times10^{7}\ \mathrm{mV}$, exact, with the unit symbol written correctly.}
+\end{scheme}
+\begin{tip}
+M (mega, $10^{6}$) and m (milli, $10^{-3}$) differ only by their case, exactly like
+k (kilo) and K (kelvin) in Test~1. Go through the base unit: MV $\to$ V $\to$ mV.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Electric voltage --- definition}{5 marks}
+Define the electric voltage $u_{AB}$ between two points $A$ and $B$ of a circuit. Write
+down its expression in terms of the electric potentials, deduce the relation between
+$u_{AB}$ and $u_{BA}$, and state the SI unit of voltage (name and symbol).
+\answer{2,2,1}{5.6cm}{%
+  The voltage $u_{AB}$ is the \textbf{difference of electric potential} between $A$ and
+  $B$. Only potential differences can be measured (like a difference in height: a height
+  needs a reference, a height difference does not).\\[3pt]
+  $u_{AB} = V_A - V_B$ \qquad hence \qquad
+  $u_{BA} = V_B - V_A = -(V_A - V_B) = -\,u_{AB}$.\\[2pt]
+  Voltage is a signed quantity: $u_{AB} > 0 \iff V_A > V_B$.\\[3pt]
+  SI unit: the \textbf{volt}, symbol \textbf{V} (same unit as the potential).}
+\begin{scheme}
+\pt{1}{2 pts}{Voltage $=$ potential difference between the two points
+  (1~pt only if the potentials are not mentioned).}
+\pt{2}{2 pts}{$u_{AB} = V_A - V_B$ (1~pt) and $u_{BA} = -u_{AB}$ (1~pt).}
+\pt{3}{1 pt}{Name \emph{and} symbol: volt, V.}
+\end{scheme}
+\begin{tip}
+In Test~1 the unit mark was lost on a symbol. Always give both the name and the exact
+symbol of a unit: ``volt (V)''.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Potentials in a circuit}{3 marks}
+The circuit below contains an ideal voltage source of electromotive force $e = \qty{6.0}{V}$
+and three lamps. The wires are ideal. The wire $M$, connected to the $-$ terminal of the
+source, is taken as the reference of potentials: $V_M = 0$.
+\begin{center}
+\begin{circuitikz}[line width=0.6pt]
+  \draw (0,0) to[battery1, invert, l=$e$] (0,2.6);
+  \draw (0,2.6) node[circ]{} -- (2.2,2.6) node[circ]{} -- (4.4,2.6) node[circ]{};
+  \draw (2.2,2.6) to[lamp, l=$L_1$] (2.2,1.3) node[circ]{} to[lamp, l=$L_2$] (2.2,0);
+  \draw (4.4,2.6) to[lamp, l=$L_3$] (4.4,0);
+  \draw (0,0) node[circ]{} -- (2.2,0) node[circ]{} -- (4.4,0) node[circ]{};
+  \node[above] at (1.1,2.6) {$A$};
+  \node[left]  at (2.1,1.3) {$B$};
+  \node[below] at (1.1,0) {$M$};
+\end{circuitikz}
+\end{center}
+\question{How many distinct electric potentials are there in this circuit?}
+\opts{0}{2}{1}{3}{0}{4}{0}{7}
+\why{an ideal wire has the same potential at every point, so count the electrically
+  distinct wires: $A$ (top), $B$ (between $L_1$ and $L_2$) and $M$ (bottom). The dots
+  along one wire do not create new potentials.}
+\question{The voltage across $L_2$ is $u_{BM} = \qty{2.0}{V}$. The voltage $u_{AB}$ across
+  $L_1$ is:}
+\opts{0}{\qty{2.0}{V}}{1}{\qty{4.0}{V}}{0}{\qty{6.0}{V}}{0}{\qty{8.0}{V}}
+\why{$V_A = e = \qty{6.0}{V}$ and $V_B = u_{BM} = \qty{2.0}{V}$, so
+  $u_{AB} = V_A - V_B = \qty{4.0}{V}$.}
+\question{A voltmeter has its V terminal on $B$ and its COM terminal on $A$. It displays:}
+\opts{0}{$+\qty{4.0}{V}$}{1}{$-\qty{4.0}{V}$}{0}{$+\qty{2.0}{V}$}{0}{$-\qty{6.0}{V}$}
+\why{a voltmeter displays $V_{\mathrm{V}} - V_{\mathrm{COM}} = V_B - V_A = u_{BA} = -u_{AB}$.
+  The sign is negative because COM is not on the side of the $-$ terminal.}
+
+% ---------------------------------------------------------------------------
+\exercise{Potentials and voltages}{5 marks}
+In a circuit, the ground $M$ is taken as the reference of potentials ($V_M = 0$). Three
+points $A$, $B$ and $C$ have the potentials given below. Express, then compute, the
+voltages $u_{AB}$, $u_{BC}$ and $u_{CA}$. Compute their sum and comment.
+\data{$V_A = \qty{12.0}{V}$ \hspace{14mm} $V_B = \qty{4.5}{V}$ \hspace{14mm}
+      $V_C = \qty{-3.0}{V}$}
+\answer{1,1,1,1,1}{6.4cm}{%
+  $u_{AB} = V_A - V_B = \qty{12.0}{V} - \qty{4.5}{V} = \qty{7.5}{V}$\\[2pt]
+  $u_{BC} = V_B - V_C = \qty{4.5}{V} - (\qty{-3.0}{V}) = \qty{7.5}{V}$\\[2pt]
+  $u_{CA} = V_C - V_A = \qty{-3.0}{V} - \qty{12.0}{V} = \qty{-15.0}{V}$\\[4pt]
+  $u_{AB} + u_{BC} + u_{CA} = (V_A - V_B) + (V_B - V_C) + (V_C - V_A) = 0$\\
+  (check: $\qty{7.5}{V} + \qty{7.5}{V} - \qty{15.0}{V} = 0$).\\[3pt]
+  Going round the closed path $A \to B \to C \to A$ brings you back to the starting
+  potential, like walking round a mountain back to your starting height. The result does
+  not depend on the reference chosen. (This is the mesh law of section 3.A.)}
+\begin{scheme}
+\pt{1}{1 pt}{Literal expressions $u_{XY} = V_X - V_Y$ written before any number.}
+\pt{2}{1 pt}{$u_{AB} = \qty{7.5}{V}$.}
+\pt{3}{1 pt}{$u_{BC} = \qty{7.5}{V}$ (negative potential handled correctly).}
+\pt{4}{1 pt}{$u_{CA} = \qty{-15.0}{V}$ (the sign is part of the answer).}
+\pt{5}{1 pt}{Sum $= 0$, justified (potentials cancel two by two / closed path).}
+\end{scheme}
+\begin{tip}
+Test~1, Ex.~4: \emph{``Never mix figures and letters in the same equation.''} Write the
+literal relation first, then substitute \emph{with units}. Brackets around a negative value,
+$4.5\ \mathrm{V} - (-3.0\ \mathrm{V})$, prevent the classic sign slip.
+\end{tip}
+
+\finish
+\end{document}

@@ -1,0 +1,109 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 1.C --- Elec-S1}
+         {1.C \,$\cdot$\, Circuits and two-terminal components}
+         {7 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Unit conversion}{1 mark}
+Convert the power $P = \qty{2.5e-2}{\kilo\watt}$ into milliwatts. Give the exact result,
+without rounding.
+\answer{1}{2.2cm}{%
+  $P = 2.5\times10^{-2}\times10^{3}\ \mathrm{W} = 25\ \mathrm{W}
+      = 25\times10^{3}\ \mathrm{mW}$ \qquad
+  $\boxed{P = 2.5\times10^{4}\ \mathrm{mW}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$2.5\times10^{4}\ \mathrm{mW}$ (or $25\,000\ \mathrm{mW}$), unit written
+  correctly.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Electrical power --- definition}{5 marks}
+A two-terminal component, studied in the receiver convention, has a voltage $u(t)$ across
+it and carries a current $i(t)$. Draw the receiver convention and give the power $p(t)$
+received by the component, with its SI unit expressed in terms of volts and amperes. Then
+give the energy it receives between $t_1$ and $t_2$, and its expression in the DC regime
+($u = u_0$ and $i = i_0$ constant during $\Delta t$).
+\answer{2,2,1}{6.4cm}{%
+  \begin{minipage}[c]{0.26\linewidth}\centering\convfig{receiver}{D}\end{minipage}%
+  \begin{minipage}[c]{0.72\linewidth}
+    Receiver convention: the arrows of $u$ and $i$ point in \textbf{opposite} directions.
+    \\[4pt]
+    Power received: $\boxed{p(t) = u(t)\,i(t)}$ \ ($p > 0$ for a receiver)\\[4pt]
+    Unit: the \textbf{watt}, $1\ \mathrm{W} = 1\ \mathrm{V}\times1\ \mathrm{A}$.
+  \end{minipage}\\[6pt]
+  Energy received: $\displaystyle E = \int_{t_1}^{t_2} p(t)\,\dd t
+    = \int_{t_1}^{t_2} u(t)\,i(t)\,\dd t$ \quad (in joules)\\[3pt]
+  DC regime: $\boxed{E = u_0\, i_0\, \Delta t}$}
+\begin{scheme}
+\pt{1}{2 pts}{Receiver convention drawn, arrows opposite (1~pt); $p = u\,i$ (1~pt).}
+\pt{2}{2 pts}{$E = \int p\,\dd t$ (1~pt); $E = u_0 i_0 \Delta t$ in the DC regime (1~pt).}
+\pt{3}{1 pt}{Watt, $\mathrm{W} = \mathrm{V\,A}$.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Reading a circuit diagram}{4 marks}
+\begin{center}
+\begin{circuitikz}[line width=0.6pt]
+  \draw (0,0) to[battery1, invert, l=$e$] (0,3);
+  \draw (0,3) -- (2.2,3);
+  \draw (2.2,3) to[lamp, l_=$L_1$] (2.2,0);
+  \draw (2.2,3) to[lamp, l=$L_2$] (4.8,3);
+  \draw (4.8,3) to[lamp, l_=$L_3$] (4.8,0);
+  \draw (4.8,3) -- (6.6,3);
+  \draw (6.6,3) to[lamp, l=$L_4$] (6.6,1.5) to[lamp, l=$L_5$] (6.6,0);
+  \draw (0,0) -- (2.2,0) -- (4.8,0) -- (6.6,0);
+  \foreach \p in {(0,0),(2.2,0),(4.8,0),(6.6,0),(0,3),(2.2,3),(4.8,3),(6.6,3),(6.6,1.5)}
+    \node[circ] at \p {};
+\end{circuitikz}
+\end{center}
+Base your answers on the diagram exactly as drawn, even though the same circuit could be
+drawn with fewer wires.
+\question{How many nodes?}
+\opts{0}{2}{1}{3}{0}{4}{0}{9}
+\why{a node is a junction of at least three conductors, and all the points joined by wires
+  alone are one and the same node (same potential). Distinct nodes: the top-left wire
+  ($e$, $L_1$, $L_2$), the top-right wire ($L_2$, $L_3$, $L_4$) and the whole bottom wire
+  ($e$, $L_1$, $L_3$, $L_5$). The dot between $L_4$ and $L_5$ joins only two conductors, so it
+  is not a node. ``4'' counts the drawn junction dots: that was the trap in Test~1
+  (expected answer 2, not 4).}
+\question{How many branches?}
+\opts{0}{4}{1}{5}{0}{6}{0}{11}
+\why{a branch joins two nodes: $e$, $L_1$, $L_2$, $L_3$, and $L_4$ with $L_5$ in series
+  (one single branch, since their common point is not a node).}
+\question{How many two-terminal components, connecting wires included?}
+\opts{0}{6}{0}{9}{1}{11}{0}{14}
+\why{6 components ($e$, $L_1,\dots,L_5$) $+$ 5 connecting wires (each plain segment between
+  two dots: 1 top-left, 1 top-right, 3 at the bottom) $= 11$. In Test~1 the answer was
+  $4 + 6 = 10$ on the same principle.}
+\question{How many independent meshes (independent mesh equations)?}
+\opts{0}{2}{1}{3}{0}{4}{0}{5}
+\why{$m = B - N + 1 = 5 - 3 + 1 = 3$: the three ``windows'' of the diagram.}
+
+% ---------------------------------------------------------------------------
+\exercise{Energy received by a phone}{4 marks}
+A phone is charged in the DC regime: the charger applies $u = \qty{5.0}{V}$ and delivers
+$i = \qty{2.0}{A}$ during $\Delta t = \qty{1}{h}\ \qty{30}{min}$. Compute the energy
+received by the phone, in joules, then in watt-hours.
+\data{$u = \qty{5.0}{V}$ \hspace{14mm} $i = \qty{2.0}{A}$ \hspace{14mm}
+      $\Delta t = \qty{1}{h}\ \qty{30}{min}$}
+\answer{1,1,1,1}{5.4cm}{%
+  $E = u\,i\,\Delta t$ \qquad with \ $\Delta t = 1.5\ \mathrm{h} = 1.5\times3600\ \mathrm{s}
+   = 5400\ \mathrm{s}$\\[3pt]
+  $E = 5.0\ \mathrm{V}\times2.0\ \mathrm{A}\times5400\ \mathrm{s} = 10\ \mathrm{W}\times5400
+   \ \mathrm{s}$ \qquad $\boxed{E = 5.4\times10^{4}\ \mathrm{J}}$\\[3pt]
+  In watt-hours: $E = 10\ \mathrm{W}\times1.5\ \mathrm{h}$ \qquad
+  $\boxed{E = 15\ \mathrm{W\,h}}$ \quad (check: $15\times3600 = 54\,000$)}
+\begin{scheme}
+\pt{1}{1 pt}{Literal expression $E = u\,i\,\Delta t$.}
+\pt{2}{1 pt}{$\Delta t = 5400\ \mathrm{s}$.}
+\pt{3}{1 pt}{$E = 5.4\times10^{4}\ \mathrm{J}$.}
+\pt{4}{1 pt}{$E = 15\ \mathrm{W\,h}$.}
+\end{scheme}
+\begin{tip}
+``1 h 30 min'' is $1.5\ \mathrm{h}$, not $1.3\ \mathrm{h}$. Convert times into seconds
+before using SI formulas.
+\end{tip}
+
+\finish
+\end{document}

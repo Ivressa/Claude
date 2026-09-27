@@ -1,0 +1,88 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 2.B --- Elec-S1}
+         {2.B \,$\cdot$\, The ohmic conductor and Ohm's law}
+         {7 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Conductance}{1 mark}
+A resistor has a conductance $G = \qty{0.25}{\milli\siemens}$. Give its resistance $R$ in
+kilohms, exactly.
+\answer{1}{2.2cm}{%
+  $R = \dfrac{1}{G} = \dfrac{1}{0.25\times10^{-3}\ \mathrm{S}} = 4.0\times10^{3}\ \Omega$
+  \qquad $\boxed{R = 4.0\ \mathrm{k\Omega}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$R = 4.0\ \mathrm{k\Omega}$ ($G$ in siemens, $1\ \mathrm{S} = 1\ \Omega^{-1}$).}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Ohm's law}{5 marks}
+State Ohm's law for a resistor of resistance $R$, specifying the convention used (draw it).
+How does the law read in the other convention? State the unit of $R$ (name and symbol) and
+express it in terms of volts and amperes.
+\answer{2,2,1}{6.2cm}{%
+  \begin{minipage}[c]{0.22\linewidth}\centering\convfig{receiver}{R}\end{minipage}%
+  \begin{minipage}[c]{0.26\linewidth}\raggedright
+    Receiver convention\\(arrows opposite):\\[3pt]
+    $\boxed{u = R\,i}$
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.22\linewidth}\centering\convfig[R]{generator}{R}\end{minipage}%
+  \begin{minipage}[c]{0.26\linewidth}\raggedright
+    Generator convention\\(arrows in the same direction):\\[3pt]
+    $\boxed{u = -R\,i}$
+  \end{minipage}\\[8pt]
+  $R > 0$ is the resistance, in \textbf{ohms} ($\Omega$):
+  $1\ \Omega = 1\ \mathrm{V\,A^{-1}}$. \ (Its reciprocal $G = 1/R$ is in siemens.)}
+\begin{scheme}
+\pt{1}{2 pts}{Receiver convention drawn (1~pt) with $u = Ri$ (1~pt).}
+\pt{2}{2 pts}{Generator convention: $u = -Ri$ (the sign is the point).}
+\pt{3}{1 pt}{Ohm, $\Omega = \mathrm{V\,A^{-1}}$.}
+\end{scheme}
+\begin{tip}
+``The formula for Ohm's law changes according to the convention chosen'' (notes, remark v).
+Draw the arrows \emph{before} writing $u = \pm Ri$.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Resistances in practice}{3 marks}
+\question{The typical input resistance of a digital voltmeter is:}
+\opts{0}{a few m$\Omega$}{0}{a few $\Omega$}{0}{a few k$\Omega$}{1}{1 to 10 M$\Omega$}
+\why{a voltmeter must draw almost no current, so $R_V$ is very large (Tab.~6 of the notes).}
+\question{To measure, with an ohmmeter, a resistor that is part of a circuit, you must:}
+\optlist{0}{leave the circuit powered, so that a current flows through the resistor;}
+        {0}{switch the power supply off, but leave the resistor connected;}
+        {1}{disconnect the power supply and at least one terminal of the resistor;}
+        {0}{connect the ohmmeter in series with the resistor.}
+\why{the ohmmeter injects its own small current; any other source or parallel path would
+  distort the reading. Disconnect, do not merely switch off.}
+\question{A resistor $R$ carries a current $i$. The power dissipated by the Joule effect is:}
+\opts{0}{$R\,i$}{0}{$R^2 i$}{1}{$R\,i^2$}{0}{$u^2 R$}
+\why{$p = u\,i$ with $u = Ri$ gives $p = Ri^2 = u^2/R$. Check the dimensions:
+  $\Omega\times\mathrm{A^2} = \mathrm{V\,A} = \mathrm{W}$.}
+
+% ---------------------------------------------------------------------------
+\exercise{Joule effect --- a rear-window demister}{5 marks}
+A car's rear-window demister is modelled by an ohmic resistor supplied by the car battery
+in the DC regime. Determine its resistance $R$, the current $i$ it carries, then the energy
+$E$ dissipated as heat in $\Delta t = \qty{10}{min}$.
+\data{$u = \qty{12}{V}$ \hspace{14mm} $p = \qty{72}{W}$ \hspace{14mm}
+      $\Delta t = \qty{10}{min}$}
+\answer{1,1,1,1,1}{6.4cm}{%
+  $p = \dfrac{u^2}{R}$ \quad$\Rightarrow$\quad $\boxed{R = \dfrac{u^2}{p}}
+   = \dfrac{(12\ \mathrm{V})^2}{72\ \mathrm{W}} = \dfrac{144}{72}\ \Omega$
+  \qquad $\boxed{R = 2.0\ \Omega}$\\[4pt]
+  $i = \dfrac{u}{R} = \dfrac{12\ \mathrm{V}}{2.0\ \Omega}$ \qquad
+  $\boxed{i = 6.0\ \mathrm{A}}$ \qquad (check: $u\,i = 12\times6.0 = 72\ \mathrm{W}$)\\[4pt]
+  $E = p\,\Delta t$ with $\Delta t = 10\times60 = 600\ \mathrm{s}$: \quad
+  $E = 72\ \mathrm{W}\times600\ \mathrm{s}$ \qquad
+  $\boxed{E = 4.3\times10^{4}\ \mathrm{J}}$ \ ($43.2$~kJ)}
+\begin{scheme}
+\pt{1}{1 pt}{Literal expression $R = u^2/p$, obtained from $p = u^2/R$.}
+\pt{2}{1 pt}{$R = 2.0\ \Omega$.}
+\pt{3}{1 pt}{$i = 6.0\ \mathrm{A}$ (from $u/R$ or $p/u$).}
+\pt{4}{1 pt}{$\Delta t = 600\ \mathrm{s}$.}
+\pt{5}{1 pt}{$E = 4.3\times10^{4}\ \mathrm{J}$, with its unit.}
+\end{scheme}
+
+\finish
+\end{document}

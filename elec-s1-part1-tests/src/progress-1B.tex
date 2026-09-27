@@ -1,0 +1,108 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 1.B --- Elec-S1}
+         {1.B \,$\cdot$\, From charge to electric current}
+         {7 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Unit conversion}{1 mark}
+The capacity of a phone battery is $Q = \qty{4000}{\milli\ampere\hour}$, i.e.\ the charge it
+delivers when a current of $\qty{4000}{\milli\ampere}$ flows for one hour. Express $Q$ in
+coulombs. Give the exact result.
+\answer{1}{2.2cm}{%
+  $Q = 4000\times10^{-3}\ \mathrm{A}\times3600\ \mathrm{s} = 4.000\ \mathrm{A}\times3600\
+   \mathrm{s}$ \qquad (and $1\ \mathrm{A\,s} = 1\ \mathrm{C}$)\\[2pt]
+  $\boxed{Q = 14\,400\ \mathrm{C} = 1.44\times10^{4}\ \mathrm{C}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$1.44\times10^{4}\ \mathrm{C}$ (the hour converted into $3600\ \mathrm{s}$).}
+\end{scheme}
+\begin{tip}
+The coulomb is a \emph{derived} unit, $1\ \mathrm{C} = 1\ \mathrm{A\,s}$: a charge is a
+current multiplied by a time. That is why a ``mA$\cdot$h'' is a unit of charge.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Microscopic expression of the current}{5 marks}
+A conductor of cross-sectional area $S$ contains $n$ mobile charge carriers per unit volume,
+each of charge $q$, all moving with the drift velocity $v$ along the axis of the conductor.
+Express the charge $\dd q$ that crosses $S$ during $\dd t$ (explain your reasoning), deduce
+the current $i$, and check that your result is dimensionally consistent, stating the SI unit
+of $n$.
+\answer{2,2,1}{6.2cm}{%
+  During $\dd t$ each carrier moves by $\dd x = v\,\dd t$. The carriers that cross $S$ are
+  those contained in the cylinder of base $S$ and length $v\,\dd t$, of volume
+  $S\,v\,\dd t$:\\[2pt]
+  \hspace*{5mm}$\dd N = n\,S\,v\,\dd t$ \qquad$\Rightarrow$\qquad
+  $\dd q = q\,\dd N = n\,q\,S\,v\,\dd t$\\[3pt]
+  \hspace*{5mm}$\boxed{i = \dfrac{\dd q}{\dd t} = n\,q\,v\,S}$
+  \qquad (for electrons, $q = -e$: $i = -n e v S$)\\[3pt]
+  Units: $n$ in $\mathrm{m^{-3}}$;\quad
+  $[n\,q\,v\,S] = \mathrm{m^{-3}}\times\mathrm{C}\times\mathrm{m\,s^{-1}}\times\mathrm{m^{2}}
+   = \mathrm{C\,s^{-1}} = \mathrm{A}$ \ (ampere). \checkmark}
+\begin{scheme}
+\pt{1}{2 pts}{Cylinder of volume $S\,v\,\dd t$ (1~pt) $\Rightarrow$ $\dd q = n q S v\,\dd t$
+  (1~pt).}
+\pt{2}{2 pts}{$i = \dd q/\dd t$ (1~pt) $= n q v S$ (1~pt).}
+\pt{3}{1 pt}{$n$ in $\mathrm{m^{-3}}$ and $n q v S$ in $\mathrm{C\,s^{-1}} = \mathrm{A}$.}
+\end{scheme}
+\begin{tip}
+Test~1, Ex.~2: ``current $=$ C\,s$^{-1}$'' did not earn the unit mark. The expected answer
+was the \textbf{ampere (A)}, one of the seven SI base units. Writing
+$\mathrm{C\,s^{-1}} = \mathrm{A}$ is a good dimensional \emph{check}, but it does not name the
+unit.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Current and ammeters}{3 marks}
+\question{In a copper wire carrying a current, the conduction electrons move:}
+\optlist{0}{in the conventional direction of the current;}
+        {1}{in the direction opposite to the conventional direction of the current;}
+        {0}{at a speed close to that of the electric signal;}
+        {0}{only when the wire is heated.}
+\why{the conventional direction is that of positive charges. Electrons carry $-e$, so they
+  move the other way ($i = -nevS$). Their drift speed is tiny compared with the speed of the
+  signal.}
+\question{An ammeter is connected:}
+\optlist{0}{in parallel across the component, and has a very large internal resistance;}
+        {1}{in series in the branch, and has a very small internal resistance;}
+        {0}{in series in the branch, and has a very large internal resistance;}
+        {0}{in parallel across the component, and has a very small internal resistance.}
+\why{the current to be measured must flow \emph{through} it (the circuit is opened and the
+  ammeter inserted), and it must not change the resistance of the branch: $R_A \to 0$.}
+\question{Which of these units is one of the seven SI base units?}
+\opts{0}{coulomb (C)}{0}{volt (V)}{1}{ampere (A)}{0}{ohm ($\Omega$)}
+\why{the ampere is a base unit; $\mathrm{C} = \mathrm{A\,s}$,
+  $\mathrm{V} = \mathrm{W\,A^{-1}}$ and $\Omega = \mathrm{V\,A^{-1}}$ are derived units.}
+
+% ---------------------------------------------------------------------------
+\exercise{Counting electrons}{5 marks}
+A steady current $i$ flows through a wire during a time $\Delta t$. Determine the number
+$N$ of electrons that cross a cross-section of the wire during $\Delta t$.
+\data{$i = \qty{3.2}{mA}$ \hspace{14mm} $\Delta t = \qty{5.0}{s}$ \hspace{14mm}
+      $e = \qty{1.6e-19}{C}$}
+\answer{1,1,1,1,1}{6.6cm}{%
+  Steady current: $q = i\,\Delta t$ (from $i = \dd q/\dd t$ with $i$ constant). Each
+  electron carries a charge of magnitude $e$, so $q = N e$:\\[2pt]
+  \hspace*{5mm}$\boxed{N = \dfrac{i\,\Delta t}{e}}$
+  \qquad with \ $i = \qty{3.2}{mA} = 3.2\times10^{-3}\ \mathrm{A}$\\[3pt]
+  \hspace*{5mm}$N = \dfrac{3.2\times10^{-3}\ \mathrm{A}\times5.0\ \mathrm{s}}
+    {1.6\times10^{-19}\ \mathrm{C}}
+    = \dfrac{3.2\times5.0}{1.6}\times10^{-3+19}
+    = 10\times10^{16}$\\[3pt]
+  \hspace*{5mm}$\boxed{N = 1.0\times10^{17}}$
+  \qquad $N$ is a pure number: $\mathrm{A\,s\,C^{-1}} = 1$.}
+\begin{scheme}
+\pt{1}{1 pt}{Literal expression $N = i\,\Delta t/e$, letters only.}
+\pt{2}{1 pt}{Conversion $\qty{3.2}{mA} = 3.2\times10^{-3}\ \mathrm{A}$.}
+\pt{3}{1 pt}{Numerical expression written \emph{with units}.}
+\pt{4}{1 pt}{$N = 1.0\times10^{17}$.}
+\pt{5}{1 pt}{No unit for $N$ (units cancel), two significant figures.}
+\end{scheme}
+\begin{tip}
+Without a calculator, handle the mantissas and the powers of ten separately. In Test~1 the
+slip was $\frac{1}{3.2\times10^{4}}$: it equals $\frac{1}{3.2}\times10^{-4} \approx 0.31
+\times10^{-4} = 3.1\times10^{-5}\ \mathrm{m\,s^{-1}}$, not $3.2\times10^{-3}$.
+\end{tip}
+
+\finish
+\end{document}

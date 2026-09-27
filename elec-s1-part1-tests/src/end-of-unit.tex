@@ -1,0 +1,371 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{End-of-Unit Test --- Elec-S1 Part 1}
+         {Foundations of DC circuit theory \,$\cdot$\, sections 1.A to 3.C}
+         {45 minutes}{50}
+
+% ---------------------------------------------------------------------------
+\exercise[1.A $\cdot$ 1.B $\cdot$ 2.C]{Unit conversions}{3 marks}
+Give each result exactly, in scientific notation, without rounding.\\
+(a) $u = \qty{0.047}{\kilo\volt}$ in millivolts. \quad
+(b) A battery of capacity $Q = \qty{3000}{\milli\ampere\hour}$, in coulombs. \quad
+(c) $S = \qty{1.5}{\milli\metre\squared}$ in square metres.
+\answer{1,1,1}{3.4cm}{%
+  (a) $u = 0.047\times10^{3}\ \mathrm{V} = 47\ \mathrm{V} = 47\times10^{3}\ \mathrm{mV}$
+      \qquad $\boxed{u = 4.7\times10^{4}\ \mathrm{mV}}$\\[3pt]
+  (b) $Q = 3000\times10^{-3}\ \mathrm{A}\times3600\ \mathrm{s} = 3.000\times3600\
+      \mathrm{A\,s}$ \qquad $\boxed{Q = 1.08\times10^{4}\ \mathrm{C}}$\\[3pt]
+  (c) $S = 1.5\times(10^{-3}\ \mathrm{m})^2$ \qquad
+      $\boxed{S = 1.5\times10^{-6}\ \mathrm{m^2}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$4.7\times10^{4}\ \mathrm{mV}$.}
+\pt{2}{1 pt}{$1.08\times10^{4}\ \mathrm{C}$.}
+\pt{3}{1 pt}{$1.5\times10^{-6}\ \mathrm{m^2}$.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise[1.B]{Electric current --- definition}{5 marks}
+Define the electric current $i$ through a cross-section of a conductor. Write down the
+relation between $i$, the charge $\dd q$ that crosses the section and the duration $\dd t$.
+State the name and the symbol of the SI unit of each of these three quantities, and say which
+of these units are SI base units.
+\answer{2,2,1}{5.6cm}{%
+  The electric current is the \textbf{flow rate of electric charge} through the section: the
+  charge that crosses the section per unit time. Its conventional direction is that of the
+  positive charges (opposite to the motion of the electrons in a metal).\\[4pt]
+  \hspace*{5mm}$\boxed{i = \dfrac{\dd q}{\dd t}}$\\[4pt]
+  $i$: \textbf{ampere (A)}; \ $q$: \textbf{coulomb (C)}; \ $t$: \textbf{second (s)}.\\
+  The ampere and the second are SI base units. The coulomb is a derived unit:
+  $1\ \mathrm{C} = 1\ \mathrm{A\,s}$.}
+\begin{scheme}
+\pt{1}{2 pts}{Charge crossing the section per unit time (1~pt only for ``a flow of
+  electrons'' with no ``per unit time'').}
+\pt{2}{2 pts}{$i = \dd q/\dd t$.}
+\pt{3}{1 pt}{A, C and s with their exact symbols; ampere (and second) base, coulomb derived.}
+\end{scheme}
+\begin{tip}
+This is Test~1, Exercise~2, in which the unit mark was lost (``C\,s$^{-1}$'' for the current,
+``coulombs (s)'' for the charge). The answer expected was ampere (A), coulomb (C), second (s).
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise[1.A $\cdot$ 1.B]{Measuring instruments}{3 marks}
+\question{A voltmeter has its V terminal on $B$ and its COM terminal on $A$. It displays
+  $+\qty{3.0}{V}$. Therefore:}
+\optlist{0}{$u_{AB} = \qty{3.0}{V}$;}
+        {1}{$u_{AB} = \qty{-3.0}{V}$;}
+        {0}{$V_A = \qty{3.0}{V}$;}
+        {0}{the voltmeter is wrongly connected, so nothing can be concluded.}
+\why{the display is $V_{\mathrm{V}} - V_{\mathrm{COM}} = V_B - V_A = u_{BA}$, so
+  $u_{AB} = -u_{BA} = \qty{-3.0}{V}$.}
+\question{To measure the current through a resistor $R$, an ammeter of internal resistance
+  $R_A$ is connected:}
+\opttwo{0}{in parallel across $R$, with $R_A \gg R$}{1}{in series with $R$, with $R_A \ll R$}
+       {0}{in series with $R$, with $R_A \gg R$}{0}{in parallel across $R$, with $R_A \ll R$}
+\why{the current must flow through the ammeter, and $R_A$ must not reduce it.}
+\question{A voltmeter of internal resistance $R_V$ is connected across a resistor $R$. The
+  measurement is not distorted provided that:}
+\opts{0}{$R_V \ll R$}{0}{$R_V = R$}{1}{$R_V \gg R$}{0}{$R_V = 0$}
+\why{otherwise the voltmeter diverts part of the current flowing through $R$.}
+
+% ---------------------------------------------------------------------------
+\exercise[1.C $\cdot$ 3.A]{Reading a circuit diagram}{4 marks}
+\begin{center}
+\begin{circuitikz}[line width=0.6pt]
+  \draw (0,0) to[battery1, invert, l=$e$] (0,4);
+  \draw (0,4) -- (2.4,4) -- (4.8,4) -- (7,4);
+  \draw (0,0) -- (2.4,0) -- (4.8,0) -- (7,0);
+  \draw (2.4,4) to[R, l_=$R_1$] (2.4,2) to[R, l_=$R_2$] (2.4,0);
+  \draw (4.8,4) to[R, l=$R_3$] (4.8,2) to[R, l=$R_4$] (4.8,0);
+  \draw (2.4,2) to[R, l=$R_5$] (4.8,2);
+  \draw (7,4) to[R, l=$R_6$] (7,0);
+  \foreach \p in {(0,0),(2.4,0),(4.8,0),(7,0),(0,4),(2.4,4),(4.8,4),(7,4),(2.4,2),(4.8,2)}
+    \node[circ] at \p {};
+\end{circuitikz}
+\end{center}
+Base your answers on the diagram exactly as drawn.
+\question{How many nodes?}
+\opts{0}{2}{1}{4}{0}{6}{0}{10}
+\why{the whole top wire is one node ($e$, $R_1$, $R_3$, $R_6$), the whole bottom wire is
+  another ($e$, $R_2$, $R_4$, $R_6$), and the two middle points are nodes ($R_1$, $R_2$,
+  $R_5$ and $R_3$, $R_4$, $R_5$). ``6'' counts the drawn junction dots.}
+\question{How many branches?}
+\opts{0}{5}{0}{6}{1}{7}{0}{9}
+\why{each of the 7 components joins two different nodes, so each one is a branch.}
+\question{How many independent node equations can be written?}
+\opts{1}{3}{0}{4}{0}{6}{0}{7}
+\why{$N - 1 = 4 - 1 = 3$: the equation of the last node follows from the others.}
+\question{How many independent meshes?}
+\opts{0}{3}{1}{4}{0}{5}{0}{7}
+\why{$m = B - N + 1 = 7 - 4 + 1 = 4$ (the four windows of the diagram).}
+
+% ---------------------------------------------------------------------------
+\exercise[2.A $\cdot$ 2.B]{Characteristics and Ohm's law}{3 marks}
+\question{The characteristic $u = g(i)$ of an ohmic conductor is a straight line through the
+  origin, of slope $\qty{2.0}{\volt\per\milli\ampere}$. Its conductance is:}
+\opts{0}{\qty{2.0}{\milli\siemens}}{1}{\qty{0.50}{\milli\siemens}}{0}{\qty{2.0}{\kilo\siemens}}
+     {0}{\qty{500}{\siemens}}
+\why{the slope of $u = g(i)$ is $R = \qty{2.0}{V}/\qty{1}{mA} = \qty{2.0}{\kilo\ohm}$, so
+  $G = 1/R = \qty{0.50}{\milli\siemens}$.}
+\question{In the generator convention, Ohm's law for a resistor reads:}
+\opts{0}{$u = Ri$}{1}{$u = -Ri$}{0}{$u = i/R$}{0}{$u = -i/R$}
+\why{in the generator convention the arrows of $u$ and $i$ point the same way, so the sign
+  changes.}
+\question{In the $(u, i)$ plane, a vertical line $u = E$ is the characteristic of:}
+\opttwo{1}{an ideal voltage source}{0}{an ideal current source}{0}{an ideal diode}
+       {0}{an ohmic conductor}
+\why{the voltage is $E$ whatever the current.}
+
+% ---------------------------------------------------------------------------
+\exercise[1.B $\cdot$ 2.B $\cdot$ 2.C]{Drift velocity and resistance of a cable}{7 marks}
+A copper cable of length $L$ and cross-sectional area $S$ carries a steady current $i$.\\
+(a) Determine the drift speed $v$ of the conduction electrons.
+(b) How long does an electron take to travel the whole length of the cable? Why does a lamp
+at the end of the cable nevertheless light up almost instantly?
+(c) Determine the resistance $R$ of the cable, then the power $p$ it dissipates.
+\data{$L = \qty{10}{m}$ \hspace{12mm} $S = \qty{2.5}{\milli\metre\squared}$ \hspace{12mm}
+      $i = \qty{4.0}{A}$\\[2pt]
+      $n = \qty{8.0e28}{\per\metre\cubed}$ \hspace{10mm} $e = \qty{1.6e-19}{C}$
+      \hspace{10mm} $\rho = \qty{1.7e-8}{\ohm\metre}$}
+\answer{1,1,1,1,1,1,1}{9.2cm}{%
+  (a) $i = n\,e\,v\,S$ \ $\Rightarrow$ \ $\boxed{v = \dfrac{i}{n\,e\,S}}$ \qquad
+      with \ $S = 2.5\times10^{-6}\ \mathrm{m^2}$\\[3pt]
+  \hspace*{5mm}$v = \dfrac{4.0\ \mathrm{A}}{8.0\times10^{28}\ \mathrm{m^{-3}}\times1.6\times
+      10^{-19}\ \mathrm{C}\times2.5\times10^{-6}\ \mathrm{m^2}}$\\[3pt]
+  \hspace*{5mm}$\phantom{v} = \dfrac{4.0}{8.0\times1.6\times2.5\times10^{28-19-6}}\
+      \mathrm{m\,s^{-1}} = \dfrac{4.0}{3.2\times10^{4}}\ \mathrm{m\,s^{-1}}$\\[3pt]
+  \hspace*{5mm}$\boxed{v = 1.25\times10^{-4}\ \mathrm{m\,s^{-1}} \approx
+      1.3\times10^{-4}\ \mathrm{m\,s^{-1}}}$\\[4pt]
+  (b) $\Delta t = \dfrac{L}{v} = \dfrac{10\ \mathrm{m}}{1.25\times10^{-4}\
+      \mathrm{m\,s^{-1}}}$ \qquad $\boxed{\Delta t = 8.0\times10^{4}\ \mathrm{s}
+      \approx 22\ \mathrm{h}}$\\[2pt]
+  \hspace*{5mm}The lamp lights at once because it is the \emph{electric field} (the signal)
+  that is set up along the whole circuit almost at the speed of light. All the electrons,
+  including those already in the lamp, start drifting together. The drift velocity is not the
+  speed of the signal.\\[4pt]
+  (c) $\boxed{R = \rho\,\dfrac{L}{S}} = \dfrac{1.7\times10^{-8}\times10}{2.5\times10^{-6}}\
+      \Omega = 6.8\times10^{-2}\ \Omega$ \qquad $\boxed{R = 68\ \mathrm{m\Omega}}$\\[3pt]
+  \hspace*{5mm}$p = R\,i^2 = 6.8\times10^{-2}\ \Omega\times(4.0\ \mathrm{A})^2
+    = 6.8\times10^{-2}\times16\ \mathrm{W}$ \qquad $\boxed{p \approx 1.1\ \mathrm{W}}$}
+\begin{scheme}
+\pt{1}{1 pt}{Literal expression $v = i/(neS)$, letters only.}
+\pt{2}{1 pt}{$S$ in $\mathrm{m^2}$ and numerical expression written with units.}
+\pt{3}{1 pt}{$v = 1.3\times10^{-4}\ \mathrm{m\,s^{-1}}$ (the power of ten is the point).}
+\pt{4}{1 pt}{$\Delta t = L/v = 8.0\times10^{4}\ \mathrm{s} \approx 22\ \mathrm{h}$.}
+\pt{5}{1 pt}{Signal (field) versus drift of the carriers.}
+\pt{6}{1 pt}{$R = \rho L/S = 68\ \mathrm{m\Omega}$.}
+\pt{7}{1 pt}{$p = Ri^2 \approx 1.1\ \mathrm{W}$.}
+\end{scheme}
+\begin{tip}
+Test~1, Ex.~4 revisited: letters first ($v = i/neS$), then numbers \emph{with units}, then the
+powers of ten on their own: $8.0\times1.6\times2.5 = 32$ and $10^{28-19-6} = 10^{3}$.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise[2.A $\cdot$ 2.B]{Least-squares estimate of a resistance}{4 marks}
+The characteristic of a resistor was measured in the receiver convention:
+\data{\begin{tabular}{l|cccc}
+      $i_k$ (mA) & 1.0 & 2.0 & 3.0 & 4.0\\ \hline
+      $u_k$ (V)  & 2.1 & 4.1 & 5.9 & 8.0
+      \end{tabular}}
+Compute the least-squares estimate $\hat R = \sum_k u_k i_k \big/ \sum_k i_k^2$, then the
+conductance $G$. What power does the resistor receive at the last measurement point?
+\answer{1,1,1,1}{5.0cm}{%
+  $\sum u_k i_k = 2.1 + 8.2 + 17.7 + 32.0 = 60.0\ \mathrm{V\,mA}$ \qquad
+  $\sum i_k^2 = 1 + 4 + 9 + 16 = 30\ \mathrm{mA^2}$\\[3pt]
+  $\hat R = \dfrac{60.0}{30}\ \mathrm{k\Omega}$ \qquad
+  $\boxed{\hat R = 2.00\ \mathrm{k\Omega}}$ \qquad
+  $G = \dfrac{1}{\hat R}$ \qquad
+  $\boxed{G = 0.50\ \mathrm{mS} = 5.0\times10^{-4}\ \mathrm{S}}$\\[3pt]
+  Last point: $p = u\,i = 8.0\ \mathrm{V}\times4.0\ \mathrm{mA}$ \qquad
+  $\boxed{p = 32\ \mathrm{mW}}$ \ (received: receiver convention, $p > 0$)}
+\begin{scheme}
+\pt{1}{1 pt}{Both sums, with units.}
+\pt{2}{1 pt}{$\hat R = 2.00\ \mathrm{k\Omega}$.}
+\pt{3}{1 pt}{$G = 0.50\ \mathrm{mS}$.}
+\pt{4}{1 pt}{$p = 32\ \mathrm{mW}$ (V$\times$mA $=$ mW).}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise[3.A]{A resistive circuit}{6 marks}
+Determine the equivalent resistance $\Req$ seen by the source, the current $i$ it delivers,
+the voltage $u$ across $R_2$ (use a voltage divider), then the currents $i_2$ and $i_3$.
+Check the node law.
+\begin{center}
+\begin{circuitikz}[line width=0.6pt]
+  \draw (0,0) to[battery1, invert, l=$E$] (0,2.6) to[R, l=$R_1$] (3,2.6) -- (5.2,2.6);
+  \draw (3,2.6) to[R, l_=$R_2$] (3,0);
+  \draw (5.2,2.6) to[R, l=$R_3$] (5.2,0);
+  \draw (0,0) -- (3,0) -- (5.2,0);
+  \node[circ] at (3,2.6) {}; \node[circ] at (3,0) {};
+  \draw[-{Latex[length=1.8mm]}] (0,2.6) ++(0.25,0) -- ++(0.35,0) node[midway, above] {$i$};
+  \draw[-{Latex[length=1.8mm]}] (3,2.45) -- (3,2.15) node[midway, left] {$i_2$};
+  \draw[-{Latex[length=1.8mm]}] (5.2,2.45) -- (5.2,2.15) node[midway, left] {$i_3$};
+  \draw[-{Latex[length=1.8mm]}] (3.55,0.55) -- (3.55,2.05) node[midway, right] {$u$};
+\end{circuitikz}
+\end{center}
+\data{$E = \qty{12}{V}$ \hspace{10mm} $R_1 = \qty{2.0}{\kilo\ohm}$ \hspace{10mm}
+      $R_2 = \qty{6.0}{\kilo\ohm}$ \hspace{10mm} $R_3 = \qty{3.0}{\kilo\ohm}$}
+\answer{1,1,1,1,1,1}{7.6cm}{%
+  $R_2 \parallel R_3$: \ $R_{23} = \dfrac{R_2R_3}{R_2 + R_3} = \dfrac{18}{9.0}\
+   \mathrm{k\Omega} = 2.0\ \mathrm{k\Omega}$ \qquad
+  $\Req = R_1 + R_{23}$ \qquad $\boxed{\Req = 4.0\ \mathrm{k\Omega}}$\\[3pt]
+  $i = \dfrac{E}{\Req} = \dfrac{12\ \mathrm{V}}{4.0\ \mathrm{k\Omega}}$ \qquad
+  $\boxed{i = 3.0\ \mathrm{mA}}$\\[3pt]
+  Divider ($R_1$ in series with $R_{23}$):
+  $u = \dfrac{R_{23}}{R_1 + R_{23}}\,E = \dfrac{2.0}{4.0}\times12\ \mathrm{V}$ \qquad
+  $\boxed{u = 6.0\ \mathrm{V}}$\\[3pt]
+  $i_2 = \dfrac{u}{R_2} = \dfrac{6.0\ \mathrm{V}}{6.0\ \mathrm{k\Omega}} = 1.0\ \mathrm{mA}$
+  \qquad $i_3 = \dfrac{u}{R_3} = \dfrac{6.0\ \mathrm{V}}{3.0\ \mathrm{k\Omega}}
+  = 2.0\ \mathrm{mA}$\\[3pt]
+  Node law: $i = i_2 + i_3$: \ $3.0\ \mathrm{mA} = 1.0\ \mathrm{mA} + 2.0\ \mathrm{mA}$.
+  \checkmark}
+\begin{scheme}
+\pt{1}{1 pt}{$R_{23} = 2.0\ \mathrm{k\Omega}$.}
+\pt{2}{1 pt}{$\Req = 4.0\ \mathrm{k\Omega}$.}
+\pt{3}{1 pt}{$i = 3.0\ \mathrm{mA}$.}
+\pt{4}{1 pt}{$u = 6.0\ \mathrm{V}$ with the divider (not with $R_2$ alone).}
+\pt{5}{1 pt}{$i_2 = 1.0\ \mathrm{mA}$ and $i_3 = 2.0\ \mathrm{mA}$.}
+\pt{6}{1 pt}{Node law checked.}
+\end{scheme}
+\begin{tip}
+The divider formula applies to resistors in \emph{series}: first replace $R_2 \parallel R_3$
+by $R_{23}$, then divide between $R_1$ and $R_{23}$.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise[3.A]{Millman's theorem with a reversed source}{4 marks}
+The ground (bottom wire) is the reference of potentials. Note the orientation of the source
+$E_2$. Determine the potential $V_A$ of node $A$.
+\begin{center}
+\begin{circuitikz}[line width=0.6pt]
+  \draw (0,0) to[battery1, invert, l=$E_1$] (0,1.4) to[R, l=$R_1$] (0,2.9);
+  \draw (3,0) to[battery1, l=$E_2$] (3,1.4) to[R, l=$R_2$] (3,2.9);
+  \draw (6,2.9) to[R, l=$R_3$] (6,0);
+  \draw (0,2.9) -- (3,2.9) -- (6,2.9);
+  \draw (0,0) -- (3,0) -- (6,0);
+  \node[circ] at (3,2.9) {}; \node[circ] at (3,0) {};
+  \node[above] at (3,2.9) {$A$};
+  \node[font=\scriptsize] at (0.3,0.95) {$+$};
+  \node[font=\scriptsize] at (3.3,0.45) {$+$};
+  \draw (3,0) node[cground, scale=1.4] {};
+\end{circuitikz}
+\end{center}
+\data{$E_1 = \qty{12}{V}$ \hspace{6mm} $R_1 = \qty{4.0}{\ohm}$ \hspace{6mm}
+      $E_2 = \qty{4.0}{V}$ \hspace{6mm} $R_2 = \qty{4.0}{\ohm}$ \hspace{6mm}
+      $R_3 = \qty{2.0}{\ohm}$}
+\answer{1,1,1,1}{5.4cm}{%
+  The $+$ terminal of $E_2$ is on the ground side, so the far end of branch 2 is at the
+  potential $-E_2$:\\[3pt]
+  \hspace*{5mm}$\boxed{V_A = \dfrac{\dfrac{E_1}{R_1} + \dfrac{-E_2}{R_2} + \dfrac{0}{R_3}}
+   {\dfrac{1}{R_1} + \dfrac{1}{R_2} + \dfrac{1}{R_3}}}$
+  \qquad Numerator: $\dfrac{12}{4.0} - \dfrac{4.0}{4.0} = 3.0 - 1.0 = 2.0\ \mathrm{A}$\\[4pt]
+  Denominator: $\dfrac{1}{4} + \dfrac{1}{4} + \dfrac{1}{2} = 1.0\ \mathrm{S}$ \qquad
+  $\boxed{V_A = 2.0\ \mathrm{V}}$ \quad (between $-4$ and $12\ \mathrm{V}$ \checkmark)}
+\begin{scheme}
+\pt{1}{1 pt}{Millman written with the potential $-E_2$ for the reversed branch.}
+\pt{2}{1 pt}{Numerator $= 2.0\ \mathrm{A}$.}
+\pt{3}{1 pt}{Denominator $= 1.0\ \mathrm{S}$.}
+\pt{4}{1 pt}{$V_A = 2.0\ \mathrm{V}$ (with $+E_2$ one finds $4.0\ \mathrm{V}$: 0 for
+  this item).}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise[3.B $\cdot$ 3.C]{Thévenin model and operating point}{11 marks}
+\begin{center}
+\begin{circuitikz}[line width=0.6pt]
+  \draw (0,0) to[battery1, invert, l=$E$] (0,2.4) to[R, l=$R_1$] (2.6,2.4)
+        to[R, l=$R_3$] (5.2,2.4) node[ocirc] {};
+  \draw (2.6,2.4) to[R, l=$R_2$] (2.6,0);
+  \draw (0,0) -- (2.6,0) -- (5.2,0) node[ocirc] {};
+  \node[circ] at (2.6,2.4) {}; \node[circ] at (2.6,0) {};
+  \node[right] at (5.25,2.4) {$A$}; \node[right] at (5.25,0) {$B$};
+\end{circuitikz}
+\end{center}
+\data{$E = \qty{24}{V}$ \hspace{10mm} $R_1 = \qty{3.0}{\ohm}$ \hspace{10mm}
+      $R_2 = \qty{6.0}{\ohm}$ \hspace{10mm} $R_3 = \qty{2.0}{\ohm}$ \hspace{10mm}
+      $R_c = \qty{12}{\ohm}$}
+(a) Determine the resistance $\RTh$ of the Thévenin model seen from $A$ and $B$.
+(b) Determine its electromotive force $\ETh$.
+(c) Deduce the current $\INo$ of the equivalent Norton model.
+\answer{1,1,1,1,1}{5.6cm}{%
+  (a) Sources off ($E$ replaced by a wire): $\RTh = R_3 + \dfrac{R_1R_2}{R_1 + R_2}
+      = 2.0 + \dfrac{18}{9.0} = 2.0 + 2.0$ \qquad $\boxed{\RTh = 4.0\ \Omega}$\\[4pt]
+  (b) Open circuit: no current in $R_3$, so $u_{AB}$ is the voltage across $R_2$ (divider):
+      \\[2pt]
+  \hspace*{5mm}$\ETh = \dfrac{R_2}{R_1 + R_2}\,E = \dfrac{6.0}{9.0}\times24\ \mathrm{V}$
+  \qquad $\boxed{\ETh = 16\ \mathrm{V}}$\\[4pt]
+  (c) $\INo = \dfrac{\ETh}{\RTh} = \dfrac{16\ \mathrm{V}}{4.0\ \Omega}$ \qquad
+      $\boxed{\INo = 4.0\ \mathrm{A}}$}
+A load $R_c = \qty{12}{\ohm}$ is now connected between $A$ and $B$.\\
+(d) Determine the operating point $(u^\star, i^\star)$ analytically. Sketch both
+characteristics in the $(u, i)$ plane and locate the operating point.
+(e) Compute the efficiency $\eta$ of the transfer.
+(f) Which value of $R_c$ would maximise the power received by the load? Give this maximum
+power.
+\answer[6]{1,1,1,1,1,1}{8.4cm}{%
+  \begin{minipage}[t]{0.56\linewidth}\raggedright
+  (d) $i^\star = \dfrac{\ETh}{\RTh + R_c} = \dfrac{16}{4.0 + 12}\ \mathrm{A}$ \quad
+      $\boxed{i^\star = 1.0\ \mathrm{A}}$\\[3pt]
+  \hspace*{5mm}$u^\star = R_c\, i^\star$ \quad $\boxed{u^\star = 12\ \mathrm{V}}$\\[3pt]
+  Source: line from $(\ETh, 0) = (16\ \mathrm{V}, 0)$ to
+  $(0, \ETh/\RTh) = (0, 4.0\ \mathrm{A})$. Load: line through the origin, slope
+  $1/R_c$. They cross at $(12\ \mathrm{V}, 1.0\ \mathrm{A})$.\\[4pt]
+  (e) $\eta = \dfrac{R_c}{\RTh + R_c} = \dfrac{12}{16}$ \quad
+      $\boxed{\eta = 75\,\%}$
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.42\linewidth}\centering\vspace{2pt}
+  \begin{tikzpicture}[x=0.19cm, y=0.62cm, >={Latex[length=1.6mm]}, line width=0.5pt]
+    \draw[->] (0,0) -- (19,0) node[right] {$u$ (V)};
+    \draw[->] (0,0) -- (0,4.8) node[above] {$i$ (A)};
+    \foreach \x in {4,8,12,16} \draw (\x,0.08) -- (\x,-0.08) node[below, font=\tiny] {\x};
+    \foreach \y in {1,2,3,4} \draw (0.3,\y) -- (-0.3,\y) node[left, font=\tiny] {\y};
+    \draw[thick] (16,0) -- (0,4);
+    \draw[thick, dashed] (0,0) -- (18,1.5);
+    \fill (12,1) circle (2pt);
+    \draw[densely dotted] (12,0) -- (12,1);
+    \node[font=\scriptsize, anchor=south west] at (3,3.25) {source};
+    \node[font=\scriptsize, anchor=north] at (16.5,1.3) {load};
+  \end{tikzpicture}
+  \end{minipage}\\[5pt]
+  (f) Matching: $\boxed{R_c = \RTh = 4.0\ \Omega}$ \qquad
+  $P_c^{\max} = \dfrac{\ETh^2}{4\RTh} = \dfrac{256}{16}\ \mathrm{W}$ \qquad
+  $\boxed{P_c^{\max} = 16\ \mathrm{W}}$ \quad (with $R_c = 12\ \Omega$: $P_c = 12\
+  \mathrm{W}$ only)}
+\begin{scheme}
+\pt{1}{1 pt}{Sources off, $\RTh = R_3 + R_1 \parallel R_2$.}
+\pt{2}{1 pt}{$\RTh = 4.0\ \Omega$.}
+\pt{3}{1 pt}{Open circuit, divider across $R_2$ (no current in $R_3$).}
+\pt{4}{1 pt}{$\ETh = 16\ \mathrm{V}$.}
+\pt{5}{1 pt}{$\INo = 4.0\ \mathrm{A}$.}
+\pt{6}{1 pt}{$i^\star = 1.0\ \mathrm{A}$.}
+\pt{7}{1 pt}{$u^\star = 12\ \mathrm{V}$.}
+\pt{8}{1 pt}{Sketch: both lines with their intercepts, intersection marked.}
+\pt{9}{1 pt}{$\eta = 75\,\%$.}
+\pt{10}{1 pt}{$R_c = \RTh = 4.0\ \Omega$.}
+\pt{11}{1 pt}{$P_c^{\max} = 16\ \mathrm{W}$.}
+\end{scheme}
+
+\finish
+
+\ifkey
+\par\vspace{4mm}
+\begin{tcolorbox}[enhanced, colback=white, colframe=black!60, boxrule=0.5pt, arc=1mm,
+  title={\sffamily\bfseries Diagnosis: where did you lose marks?}, fonttitle=\small,
+  coltitle=black, colbacktitle=black!10, fontupper=\small]
+\begin{tabular}{@{}c l l@{}}
+\textbf{Ex.} & \textbf{Lecture section(s)} & \textbf{Redo} \\ \hline
+1  & 1.A, 1.B, 2.C: prefixes and units   & Progress tests 1.A, 1.B, 2.C (Ex.~1)\\
+2  & 1.B: definition of the current     & Progress test 1.B\\
+3  & 1.A, 1.B: voltmeter and ammeter    & Progress tests 1.A (Ex.~3), 1.B (Ex.~3)\\
+4  & 1.C, 3.A: nodes, branches, meshes  & Progress tests 1.C (Ex.~3), 3.A (Ex.~3)\\
+5  & 2.A, 2.B: characteristics, Ohm     & Progress tests 2.A, 2.B\\
+6  & 1.B, 2.B, 2.C: $i = nevS$, Pouillet, Joule & Progress tests 1.B, 2.C (Ex.~4)\\
+7  & 2.A: least squares                 & Progress test 2.A (Ex.~4)\\
+8  & 3.A: combinations, divider         & Progress test 3.A\\
+9  & 3.A: Millman                       & Progress test 3.A (Ex.~4)\\
+10 & 3.B, 3.C: Thévenin, operating point & Progress tests 3.B, 3.C
+\end{tabular}
+\end{tcolorbox}
+\fi
+\end{document}

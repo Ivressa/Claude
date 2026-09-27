@@ -1,0 +1,87 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 2.C --- Elec-S1}
+         {2.C \,$\cdot$\, Pouillet's law}
+         {7 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Unit conversion}{1 mark}
+Tables often give resistivities in $\mu\Omega\cdot$cm. Convert
+$\rho = \qty{1.7}{\micro\ohm\centi\metre}$ into $\Omega\cdot$m. Give the exact result.
+\answer{1}{2.2cm}{%
+  $\rho = 1.7\times10^{-6}\ \Omega\times10^{-2}\ \mathrm{m}$ \qquad
+  $\boxed{\rho = 1.7\times10^{-8}\ \Omega\,\mathrm{m}}$ \quad (the resistivity of copper)}
+\begin{scheme}
+\pt{1}{1 pt}{$1.7\times10^{-8}\ \Omega\,\mathrm{m}$.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Pouillet's law}{5 marks}
+State Pouillet's law giving the resistance $R$ of a conducting wire of length $L$ and
+cross-sectional area $S$, made of a material of resistivity $\rho$. Give the SI unit of each
+of the four quantities. Define the conductivity $\sigma$ and give its unit.
+\answer{2,2,1}{5.8cm}{%
+  $\boxed{R = \rho\,\dfrac{L}{S}}$ \qquad a longer wire resists more, a thicker wire
+  conducts more easily.\\[5pt]
+  Units: $R$ in ohms ($\Omega$), \ $\rho$ in $\Omega\,\mathrm{m}$, \ $L$ in metres (m), \
+  $S$ in square metres ($\mathrm{m^2}$).\\
+  \hspace*{5mm}(check: $\Omega\,\mathrm{m}\times\mathrm{m}/\mathrm{m^2} = \Omega$)\\[5pt]
+  Conductivity: $\boxed{\sigma = \dfrac{1}{\rho}}$, in siemens per metre
+  ($\mathrm{S\,m^{-1}}$).}
+\begin{scheme}
+\pt{1}{2 pts}{$R = \rho L/S$ (0 if $L$ and $S$ are swapped).}
+\pt{2}{2 pts}{The four units (1~pt lost per mistake).}
+\pt{3}{1 pt}{$\sigma = 1/\rho$ in $\mathrm{S\,m^{-1}}$.}
+\end{scheme}
+\begin{tip}
+Checking the dimensions ($\Omega\,\mathrm{m}\times\mathrm{m}/\mathrm{m^2} = \Omega$)
+catches a swapped $L$ and $S$ in two seconds.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Resistivity and geometry}{3 marks}
+\question{A wire is replaced by a wire of the same material, twice as long and with twice the
+diameter. Its resistance is:}
+\opts{0}{multiplied by 2}{0}{unchanged}{1}{divided by 2}{0}{divided by 4}
+\why{$L \to 2L$, and doubling the diameter multiplies $S = \pi d^2/4$ by 4, so
+  $R \to R\times 2/4 = R/2$.}
+\question{Among these materials, the best conductor is:}
+\opts{0}{iron}{0}{aluminium}{0}{copper}{1}{silver}
+\why{it has the lowest resistivity: $\rho_{\mathrm{Ag}} = 1.6\times10^{-8}\ \Omega\,
+  \mathrm{m}$ (Cu: $1.7$, Al: $2.8$, Fe: $10\times10^{-8}$).}
+\question{When a metallic wire heats up, its resistance:}
+\opts{1}{increases}{0}{decreases}{0}{stays the same}{0}{vanishes}
+\why{for most metals the resistivity increases with temperature: a heated metal conducts
+  slightly less well.}
+
+% ---------------------------------------------------------------------------
+\exercise{Resistance of a copper wire}{5 marks}
+A copper wire of length $L$ and cross-sectional area $S$ carries a current $i$. Determine
+its resistance $R$, then the power $p$ it dissipates by the Joule effect.
+\data{$L = \qty{20}{m}$ \hspace{9mm} $S = \qty{0.50}{\milli\metre\squared}$ \hspace{9mm}
+      $\rho = \qty{1.7e-8}{\ohm\metre}$ \hspace{9mm} $i = \qty{5.0}{A}$}
+\answer{1,1,1,1,1}{6.4cm}{%
+  $\boxed{R = \rho\,\dfrac{L}{S}}$ \qquad with \
+  $S = 0.50\ \mathrm{mm^2} = 0.50\times(10^{-3}\ \mathrm{m})^2 = 5.0\times10^{-7}\
+   \mathrm{m^2}$\\[4pt]
+  $R = \dfrac{1.7\times10^{-8}\ \Omega\,\mathrm{m}\times20\ \mathrm{m}}
+            {5.0\times10^{-7}\ \mathrm{m^2}}
+     = \dfrac{1.7\times20}{5.0}\times10^{-8+7}\ \Omega = 6.8\times10^{-1}\ \Omega$
+  \qquad $\boxed{R = 0.68\ \Omega}$\\[4pt]
+  $\boxed{p = R\,i^2} = 0.68\ \Omega\times(5.0\ \mathrm{A})^2 = 0.68\times25\ \mathrm{W}$
+  \qquad $\boxed{p = 17\ \mathrm{W}}$}
+\begin{scheme}
+\pt{1}{1 pt}{Literal expression $R = \rho L/S$.}
+\pt{2}{1 pt}{$S = 5.0\times10^{-7}\ \mathrm{m^2}$ ($1\ \mathrm{mm^2} = 10^{-6}\
+  \mathrm{m^2}$).}
+\pt{3}{1 pt}{$R = 0.68\ \Omega$.}
+\pt{4}{1 pt}{Literal expression $p = Ri^2$.}
+\pt{5}{1 pt}{$p = 17\ \mathrm{W}$, with its unit.}
+\end{scheme}
+\begin{tip}
+$\mathrm{mm^2} \to \mathrm{m^2}$: square the conversion factor, $(10^{-3})^2 = 10^{-6}$. You
+got this right in Test~1; keep writing it out explicitly.
+\end{tip}
+
+\finish
+\end{document}

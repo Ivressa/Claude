@@ -1,0 +1,118 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 2.A --- Elec-S1}
+         {2.A \,$\cdot$\, Characteristic curve and experimental evidence for Ohm's law}
+         {10 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Reading a slope}{1 mark}
+The characteristic $i = f(u)$ of a resistor is a straight line through the origin, of slope
+$\qty{20}{\milli\ampere\per\volt}$. Give its resistance $R$.
+\answer{1}{2.2cm}{%
+  For $i = f(u)$: $i = \dfrac{u}{R}$, so the slope is
+  $\dfrac{1}{R} = G = 20\times10^{-3}\ \mathrm{A\,V^{-1}}$ \qquad
+  $R = \dfrac{1}{2.0\times10^{-2}\ \mathrm{A\,V^{-1}}}$ \qquad
+  $\boxed{R = 50\ \Omega}$}
+\begin{scheme}
+\pt{1}{1 pt}{$R = 50\ \Omega$. (Answering $R = 20$ or $0.02$ confuses the slope with $R$.)}
+\end{scheme}
+\begin{tip}
+On $i = f(u)$ ($u$ on the horizontal axis) the slope is $1/R = G$. On $u = g(i)$ it is $R$
+(Fig.~18 of the notes). Always check which quantity is on which axis.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Characteristic of a component --- definition}{5 marks}
+Define the characteristic of a two-terminal component. Which convention is used to plot the
+characteristic of a passive component? Draw it and give the sign of the power received.
+What is the shape of the characteristic of an ohmic conductor?
+\answer{2,2,1}{6.4cm}{%
+  \begin{minipage}[c]{0.72\linewidth}
+    The \textbf{characteristic} is the curve $i = f(u)$ giving the current $i$ through the
+    component as a function of the voltage $u$ across it ($u$ on the horizontal axis, $i$ on
+    the vertical axis). It is obtained point by point by measuring pairs $(u_k, i_k)$ for
+    various settings.\\[4pt]
+    Passive component: \textbf{receiver convention}. The current enters through the $+$
+    terminal, so the arrows of $u$ and $i$ are opposite, and $p = u\,i > 0$ is
+    \emph{received}.
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.24\linewidth}\centering\convfig{receiver}{D}\end{minipage}\\[6pt]
+  Ohmic conductor: a \textbf{straight line through the origin} (slope $1/R$).}
+\begin{scheme}
+\pt{1}{2 pts}{Curve $i = f(u)$ (1~pt), with the axes stated and measured point by point
+  (1~pt).}
+\pt{2}{2 pts}{Receiver convention drawn with opposite arrows (1~pt); $p = ui > 0$ received
+  (1~pt).}
+\pt{3}{1 pt}{Straight line through the origin.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Identifying characteristics}{3 marks}
+The four characteristics below are plotted in the $(u, i)$ plane.
+\begin{center}
+\charplot{a}{\draw (1.0,-1.35) -- (1.0,1.55);
+             \node[below left, font=\scriptsize, black] at (1.0,0) {$E$};}\hfill
+\charplot{b}{\draw (-1.6,0.9) -- (1.75,0.9);
+             \node[above left, font=\scriptsize, black] at (0,0.9) {$I_0$};}\hfill
+\charplot{c}{\draw (-1.6,0) -- (0,0) -- (0,1.55);}\hfill
+\charplot{d}{\draw plot[domain=-1.55:1.55, smooth, samples=40] (\x, {1.25*tanh(1.2*\x)});}
+\end{center}
+\question{Characteristic (a) is that of:}
+\opttwo{0}{an ohmic conductor}{1}{an ideal voltage source}{0}{an ideal current source}{0}{a lamp}
+\why{whatever the current, the voltage keeps the same value $u = E$: this is the definition of
+  an ideal voltage source (vertical line). (b) is an ideal current source, (d) a lamp.}
+\question{Characteristic (c) is that of:}
+\opttwo{0}{a Zener diode}{0}{a lamp}{1}{an ideal diode}{0}{an ideal current source}
+\why{no current for $u < 0$ (blocked), and $u = 0$ whatever $i > 0$ (conducting). A Zener
+  diode would also conduct in reverse below $-U_Z$.}
+\question{Which statement is correct?}
+\optlist{0}{Every characteristic is a straight line through the origin.}
+        {1}{A straight-line characteristic through the origin is the signature of an ohmic
+            conductor.}
+        {0}{The characteristic of a lamp is a straight line through the origin.}
+        {0}{A characteristic does not depend on how $u$ and $i$ are oriented.}
+\why{``Beware! Not all characteristics are straight lines through the origin'' (notes, 2.A).
+  The characteristic does depend on the convention chosen.}
+
+% ---------------------------------------------------------------------------
+\exercise{Estimating a resistance from measurements}{5 marks}
+The characteristic of a resistor was measured in the receiver convention. The measurements
+at low current are the noisiest.
+\data{\begin{tabular}{l|ccc}
+      $i_k$ (mA) & 1.0 & 2.0 & 4.0\\ \hline
+      $u_k$ (V)  & 0.70 & 0.90 & 2.00
+      \end{tabular}}
+(a) Compute the naive estimate $R_{\mathrm{naive}} = \frac{1}{N}\sum_k u_k/i_k$.
+(b) Compute the least-squares estimate $\hat R = \sum_k u_k i_k \big/ \sum_k i_k^2$.
+(c) Which value should be kept? Justify.
+\answer{1,1,1,1,1}{6.8cm}{%
+  (a) Ratios (V/mA $=$ k$\Omega$): \
+      $\dfrac{0.70\ \mathrm{V}}{1.0\ \mathrm{mA}} = 0.70\ \mathrm{k\Omega}$, \
+      $\dfrac{0.90}{2.0} = 0.45\ \mathrm{k\Omega}$, \
+      $\dfrac{2.00}{4.0} = 0.50\ \mathrm{k\Omega}$\\[3pt]
+  \hspace*{5mm}$R_{\mathrm{naive}} = \dfrac{0.70 + 0.45 + 0.50}{3} = \dfrac{1.65}{3}$
+  \quad $\boxed{R_{\mathrm{naive}} = 0.55\ \mathrm{k\Omega} = 550\ \Omega}$\\[4pt]
+  (b) $\sum u_k i_k = 0.70\times1.0 + 0.90\times2.0 + 2.00\times4.0 = 10.5\
+      \mathrm{V\,mA}$\\[2pt]
+  \hspace*{5mm}$\sum i_k^2 = 1.0^2 + 2.0^2 + 4.0^2 = 21\ \mathrm{mA^2}$\\[3pt]
+  \hspace*{5mm}$\hat R = \dfrac{10.5}{21}\ \mathrm{k\Omega}$
+  \quad $\boxed{\hat R = 0.500\ \mathrm{k\Omega} = 500\ \Omega}$\\[4pt]
+  (c) Keep $\hat R = 500\ \Omega$. The relative uncertainty on $u_k/i_k$ is dominated by that
+  on $i_k$, which is largest at low current. The naive mean gives the noisy first point
+  ($0.70\ \mathrm{k\Omega}$) the same weight as the others; the regression weights each
+  point by $i_k^2$.}
+\begin{scheme}
+\pt{1}{1 pt}{The three ratios, with a correct unit (V/mA $=$ k$\Omega$).}
+\pt{2}{1 pt}{$R_{\mathrm{naive}} = 0.55\ \mathrm{k\Omega} = 550\ \Omega$.}
+\pt{3}{1 pt}{$\sum u_k i_k = 10.5\ \mathrm{V\,mA}$ and $\sum i_k^2 = 21\ \mathrm{mA^2}$.}
+\pt{4}{1 pt}{$\hat R = 500\ \Omega$.}
+\pt{5}{1 pt}{$\hat R$ kept, justified (low-current points noisier / weighting by $i_k^2$).}
+\end{scheme}
+\begin{tip}
+V/mA gives k$\Omega$, not $\Omega$: a factor of 1000 is the most common slip here (Tab.~3 of
+the notes lists $r_k$ in k$\Omega$). Check: all points should lie close to
+$u = \hat R\, i$; here the residuals are $+0.20$, $-0.10$ and $0\ \mathrm{V}$.
+\end{tip}
+
+\finish
+\end{document}

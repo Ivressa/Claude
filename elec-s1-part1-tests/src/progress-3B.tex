@@ -1,0 +1,111 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 3.B --- Elec-S1}
+         {3.B \,$\cdot$\, Thévenin's and Norton's equivalence theorems}
+         {10 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{From Norton to Thévenin}{1 mark}
+A Norton model has $\INo = \qty{2.0}{mA}$ and $\RNo = \qty{4.7}{\kilo\ohm}$. Give the
+electromotive force $\ETh$ of the equivalent Thévenin model.
+\answer{1}{2.2cm}{%
+  $\ETh = R\,\INo = 4.7\times10^{3}\ \Omega\times2.0\times10^{-3}\ \mathrm{A}$ \qquad
+  $\boxed{\ETh = 9.4\ \mathrm{V}}$ \quad (with $\RTh = \RNo = 4.7\ \mathrm{k\Omega}$)}
+\begin{scheme}
+\pt{1}{1 pt}{$\ETh = 9.4\ \mathrm{V}$ (k$\Omega\times$mA $=$ V).}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Thévenin's theorem}{5 marks}
+State Thévenin's theorem for a network made of ideal sources and ohmic conductors, seen from
+its terminals $A$ and $B$ (draw the model). Explain how $\ETh$ and $\RTh$ are determined.
+\answer{2,2,1}{6.6cm}{%
+  \begin{minipage}[c]{0.66\linewidth}\raggedright
+    Seen from $A$ and $B$, the network is equivalent to a \textbf{single ideal voltage
+    source} $\ETh$ in \textbf{series} with a \textbf{single resistor} $\RTh$:\\[3pt]
+    \hspace*{5mm}$u = \ETh - \RTh\, i$ \quad (generator convention).
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.32\linewidth}\centering
+  \begin{circuitikz}[line width=0.5pt, scale=0.8, transform shape]
+    \draw (0,0) to[battery1, invert, l=$\ETh$] (0,1.3) to[R, l=$\RTh$] (0,2.6)
+          -- (1.2,2.6) node[ocirc] {};
+    \draw (0,0) -- (1.2,0) node[ocirc] {};
+    \node[right] at (1.2,2.6) {$A$}; \node[right] at (1.2,0) {$B$};
+    \draw[-{Latex[length=1.8mm]}] (1.7,0.1) -- (1.7,2.5) node[midway, right] {$u$};
+  \end{circuitikz}
+  \end{minipage}\\[5pt]
+  $\ETh$ $=$ \textbf{open-circuit voltage} between $A$ and $B$ ($i = 0$), with the sources
+  left active (use the divider, Kirchhoff, \ldots).\\[3pt]
+  $\RTh$ $=$ resistance seen between $A$ and $B$ with \textbf{all sources switched off}:
+  ideal voltage sources replaced by short circuits, ideal current sources by open
+  circuits.}
+\begin{scheme}
+\pt{1}{2 pts}{Model drawn: $\ETh$ in series with $\RTh$ (1~pt); $u = \ETh - \RTh i$ or an
+  equivalent statement (1~pt).}
+\pt{2}{2 pts}{$\ETh$ $=$ open-circuit voltage (1~pt), sources active and $i = 0$ (1~pt).}
+\pt{3}{1 pt}{$\RTh$ with the sources off: voltage sources shorted, current sources opened.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Thévenin and Norton models}{3 marks}
+\question{To switch off an ideal voltage source, it is replaced by:}
+\opttwo{0}{an open circuit}{1}{a short circuit (a wire)}{0}{a resistor $\RTh$}
+       {0}{an ideal current source}
+\why{a switched-off voltage source imposes $u = 0$ whatever the current: that is a wire. A
+  switched-off current source imposes $i = 0$: that is an open circuit.}
+\question{A Thévenin model has $\ETh = \qty{12}{V}$ and $\RTh = \qty{3.0}{\ohm}$. The
+  equivalent Norton model has:}
+\opttwo{0}{$\INo = \qty{36}{A}$, $\RNo = \qty{3.0}{\ohm}$}
+       {1}{$\INo = \qty{4.0}{A}$, $\RNo = \qty{3.0}{\ohm}$}
+       {0}{$\INo = \qty{4.0}{A}$, $\RNo = \qty{0.33}{\ohm}$}
+       {0}{$\INo = \qty{0.25}{A}$, $\RNo = \qty{3.0}{\ohm}$}
+\why{$\INo = \ETh/R = 12/3.0 = \qty{4.0}{A}$, and the resistance is common to both models.}
+\question{A Thévenin (or Norton) model can describe a ``black box'' containing:}
+\optlist{0}{a diode;}{1}{only ideal sources and ohmic conductors;}{0}{a lamp;}{0}{a motor.}
+\why{the models are valid only for ideal sources and ohmic conductors: ``no lamp, no motor,
+  no diode'' (notes, 3.B).}
+
+% ---------------------------------------------------------------------------
+\exercise{Thévenin model of a network}{5 marks}
+Determine the Thévenin model $(\ETh, \RTh)$ of the network below, seen from the terminals
+$A$ and $B$. Deduce the current $\INo$ of the equivalent Norton model.
+\begin{center}
+\begin{circuitikz}[line width=0.6pt]
+  \draw (0,0) to[battery1, invert, l=$E$] (0,2.4) to[R, l=$R_1$] (2.6,2.4)
+        to[R, l=$R_3$] (5.2,2.4) node[ocirc] {};
+  \draw (2.6,2.4) to[R, l=$R_2$] (2.6,0);
+  \draw (0,0) -- (2.6,0) -- (5.2,0) node[ocirc] {};
+  \node[circ] at (2.6,2.4) {}; \node[circ] at (2.6,0) {};
+  \node[right] at (5.25,2.4) {$A$}; \node[right] at (5.25,0) {$B$};
+  \draw[-{Latex[length=1.8mm]}] (5.9,0.1) -- (5.9,2.3) node[midway, right] {$u$};
+\end{circuitikz}
+\end{center}
+\data{$E = \qty{12}{V}$ \hspace{10mm} $R_1 = \qty{6.0}{\kilo\ohm}$ \hspace{10mm}
+      $R_2 = \qty{3.0}{\kilo\ohm}$ \hspace{10mm} $R_3 = \qty{1.0}{\kilo\ohm}$}
+\answer{1,1,1,1,1}{6.8cm}{%
+  \textbf{Sources off} ($E$ replaced by a wire): $R_1$ and $R_2$ are then in parallel, and
+  this pair is in series with $R_3$:\\[2pt]
+  \hspace*{5mm}$\RTh = R_3 + \dfrac{R_1R_2}{R_1 + R_2} = 1.0 + \dfrac{18}{9.0}
+   = 1.0 + 2.0$ \qquad $\boxed{\RTh = 3.0\ \mathrm{k\Omega}}$\\[4pt]
+  \textbf{Open circuit} ($i = 0$): no current in $R_3$, so no voltage across it and
+  $u_{AB}$ equals the voltage across $R_2$ (voltage divider):\\[2pt]
+  \hspace*{5mm}$\ETh = \dfrac{R_2}{R_1 + R_2}\,E = \dfrac{3.0}{9.0}\times12\ \mathrm{V}$
+  \qquad $\boxed{\ETh = 4.0\ \mathrm{V}}$\\[4pt]
+  \hspace*{5mm}$\INo = \dfrac{\ETh}{\RTh} = \dfrac{4.0\ \mathrm{V}}{3.0\ \mathrm{k\Omega}}$
+  \qquad $\boxed{\INo = 1.3\ \mathrm{mA}}$ \ ($4/3$~mA)}
+\begin{scheme}
+\pt{1}{1 pt}{Sources off: $E$ short-circuited, $\RTh = R_3 + R_1 \parallel R_2$.}
+\pt{2}{1 pt}{$\RTh = 3.0\ \mathrm{k\Omega}$.}
+\pt{3}{1 pt}{Open circuit: no current in $R_3$, so a voltage divider across $R_2$.}
+\pt{4}{1 pt}{$\ETh = 4.0\ \mathrm{V}$.}
+\pt{5}{1 pt}{$\INo = \ETh/\RTh = 1.3\ \mathrm{mA}$.}
+\end{scheme}
+\begin{tip}
+$R_3$ changes $\RTh$ but not $\ETh$: in open circuit it carries no current. Check $\INo$
+directly: with $A$ and $B$ short-circuited, $R_2 \parallel R_3 = 0.75\ \mathrm{k\Omega}$, so
+$E$ delivers $12/6.75 = 16/9\ \mathrm{mA}$, of which $R_3$ takes $\frac{R_2}{R_2+R_3} =
+\frac{3}{4}$: $\INo = \frac{3}{4}\times\frac{16}{9} = \frac{4}{3}\ \mathrm{mA}$. \checkmark
+\end{tip}
+
+\finish
+\end{document}
