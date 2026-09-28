@@ -1,0 +1,103 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 2.A --- Thermo-S1}
+         {2.A \,$\cdot$\, Thermoelastic behaviour of condensed phases}
+         {10 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Unit conversion}{1 mark}
+The isothermal compressibility of water is $\chi_T = \qty{4.5e-10}{\per\pascal}$. Express it
+in $\mathrm{bar^{-1}}$.
+\answer{1}{2.2cm}{%
+  $1\ \mathrm{bar} = 10^{5}\ \mathrm{Pa}$, so $1\ \mathrm{Pa^{-1}} = 10^{5}\ \mathrm{bar^{-1}}$
+  \qquad $\chi_T = 4.5\times10^{-10}\times10^{5}\ \mathrm{bar^{-1}}$ \qquad
+  $\boxed{\chi_T = 4.5\times10^{-5}\ \mathrm{bar^{-1}}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$4.5\times10^{-5}\ \mathrm{bar^{-1}}$.}
+\end{scheme}
+\begin{tip}
+``Per pascal'' to ``per bar'': a bar is $10^5$ times larger than a pascal, so the coefficient
+per bar is $10^5$ times larger. A quick sanity check: water loses $4.5\times10^{-5}$ of its
+volume per bar.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Thermoelastic coefficients --- definitions}{5 marks}
+Define the isothermal compressibility $\chi_T$ and the isobaric expansion coefficient $\alpha$
+of a condensed phase. Give their SI units. Explain the minus sign in $\chi_T$, and why both
+definitions divide by $V$.
+\answer{2,2,1}{6.0cm}{%
+  $\boxed{\chi_T = -\dfrac1V\left(\dfrac{\partial V}{\partial p}\right)_{\!T}}$ \ in
+  $\mathrm{Pa^{-1}}$
+  \qquad\qquad
+  $\boxed{\alpha = \dfrac1V\left(\dfrac{\partial V}{\partial T}\right)_{\!p}}$ \ in
+  $\mathrm{K^{-1}}$\\[6pt]
+  \textbf{Minus sign:} when $p$ increases at fixed $T$, $V$ decreases, so
+  $\left(\frac{\partial V}{\partial p}\right)_T < 0$. The minus sign makes $\chi_T > 0$.\\[3pt]
+  \textbf{Division by $V$:} $\left(\frac{\partial V}{\partial p}\right)_T$ and
+  $\left(\frac{\partial V}{\partial T}\right)_p$ are extensive. Dividing by $V$ gives
+  \textbf{intensive} coefficients, which do not depend on the size of the sample.}
+\begin{scheme}
+\pt{1}{2 pts}{$\chi_T = -\frac1V\left(\frac{\partial V}{\partial p}\right)_T$, with the fixed
+  variable $T$ written.}
+\pt{2}{2 pts}{$\alpha = \frac1V\left(\frac{\partial V}{\partial T}\right)_p$, with the fixed
+  variable $p$ written.}
+\pt{3}{1 pt}{Units $\mathrm{Pa^{-1}}$ and $\mathrm{K^{-1}}$; sign and intensive character
+  explained.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Condensed phases}{3 marks}
+\question{For a liquid or a solid, the isothermal compressibility $\chi_T$ is:}
+\opttwo{1}{very small ($\chi_T\approx0$)}{0}{very large}{0}{negative}{0}{infinite}
+\why{``condensed phases are weakly compressible'': their volume hardly changes when $p$
+  increases.}
+\question{Expressed with the mass density $\rho$, $\chi_T$ equals:}
+\opttwo{1}{$\dfrac1\rho\left(\dfrac{\partial\rho}{\partial p}\right)_T$}
+       {0}{$-\dfrac1\rho\left(\dfrac{\partial\rho}{\partial p}\right)_T$}
+       {0}{$\rho\left(\dfrac{\partial\rho}{\partial p}\right)_T$}
+       {0}{$-\dfrac1V\left(\dfrac{\partial\rho}{\partial p}\right)_T$}
+\why{for a closed system $\rho = m/V$, so compressing increases $\rho$. The minus sign
+  disappears (equation~(7) of the notes).}
+\question{Over a restricted temperature range, the coefficient $\alpha$ of a condensed phase
+  can be considered:}
+\opttwo{1}{constant}{0}{zero}{0}{proportional to $p$}{0}{negative}
+\why{remark~(ii) of Box~11. This is what allows the double integration of Box~13.}
+
+% ---------------------------------------------------------------------------
+\exercise{Expansion and compression of water}{5 marks}
+The coefficients of water are assumed constant.
+(a) A volume $V_0$ of water is heated at constant pressure from $\theta_1$ to $\theta_2$.
+Estimate the change of volume $\Delta V$.
+(b) Water is compressed at constant temperature from $p_1$ to $p_2$. Estimate its relative
+change of volume $\Delta V/V$.
+\data{$\alpha = \qty{2.0e-4}{\per\kelvin}$ \hspace{7mm} $\chi_T = \qty{5.0e-10}{\per\pascal}$
+      \hspace{7mm} $V_0 = \qty{250}{mL}$\\[2pt]
+      $\theta_1 = \qty{20}{\degreeCelsius}$ \hspace{7mm} $\theta_2 = \qty{70}{\degreeCelsius}$
+      \hspace{7mm} $p_1 = \qty{1}{bar}$ \hspace{7mm} $p_2 = \qty{101}{bar}$}
+\answer{1,1,1,1,1}{6.8cm}{%
+  (a) At fixed $p$, $\frac{\dd V}{V} = \alpha\,\dd T$. For a small change,
+  $\boxed{\Delta V\approx\alpha V_0\,\Delta T}$ with
+  $\Delta T = 70 - 20 = 50\ \mathrm K$ (a difference in $^\circ$C equals a difference in K):\\[3pt]
+  \hspace*{5mm}$\Delta V\approx2.0\times10^{-4}\times250\ \mathrm{mL}\times50$ \qquad
+  $\boxed{\Delta V\approx2.5\ \mathrm{mL}}$ \ (1\,\% of $V_0$)\\[5pt]
+  (b) At fixed $T$, $\frac{\dd V}{V} = -\chi_T\,\dd p$, so
+  $\boxed{\dfrac{\Delta V}{V}\approx-\chi_T\,\Delta p}$ with
+  $\Delta p = 100\ \mathrm{bar} = 1.0\times10^{7}\ \mathrm{Pa}$:\\[3pt]
+  \hspace*{5mm}$\dfrac{\Delta V}{V}\approx-5.0\times10^{-10}\times1.0\times10^{7}$ \qquad
+  $\boxed{\dfrac{\Delta V}{V}\approx-5.0\times10^{-3} = -0.5\,\%}$\\[3pt]
+  Even 100~bar changes the volume by only $0.5\,\%$: water is almost incompressible.}
+\begin{scheme}
+\pt{1}{1 pt}{$\Delta V\approx\alpha V_0\Delta T$ (literal).}
+\pt{2}{1 pt}{$\Delta T = 50\ \mathrm K$ and $\Delta V\approx2.5\ \mathrm{mL}$.}
+\pt{3}{1 pt}{$\Delta V/V\approx-\chi_T\Delta p$ (literal, with the minus sign).}
+\pt{4}{1 pt}{$\Delta p = 1.0\times10^{7}\ \mathrm{Pa}$.}
+\pt{5}{1 pt}{$\Delta V/V\approx-5.0\times10^{-3}$, interpreted.}
+\end{scheme}
+\begin{tip}
+A \emph{difference} of temperature has the same value in K and in $^\circ$C, so here
+$\Delta T = 50$~K. Only absolute temperatures (as in $pV = nRT$) must be converted.
+\end{tip}
+
+\finish
+\end{document}

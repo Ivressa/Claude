@@ -1,0 +1,98 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 1.A --- Thermo-S1}
+         {1.A \,$\cdot$\, System and state variables}
+         {7 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Unit conversion}{1 mark}
+Convert the molar volume $V_m = \qty{24.5}{\litre\per\mole}$ into
+$\mathrm{m^3\,mol^{-1}}$. Give the exact result, without rounding.
+\answer{1}{2.2cm}{%
+  $1\ \mathrm L = 1\ \mathrm{dm^3} = (10^{-1}\ \mathrm m)^3 = 10^{-3}\ \mathrm{m^3}$
+  \qquad $V_m = 24.5\times10^{-3}\ \mathrm{m^3\,mol^{-1}}$ \qquad
+  $\boxed{V_m = 2.45\times10^{-2}\ \mathrm{m^3\,mol^{-1}}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$2.45\times10^{-2}\ \mathrm{m^3\,mol^{-1}}$, with the unit written correctly.}
+\end{scheme}
+\begin{tip}
+A litre is a cubic decimetre: cube the conversion factor, $(10^{-1})^3 = 10^{-3}$. Every
+SI formula of this module ($pV = nRT$, \dots) needs volumes in $\mathrm{m^3}$.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Closed and isolated systems --- definitions}{5 marks}
+Define a closed system and an isolated system. For a gas enclosed in a cylinder, say what the
+walls must be like to prevent each kind of exchange with the surroundings. Is every closed
+system isolated?
+\answer{2,2,1}{6.0cm}{%
+  \textbf{Closed system:} it exchanges no \emph{matter} with its surroundings
+  ($n$ is constant).\\
+  \textbf{Isolated system:} it exchanges neither \emph{matter} nor \emph{energy} with its
+  surroundings.\\[4pt]
+  Walls needed for the gas to be isolated:
+  \begin{itemize}
+  \item \textbf{sealed} walls, so that no matter is exchanged;
+  \item \textbf{rigid} walls and a \textbf{fixed} piston, so that no work is exchanged
+        (pressure forces cannot move them);
+  \item \textbf{thermally insulating} walls, so that no heat is exchanged.
+  \end{itemize}
+  An isolated system is necessarily closed, but \textbf{the converse is false}. For example,
+  a sealed weather balloon is closed, yet it exchanges heat and work with the air around it.}
+\begin{scheme}
+\pt{1}{2 pts}{Closed: no exchange of matter (1~pt). Isolated: no matter and no energy (1~pt).}
+\pt{2}{2 pts}{Sealed, rigid or fixed, and insulating walls (1~pt if only two of the three).}
+\pt{3}{1 pt}{Isolated $\Rightarrow$ closed, but closed $\not\Rightarrow$ isolated, with an
+  example.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Classifying quantities and systems}{4 marks}
+\question{Which of these quantities is intensive?}
+\opttwo{0}{the mass $m$}{0}{the volume $V$}{1}{the molar volume $V_m = V/n$}{0}{the energy $E$}
+\why{the quotient of two extensive quantities is intensive: doubling the system doubles
+  both $V$ and $n$, so $V/n$ does not change.}
+\question{A hot-air balloon, with its opening at the bottom, is:}
+\opts{0}{closed}{1}{open}{0}{isolated}{0}{closed and isolated}
+\why{air enters and leaves through the opening, so the system exchanges matter
+  (Fig.~1 of the notes).}
+\question{The SI dimension of pressure is:}
+\opts{1}{$\mathrm{M\,L^{-1}\,T^{-2}}$}{0}{$\mathrm{M\,L\,T^{-2}}$}{0}{$\mathrm{M\,L^{2}\,T^{-2}}$}
+     {0}{$\mathrm{M\,L^{-2}\,T^{-2}}$}
+\why{pressure is a force per unit area:
+  $\mathrm{M\,L\,T^{-2}}/\mathrm{L^2} = \mathrm{M\,L^{-1}\,T^{-2}}$ (Tab.~1 of the notes).}
+\question{$R$ is an intensive constant. Which relation is homogeneous in the extensive /
+  intensive sense?}
+\opts{0}{$\dfrac pT = \dfrac RV$}{0}{$pV = RT$}{1}{$\dfrac pT = \dfrac{nR}{V}$}{0}{$p = nRT$}
+\why{$p/T$ is intensive. So is $nR/V$ (an extensive quantity divided by an extensive one).
+  In the other options, one side doubles with the system and the other does not (Box~7).}
+
+% ---------------------------------------------------------------------------
+\exercise{Composition of a solution}{4 marks}
+A mass $m$ of sodium chloride (molar mass $M$) is dissolved in water to obtain a volume $V$
+of solution. Compute the amount of substance $n$ of solute, the mass concentration $c_m$ and
+the molar concentration $c$. Check that $c_m = cM$.
+\data{$m = \qty{5.85}{g}$ \hspace{14mm} $M = \qty{58.5}{\gram\per\mole}$ \hspace{14mm}
+      $V = \qty{0.500}{L}$}
+\answer{1,1,1,1}{5.6cm}{%
+  $n = \dfrac mM = \dfrac{5.85\ \mathrm g}{58.5\ \mathrm{g\,mol^{-1}}}$ \qquad
+  $\boxed{n = 0.100\ \mathrm{mol}}$\\[4pt]
+  $c_m = \dfrac mV = \dfrac{5.85\ \mathrm g}{0.500\ \mathrm L}$ \qquad
+  $\boxed{c_m = 11.7\ \mathrm{g\,L^{-1}}}$\\[4pt]
+  $c = \dfrac nV = \dfrac{0.100\ \mathrm{mol}}{0.500\ \mathrm L}$ \qquad
+  $\boxed{c = 0.200\ \mathrm{mol\,L^{-1}}}$\\[4pt]
+  Check: $cM = 0.200\times58.5 = 11.7\ \mathrm{g\,L^{-1}} = c_m$. \checkmark\ Both
+  concentrations are intensive (quotients of extensive quantities).}
+\begin{scheme}
+\pt{1}{1 pt}{$n = m/M = 0.100\ \mathrm{mol}$.}
+\pt{2}{1 pt}{$c_m = 11.7\ \mathrm{g\,L^{-1}}$.}
+\pt{3}{1 pt}{$c = 0.200\ \mathrm{mol\,L^{-1}}$.}
+\pt{4}{1 pt}{$c_m = cM$ checked.}
+\end{scheme}
+\begin{tip}
+Test~1, Ex.~4: write $n = m/M$ with letters first, then substitute \emph{with units}. The
+units then cancel correctly by themselves: $\mathrm g/(\mathrm{g\,mol^{-1}}) = \mathrm{mol}$.
+\end{tip}
+
+\finish
+\end{document}

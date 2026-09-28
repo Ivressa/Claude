@@ -1,0 +1,81 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 2.B --- Thermo-S1}
+         {2.B \,$\cdot$\, Thermoelastic behaviour of gases}
+         {7 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Unit conversion}{1 mark}
+A gas has a piezothermic coefficient $\beta = \qty{3.66e-3}{\per\kelvin}$. Express $\beta$
+in $^\circ\mathrm C^{-1}$.
+\answer{1}{2.2cm}{%
+  A temperature \emph{difference} of 1~K equals a difference of $1\ ^\circ$C, so
+  \qquad $\boxed{\beta = 3.66\times10^{-3}\ ^\circ\mathrm C^{-1}}$ \ (same value).}
+\begin{scheme}
+\pt{1}{1 pt}{$3.66\times10^{-3}\ ^\circ$C$^{-1}$ (no $+273.15$ here).}
+\end{scheme}
+\begin{tip}
+A coefficient ``per kelvin'' is defined through a derivative, i.e.\ a temperature
+\emph{difference}. Adding $273.15$ would be a classic mistake.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Piezothermic coefficient --- definition}{5 marks}
+Define the piezothermic coefficient $\beta$ of a gas. Give its formula, the physical variation
+it measures, its sign and its SI unit. How does it differ from $\alpha$?
+\answer{2,2,1}{6.0cm}{%
+  $\boxed{\beta = \dfrac1p\left(\dfrac{\partial p}{\partial T}\right)_{\!V}}$\\[5pt]
+  It measures the \textbf{relative increase of the pressure per kelvin at constant volume},
+  for example a gas heated in a rigid, sealed container. Heating increases the pressure, so
+  $\beta > 0$.\\[4pt]
+  Unit: $\mathrm{K^{-1}}$. By contrast, $\alpha = \frac1V\left(\frac{\partial V}{\partial T}\right)_p$
+  describes the change of \emph{volume} at constant \emph{pressure}.}
+\begin{scheme}
+\pt{1}{2 pts}{$\beta = \frac1p\left(\frac{\partial p}{\partial T}\right)_V$, with $V$ fixed.}
+\pt{2}{2 pts}{Meaning: change of $p$ with $T$ at constant $V$ (1~pt); $\beta > 0$ (1~pt).}
+\pt{3}{1 pt}{$\mathrm{K^{-1}}$ and the difference with $\alpha$.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Gases at constant volume}{3 marks}
+\question{A gas enclosed in a rigid, sealed container is heated. Its pressure:}
+\opts{1}{increases}{0}{decreases}{0}{does not change}{0}{becomes zero}
+\why{$\left(\frac{\partial p}{\partial T}\right)_V > 0$, i.e.\ $\beta > 0$ (equation~(10) of the
+  notes).}
+\question{The coefficient $\beta$ measures the variation of:}
+\opttwo{0}{$V$ at fixed $p$}{1}{$p$ at fixed $V$}{0}{$T$ at fixed $V$}{0}{$V$ at fixed $T$}
+\why{see Tab.~3 of the notes. $\alpha$: $V$ at fixed $p$; $\chi_T$: $V$ at fixed $T$.}
+\question{For a car tyre (airtight, rigid rim), the variables held fixed are:}
+\opts{1}{$n$ and $V$}{0}{$n$ and $p$}{0}{$T$ and $V$}{0}{$p$ and $V$}
+\why{Tab.~5: the tyre is airtight ($n$ fixed) and the rim is rigid ($V$ fixed). $T$ and $p$
+  rise because of friction.}
+
+% ---------------------------------------------------------------------------
+\exercise{Tyre pressure}{5 marks}
+A car tyre, whose volume is fixed, is inflated to $p_1$ at $T_1$. While driving, its
+temperature rises by $\Delta T$. Using the value of $\beta$ given below (assumed constant),
+estimate the pressure increase $\Delta p$ and the final pressure $p_2$.
+\data{$p_1 = \qty{2.0}{bar}$ \hspace{9mm} $T_1 = \qty{300}{K}$ \hspace{9mm}
+      $\Delta T = \qty{30}{K}$ \hspace{9mm} $\beta = \frac{1}{300}\ \mathrm{K^{-1}}$}
+\answer{1,1,1,1,1}{6.0cm}{%
+  At fixed $V$: $\dd p = \beta\,p\,\dd T$, so for a small change
+  $\boxed{\Delta p\approx\beta\,p_1\,\Delta T}$.\\[4pt]
+  $p_1 = 2.0\ \mathrm{bar} = 2.0\times10^{5}\ \mathrm{Pa}$ \qquad
+  $\Delta p\approx\dfrac{1}{300}\times2.0\times10^{5}\times30$ \qquad
+  $\boxed{\Delta p\approx2.0\times10^{4}\ \mathrm{Pa} = 0.20\ \mathrm{bar}}$\\[4pt]
+  $\boxed{p_2\approx2.2\ \mathrm{bar}}$: a rise of $10\,\%$, the same as $\Delta T/T_1$.
+  (For such a gas $\beta = 1/T$, see 3.A, and $p/T$ stays constant: $p_2 = p_1T_2/T_1$
+  exactly.)}
+\begin{scheme}
+\pt{1}{1 pt}{$\Delta p\approx\beta p\Delta T$ from the definition at constant $V$.}
+\pt{2}{1 pt}{$p_1 = 2.0\times10^{5}\ \mathrm{Pa}$.}
+\pt{3}{1 pt}{$\Delta p\approx2.0\times10^{4}\ \mathrm{Pa}$.}
+\pt{4}{1 pt}{$\Delta p = 0.20$~bar and $p_2\approx2.2$~bar.}
+\pt{5}{1 pt}{Relative increase $10\,\% = \Delta T/T_1$ noted.}
+\end{scheme}
+\begin{tip}
+Tyre pressures must be checked \emph{cold}: a hot tyre reads about 10\,\% higher.
+\end{tip}
+
+\finish
+\end{document}

@@ -1,0 +1,93 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 3.C --- Thermo-S1}
+         {3.C \,$\cdot$\, Equations of state of real gases}
+         {10 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Unit conversion}{1 mark}
+The co-volume of carbon dioxide is $b = \qty{4.27e-5}{\metre\cubed\per\mole}$. Express it in
+$\mathrm{cm^3\,mol^{-1}}$.
+\answer{1}{2.2cm}{%
+  $1\ \mathrm{m^3} = (10^{2}\ \mathrm{cm})^3 = 10^{6}\ \mathrm{cm^3}$ \qquad
+  $b = 4.27\times10^{-5}\times10^{6}\ \mathrm{cm^3\,mol^{-1}}$ \qquad
+  $\boxed{b = 42.7\ \mathrm{cm^3\,mol^{-1}}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$42.7\ \mathrm{cm^3\,mol^{-1}}$.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{The Van der Waals model}{5 marks}
+Write the Van der Waals equation of state for $n$ moles. Explain the physical meaning of the
+term involving $b$ and of the term involving $a$. What does the equation reduce to when
+$a\to0$ and $b\to0$?
+\answer{2,2,1}{6.4cm}{%
+  $\boxed{\left(p + a\dfrac{n^2}{V^2}\right)(V - nb) = nRT}$\\[5pt]
+  $nb$ is the \textbf{co-volume}. Real molecules have a non-zero size, so the volume
+  actually available to them is $V - nb$ (the excluded volume is about four times the
+  molecules' own volume). This repulsive effect raises the pressure.\\[3pt]
+  $a\,n^2/V^2$ is the \textbf{internal pressure}. Molecules attract each other, so a molecule
+  heading for the wall is held back by its neighbours and the measured pressure is lower.
+  The term is proportional to $(n/V)^2$: the number of molecules reaching the wall and the
+  number of neighbours pulling each one back both scale with $n/V$.\\[3pt]
+  When $a\to0$ and $b\to0$: $pV = nRT$, the ideal gas.}
+\begin{scheme}
+\pt{1}{2 pts}{The equation, with $n^2/V^2$ and $V - nb$.}
+\pt{2}{2 pts}{$b$: excluded volume or finite size (1~pt); $a$: attraction, internal pressure
+  (1~pt).}
+\pt{3}{1 pt}{Limit: ideal gas.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{The Amagat diagram}{4 marks}
+\question{In the Amagat diagram, when $p\to0$ the compressibility factor $Z$ tends to:}
+\opts{1}{$1$}{0}{$0$}{0}{$+\infty$}{0}{$-1$}
+\why{at very low density every gas behaves as an ideal gas, for which $Z = 1$.}
+\question{At moderate pressure, $Z < 1$ for most gases because:}
+\opttwo{1}{attractive interactions dominate}{0}{the molecules' size dominates}
+       {0}{the gas is ideal}{0}{the temperature is too high}
+\why{attractions reduce the pressure (or the volume) below the ideal value. At high pressure
+  the excluded volume wins and $Z > 1$.}
+\question{The Boyle temperature $T_B$ is the temperature at which:}
+\opttwo{1}{$Z\approx1$ over a wide range of $p$}{0}{$Z = 0$}{0}{the gas liquefies}{0}{$a = 0$}
+\why{at $T_B$ the attractive and repulsive corrections compensate over a wide range of
+  pressures (Fig.~9).}
+\question{According to Tab.~7, the gas with the strongest intermolecular attractions, and the
+  highest critical temperature, is:}
+\opts{0}{He}{0}{H$_2$}{0}{N$_2$}{1}{H$_2$O}
+\why{$a(\mathrm{H_2O}) = 0.554\ \mathrm{Pa\,m^6\,mol^{-2}}$ and $T_c = 647$~K: $a$ and $T_c$
+  are correlated.}
+
+% ---------------------------------------------------------------------------
+\exercise{Carbon dioxide under pressure}{4 marks}
+One mole of CO$_2$ occupies the volume $V$ at temperature $T$. Compute (a) the pressure
+$p_{\text{id}}$ predicted by the ideal gas law; (b) the pressure $p$ predicted by the Van der
+Waals equation; (c) the corresponding compressibility factor $Z$. Interpret.
+\data{$n = \qty{1.0}{mol}$ \hspace{7mm} $V = \qty{0.50}{L}$ \hspace{7mm} $T = \qty{300}{K}$
+      \hspace{7mm} $RT\approx\qty{2.5e3}{\joule\per\mole}$\\[2pt]
+      $a = \qty{0.36}{\pascal\metre\tothe{6}\per\mole\squared}$ \hspace{7mm}
+      $b = \qty{4.0e-5}{\metre\cubed\per\mole}$ \ (rounded values for CO$_2$)}
+\answer{1,1,1,1}{6.6cm}{%
+  (a) $p_{\text{id}} = \dfrac{nRT}{V} = \dfrac{2.5\times10^{3}}{5.0\times10^{-4}}$ \qquad
+  $\boxed{p_{\text{id}} = 5.0\times10^{6}\ \mathrm{Pa}}$ \ (50~bar)\\[4pt]
+  (b) $\boxed{p = \dfrac{nRT}{V-nb} - a\dfrac{n^2}{V^2}}$, with
+  $V - nb = 5.0\times10^{-4} - 0.40\times10^{-4} = 4.6\times10^{-4}\ \mathrm{m^3}$:\\[3pt]
+  \hspace*{5mm}$\dfrac{nRT}{V-nb} = \dfrac{2.5\times10^{3}}{4.6\times10^{-4}}\approx5.4\times10^{6}\ \mathrm{Pa}$
+  \qquad $a\dfrac{n^2}{V^2} = \dfrac{0.36}{(5.0\times10^{-4})^2} = 1.44\times10^{6}\ \mathrm{Pa}$\\[3pt]
+  \hspace*{5mm}$\boxed{p\approx4.0\times10^{6}\ \mathrm{Pa}}$ \ (40~bar)\\[4pt]
+  (c) $Z = \dfrac{pV}{nRT} = \dfrac{p}{p_{\text{id}}}$ \qquad $\boxed{Z\approx0.80 < 1}$.
+  Attraction dominates, as on the Amagat diagram at moderate pressure.}
+\begin{scheme}
+\pt{1}{1 pt}{$p_{\text{id}} = 5.0\times10^{6}\ \mathrm{Pa}$.}
+\pt{2}{1 pt}{Van der Waals equation solved for $p$ (literal).}
+\pt{3}{1 pt}{$p\approx4.0\times10^{6}\ \mathrm{Pa}$.}
+\pt{4}{1 pt}{$Z\approx0.8$, attractions dominate.}
+\end{scheme}
+\begin{tip}
+Convert first: $0.50\ \mathrm L = 5.0\times10^{-4}\ \mathrm{m^3}$. Then $(5.0\times10^{-4})^2 =
+25\times10^{-8} = 2.5\times10^{-7}\ \mathrm{m^6}$: square the mantissa \emph{and} the power
+of ten.
+\end{tip}
+
+\finish
+\end{document}

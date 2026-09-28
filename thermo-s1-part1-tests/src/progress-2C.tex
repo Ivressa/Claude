@@ -1,0 +1,83 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 2.C --- Thermo-S1}
+         {2.C \,$\cdot$\, Thermoelastic coefficients: principle and method}
+         {10 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Quick calculation}{1 mark}
+At $p = \qty{1.0e5}{Pa}$, a gas has $\alpha = \qty{3.3e-3}{\per\kelvin}$ and
+$\chi_T = \qty{1.0e-5}{\per\pascal}$. Give its piezothermic coefficient $\beta$.
+\answer{1}{2.2cm}{%
+  $\beta = \dfrac{\alpha}{p\,\chi_T} = \dfrac{3.3\times10^{-3}}{1.0\times10^{5}\times1.0\times10^{-5}}$
+  \qquad $\boxed{\beta = 3.3\times10^{-3}\ \mathrm{K^{-1}}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$\beta = 3.3\times10^{-3}\ \mathrm{K^{-1}}$ (the product $p\chi_T$ is dimensionless).}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Relation between the coefficients}{5 marks}
+State the cyclic relation between the partial derivatives of $p$, $V$ and $T$. Use it to show
+that $\beta = \dfrac{\alpha}{p\,\chi_T}$.
+\answer{2,2,1}{6.4cm}{%
+  For the equation of state $f(p,V,T) = 0$:\qquad
+  $\boxed{\left(\dfrac{\partial p}{\partial T}\right)_{\!V}\left(\dfrac{\partial T}{\partial V}\right)_{\!p}
+   \left(\dfrac{\partial V}{\partial p}\right)_{\!T} = -1}$\\[6pt]
+  With $\left(\frac{\partial T}{\partial V}\right)_p = 1\big/\left(\frac{\partial V}{\partial T}\right)_p$:\\[3pt]
+  \hspace*{5mm}$\left(\dfrac{\partial p}{\partial T}\right)_{\!V}
+   = -\dfrac{\left(\partial V/\partial T\right)_p}{\left(\partial V/\partial p\right)_T}
+   = -\dfrac{\alpha V}{-\chi_T V} = \dfrac{\alpha}{\chi_T}$\\[5pt]
+  Hence $\beta = \dfrac1p\left(\dfrac{\partial p}{\partial T}\right)_{\!V}$ \quad gives \quad
+  $\boxed{\beta = \dfrac{\alpha}{p\,\chi_T}}$}
+\begin{scheme}
+\pt{1}{2 pts}{Cyclic relation, with the correct fixed variables and $-1$ on the right.}
+\pt{2}{2 pts}{$\left(\partial p/\partial T\right)_V = \alpha/\chi_T$, derived.}
+\pt{3}{1 pt}{$\beta = \alpha/(p\chi_T)$.}
+\end{scheme}
+\begin{tip}
+The product of the three derivatives is $-1$, not $+1$. Check the sign on an ideal gas:
+$\alpha = 1/T$ and $\chi_T = 1/p$ give $\beta = 1/T > 0$.
+\end{tip}
+
+% ---------------------------------------------------------------------------
+\exercise{Method in thermodynamics}{3 marks}
+\question{To obtain the equation of state from $\alpha$ and $\chi_T$, one must:}
+\opts{0}{differentiate}{1}{integrate}{0}{multiply them}{0}{average them}
+\why{knowing $\alpha$ and $\chi_T$ as functions of $(T,p)$, a double integration rebuilds
+  $V(T,p)$ (Fig.~8 of the notes).}
+\question{To obtain $\alpha$ from a known equation of state, one must:}
+\opts{1}{differentiate}{0}{integrate}{0}{invert it}{0}{plot it}
+\why{express $V(T,p)$, then compute the partial derivative $(\partial V/\partial T)_p$.}
+\question{The three coefficients $\alpha$, $\chi_T$ and $\beta$ are:}
+\opttwo{0}{independent of each other}{1}{linked by $\beta = \alpha/(p\chi_T)$}
+       {0}{always equal}{0}{all dimensionless}
+\why{only two of them are independent; the third follows from the cyclic relation.}
+
+% ---------------------------------------------------------------------------
+\exercise{From an equation of state to the coefficients}{5 marks}
+A gas obeys the equation of state $p\,(V - nb) = nRT$, where the co-volume $b$ is a positive
+constant. Compute $\alpha$, $\chi_T$ and $\beta$, then check that $\beta = \alpha/(p\chi_T)$.
+What do you find when $b\to0$?
+\answer{1,1,1,1,1}{7.0cm}{%
+  $V = \dfrac{nRT}{p} + nb$:\qquad
+  $\left(\dfrac{\partial V}{\partial T}\right)_{\!p} = \dfrac{nR}{p}$ \ so \
+  $\boxed{\alpha = \dfrac{nR}{pV}}$ \qquad
+  $\left(\dfrac{\partial V}{\partial p}\right)_{\!T} = -\dfrac{nRT}{p^2}$ \ so \
+  $\boxed{\chi_T = \dfrac{nRT}{p^2V}}$\\[6pt]
+  $p = \dfrac{nRT}{V-nb}$:\qquad
+  $\left(\dfrac{\partial p}{\partial T}\right)_{\!V} = \dfrac{nR}{V-nb} = \dfrac pT$ \ so \
+  $\boxed{\beta = \dfrac1T}$\\[6pt]
+  Check: $\dfrac{\alpha}{p\chi_T} = \dfrac{nR}{pV}\times\dfrac{p^2V}{p\,nRT} = \dfrac1T = \beta$.
+  \checkmark\\[4pt]
+  When $b\to0$: $V = nRT/p$, so $\alpha = \dfrac1T$ and $\chi_T = \dfrac1p$, the values for the
+  ideal gas (3.A).}
+\begin{scheme}
+\pt{1}{1 pt}{$\alpha = nR/(pV)$.}
+\pt{2}{1 pt}{$\chi_T = nRT/(p^2V)$.}
+\pt{3}{1 pt}{$\beta = 1/T$.}
+\pt{4}{1 pt}{Relation checked.}
+\pt{5}{1 pt}{Limit $b\to0$: $\alpha = 1/T$, $\chi_T = 1/p$.}
+\end{scheme}
+
+\finish
+\end{document}

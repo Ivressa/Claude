@@ -1,0 +1,89 @@
+\documentclass{ibetest}
+\begin{document}
+\maketest{Progress Test 1.C --- Thermo-S1}
+         {1.C \,$\cdot$\, Equations of state and state functions}
+         {7 minutes}{14}
+
+% ---------------------------------------------------------------------------
+\exercise{Unit conversion}{1 mark}
+Convert the pressure $p = \qty{1013}{\hecto\pascal}$ into bar. Give the exact result.
+\answer{1}{2.2cm}{%
+  $p = 1013\times10^{2}\ \mathrm{Pa} = 1.013\times10^{5}\ \mathrm{Pa}$ \quad and \quad
+  $1\ \mathrm{bar} = 10^{5}\ \mathrm{Pa}$ \qquad $\boxed{p = 1.013\ \mathrm{bar}}$}
+\begin{scheme}
+\pt{1}{1 pt}{$1.013$~bar.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{Equation of state and state function --- definitions}{5 marks}
+Define an equation of state. Write the total differential $\dd V$ of the state function
+$V(T,p)$. Give the meaning of the partial derivative $\left(\frac{\partial V}{\partial p}\right)_T$,
+and its geometric interpretation in a state diagram.
+\answer{2,2,1}{6.0cm}{%
+  An \textbf{equation of state} is a relation $f(p,V,T) = 0$ (at given $n$) between the state
+  variables of a system \textbf{at equilibrium}. It characterises the substance and holds only
+  at equilibrium.\\[5pt]
+  $\boxed{\dd V = \left(\dfrac{\partial V}{\partial T}\right)_{\!p}\dd T
+    + \left(\dfrac{\partial V}{\partial p}\right)_{\!T}\dd p}$\\[5pt]
+  $\left(\frac{\partial V}{\partial p}\right)_T$ is the rate of change of $V$ with $p$
+  \textbf{at fixed $T$}. It is the \textbf{slope of the isotherm} $V(p)$ in the $(p,V)$
+  diagram, and it is negative for a gas.}
+\begin{scheme}
+\pt{1}{2 pts}{Relation between $p$, $V$, $T$ (1~pt), valid only at equilibrium and specific to
+  the substance (1~pt).}
+\pt{2}{2 pts}{Total differential with both partial derivatives and their fixed variables.}
+\pt{3}{1 pt}{Variation with $p$ at fixed $T$; slope of the isotherm.}
+\end{scheme}
+
+% ---------------------------------------------------------------------------
+\exercise{State diagrams}{4 marks}
+\question{The curve $V(p)$ measured at constant temperature is called:}
+\opts{1}{an isotherm}{0}{an isobar}{0}{an isochore}{0}{an adiabat}
+\why{``iso-therm'': same temperature. At constant $p$ it would be an isobar; at constant $V$,
+  an isochore.}
+\question{For a low-density gas, $\left(\frac{\partial V}{\partial p}\right)_T$ is:}
+\opts{0}{positive}{1}{negative}{0}{zero}{0}{infinite}
+\why{at fixed $T$, compressing the gas (larger $p$) reduces its volume (Fig.~7 of the notes).}
+\question{On the curve $V(T)$ at constant $p$, $\left(\frac{\partial V}{\partial T}\right)_p$
+  is:}
+\opttwo{1}{the slope of the curve}{0}{the area under the curve}{0}{the intercept at $T = 0$}
+       {0}{the value of $V$}
+\why{a partial derivative is read as the slope of the state diagram in which the other
+  variable is held fixed.}
+\question{An equation of state is valid:}
+\opttwo{0}{during any transformation}{1}{only at thermodynamic equilibrium}
+       {0}{only for ideal gases}{0}{only at $0\ ^\circ$C}
+\why{``By construction, the equation of state is valid only at thermodynamic equilibrium''
+  (Box~9).}
+
+% ---------------------------------------------------------------------------
+\exercise{Partial derivatives of a state function}{4 marks}
+A gas obeys the equation of state $V = nRT/p$, which is given here. Compute
+$\left(\frac{\partial V}{\partial T}\right)_p$ and $\left(\frac{\partial V}{\partial p}\right)_T$
+in the state below. Then compute the variation $\dd V$ when $T$ increases by $\dd T$ and $p$
+increases by $\dd p$ at the same time. Comment.
+\data{$n = \qty{1.0}{mol}$ \hspace{10mm} $R = \qty{8.3}{\joule\per\kelvin\per\mole}$ \hspace{10mm}
+      $T = \qty{300}{K}$ \hspace{10mm} $p = \qty{1.0e5}{Pa}$\\[2pt]
+      $\dd T = \qty{3.0}{K}$ \hspace{12mm} $\dd p = \qty{1.0e3}{Pa}$}
+\answer{1,1,1,1}{6.4cm}{%
+  $\left(\dfrac{\partial V}{\partial T}\right)_{\!p} = \dfrac{nR}{p}
+   = \dfrac{1.0\times8.3}{1.0\times10^{5}} = 8.3\times10^{-5}\ \mathrm{m^3\,K^{-1}}$\\[4pt]
+  $\left(\dfrac{\partial V}{\partial p}\right)_{\!T} = -\dfrac{nRT}{p^2}
+   = -\dfrac{8.3\times300}{10^{10}} \approx -2.5\times10^{-7}\ \mathrm{m^3\,Pa^{-1}}$\\[4pt]
+  $\dd V = 8.3\times10^{-5}\times3.0 - 2.49\times10^{-7}\times1.0\times10^{3}
+         = 2.49\times10^{-4} - 2.49\times10^{-4}$ \qquad $\boxed{\dd V = 0}$\\[4pt]
+  Dividing by $V$: $\frac{\dd V}{V} = \frac{\dd T}{T} - \frac{\dd p}{p} = 1\,\% - 1\,\% = 0$.
+  $T$ and $p$ rise by the same relative amount, so their two effects on $V$ cancel.}
+\begin{scheme}
+\pt{1}{1 pt}{$\left(\frac{\partial V}{\partial T}\right)_p = nR/p$ (literal).}
+\pt{2}{1 pt}{$\left(\frac{\partial V}{\partial p}\right)_T = -nRT/p^2$ (literal).}
+\pt{3}{1 pt}{Both values, with units $\mathrm{m^3\,K^{-1}}$ and $\mathrm{m^3\,Pa^{-1}}$.}
+\pt{4}{1 pt}{$\dd V = 0$, explained.}
+\end{scheme}
+\begin{tip}
+The unit of a partial derivative is (unit of the numerator)/(unit of the variable), e.g.\
+$\mathrm{m^3\,K^{-1}}$. Writing it is exactly the ``where are the units?'' remark of Test~1.
+\end{tip}
+
+\finish
+\end{document}
