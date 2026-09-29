@@ -1,0 +1,307 @@
+% ============================== UNIT 5 =====================================
+\unitheading{5}{Atomic properties and periodicity}
+
+\textit{Handout chapter 5, sections 5.1--5.5 (pages 16--20).} Five properties of atoms (mass, radius,
+ionisation energy, polarisability, electronegativity) and how they vary across the periodic table. Most
+trends are explained by two ideas: the shell $n$ of the valence electrons and the effective nuclear
+charge they feel.
+
+\partheading{Concepts in detail}
+
+\sect{Key idea}{Effective nuclear charge, the key to every trend}
+\begin{concept}[Screening and effective nuclear charge $Z_\mathrm{eff}$.]
+A valence electron is attracted by the $Z$ protons but repelled by the other electrons, especially the
+core electrons between it and the nucleus. It feels only an effective charge
+$Z_\mathrm{eff} = Z - \sigma$, where $\sigma$ (the screening constant) measures the shielding by the
+other electrons.
+\end{concept}
+\begin{itemize}
+  \item \textbf{Across a period} (left to right): one proton and one valence electron are added each
+        time, but electrons of the same shell screen each other poorly. $Z_\mathrm{eff}$ increases
+        (roughly $+0.65$ per step), the valence shell $n$ stays the same: valence electrons are held more
+        tightly.
+  \item \textbf{Down a group}: $Z_\mathrm{eff}$ changes little, but $n$ increases by one: the valence
+        electrons are in a larger shell, further from the nucleus, and held more loosely.
+\end{itemize}
+\begin{going}
+Slater's rules estimate $\sigma$ for an $n$s or $n$p electron: each other electron of the same shell
+contributes 0.35 (0.30 in 1s), each electron of shell $n-1$ contributes 0.85, each electron of lower
+shells 1.00. Example, Cl ($[\mathrm{Ne}]\,3\mathrm s^2 3\mathrm p^5$): $\sigma = 6\times0.35 + 8\times0.85 +
+2\times1.00 = 10.9$ (the 6 other valence electrons, then the 8 electrons of shell 2, then the 2 of shell 1),
+so $Z_\mathrm{eff} = 17 - 10.9 = 6.1$. Na: $\sigma = 8\times0.85 + 2 = 8.8$, $Z_\mathrm{eff} = 2.2$.
+\end{going}
+
+\sect{5.1}{Atomic mass}
+\begin{concept}[Atomic mass.]
+The mass of one atom, in atomic mass units (amu). It is close to the mass number $A$ (protons +
+neutrons, each $\approx1$~amu); the electrons are negligible (Unit 1). Numerically, the atomic mass in amu
+equals the molar mass in $\mathrm{g\,mol^{-1}}$.
+\end{concept}
+\textbf{Measurement}: the mass spectrometer ionises the atoms, accelerates them and separates them by
+mass-to-charge ratio in a magnetic or electric field. It gives the mass of each isotope and its
+abundance.
+\begin{handout}{bullets of 5.1.2, trend in the periodic table}
+\begin{itemize}
+  \item The atomic mass increases with $Z$ along a period: each step adds a proton and usually one or
+        more neutrons.
+  \item It increases down a group (a whole period of nucleons is added). There are a few
+        \emph{inversions}, where mass and $Z$ are not in the same order: Ar/K, Co/Ni, Te/I.
+\end{itemize}
+\end{handout}
+\begin{concept}[Average atomic mass.]
+Most elements are mixtures of isotopes. The tabulated atomic mass is the average of the isotope
+masses weighted by their natural abundances $x_i$ (fractions, $\sum x_i = 1$):
+$\boxed{\bar m = \sum_i x_i\,m_i}$.
+\end{concept}
+\begin{handout}{chlorine, argon and potassium example}
+\begin{itemize}
+\item Cl: $\bar m = 0.7577\times34.97 + 0.2423\times36.97 = 26.50 + 8.96 = \mathbf{35.45}$~amu
+(closer to 35 because $\iso{35}{Cl}$ is more abundant).
+\item Ar: almost pure $\iso{40}{Ar}$: $\bar m \approx 39.96$~amu (the 0.4\,\% of $\iso{36}{Ar}$ and $\iso{38}{Ar}$
+lowers it to 39.95).
+\item K: $\bar m = 0.9326\times38.96 + 0.0673\times40.96 = 36.33 + 2.76 = \mathbf{39.09}$~amu.
+\end{itemize}
+Conclusion: argon ($Z = 18$) is heavier than potassium ($Z = 19$). Ordering by mass, as Mendeleev did,
+would put K before Ar, in the column of the noble gases, which is chemically absurd. The periodic table is
+ordered by $Z$, not by mass.
+\end{handout}
+
+\sect{5.2}{Atomic radius}
+\begin{concept}[Atomic radius.]
+The distance from the nucleus to the outer edge of the electron cloud: the radius of the highest
+occupied AO, i.e.\ the position of the maximum of its radial probability density. Since the density
+fades out gradually, it is measured indirectly from distances between nuclei in molecules and solids.
+\end{concept}
+\begin{center}\small
+\begin{tabular}{@{}l p{112mm}@{}}
+\toprule
+Covalent radius & half the distance between two identical bonded atoms ($\ce{H2}$, $\ce{Cl2}$ \dots)\\
+Metallic radius & half the distance between neighbouring atoms in a metal crystal (Cu, Au)\\
+Van der Waals radius & half the distance between two identical non-bonded atoms touching in a solid;
+much larger than the covalent radius (used for noble gases, marked ``vdw'' in Table 5-1)\\
+Ionic radius & from distances between ions in an ionic crystal; cation $<$ atom $<$ anion\\ \bottomrule
+\end{tabular}
+\end{center}
+\begin{handout}{bullets and box of 5.2.2, trend of the atomic radius}
+\begin{itemize}
+  \item The radius \textbf{increases down a group} (Li 157, Na 191, K 235, Rb 250, Cs 272~pm).
+  \item The radius \textbf{decreases across a period} (Li 157 $\to$ F 64~pm; Na 191 $\to$ Cl 99~pm).
+        The largest atoms are at the bottom left (Cs), the smallest at the top right.
+\end{itemize}
+\begin{tabular}{p{0.46\linewidth}|p{0.46\linewidth}}
+\textbf{Down a group:} each period adds a shell; the valence electrons are in an orbital of larger $n$
+($r\propto n^2/Z_\mathrm{eff}$), while $Z_\mathrm{eff}$ barely changes. The atom gets bigger. &
+\textbf{Across a period:} same valence shell $n$, but $Z_\mathrm{eff}$ increases (poor screening within
+a shell), so the cloud is pulled closer to the nucleus. The atom gets smaller.
+\end{tabular}\\[3pt]
+The noble gas values (``vdw'') are van der Waals radii and cannot be compared with the others: that is
+why Ne (154~pm) looks larger than F (64~pm).
+\end{handout}
+\begin{concept}[Ions.]
+A cation is smaller than its atom (fewer electrons, less repulsion; often a whole shell lost:
+$\ce{Na+}$ is $[\mathrm{Ne}]$). An anion is larger (extra electron, more repulsion, same nuclear charge).
+In an isoelectronic series the radius decreases as $Z$ increases:
+$r(\ce{O^2-}) > r(\ce{F-}) > r(\ce{Na+}) > r(\ce{Mg^2+})$ (all 10 electrons, 8 to 12 protons).
+\end{concept}
+
+\sect{5.3}{Ionisation energy}
+\begin{concept}[(First) ionisation energy $E_I$.]
+The minimum energy needed to remove the outermost electron from an atom in the gas phase:
+$\mathrm X(\mathrm g)\to\mathrm X^+(\mathrm g) + \mathrm e^-$. Given in $\mathrm{kJ\,mol^{-1}}$ in chemistry
+($1\ \mathrm{eV\ per\ atom} = 96.5\ \mathrm{kJ\,mol^{-1}}$). It is always positive. The second ionisation
+energy removes a second electron from $\mathrm X^+$, and so on; each is larger than the previous one.
+\end{concept}
+\textbf{Measurement}: by atomic spectroscopy, from the series limit (for H, the Lyman limit at 91.2~nm gives
+13.6~eV, Unit 2), or by photoelectron spectroscopy (PES): a photon of known energy $h\nu$ ejects an
+electron whose kinetic energy $E_k$ is measured, and $E_I = h\nu - E_k$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=0.92\linewidth, height=5.2cm, xlabel={$Z$}, ylabel={$E_I$ (kJ\,mol$^{-1}$)},
+  xmin=0.5, xmax=20.5, ymin=0, ymax=2600, xtick={1,...,20}, tick label style={font=\scriptsize},
+  label style={font=\small}, grid=major, grid style={black!10}]
+\addplot[heading, thick, mark=*, mark size=1.4pt] coordinates {(1,1312)(2,2372)(3,520)(4,900)(5,801)
+  (6,1086)(7,1402)(8,1314)(9,1681)(10,2081)(11,496)(12,738)(13,578)(14,787)(15,1012)(16,1000)(17,1251)
+  (18,1521)(19,419)(20,590)};
+\node[font=\tiny, above] at (axis cs:1,1312) {H};
+\node[font=\tiny, above] at (axis cs:2,2372) {He};
+\node[font=\tiny, above] at (axis cs:3,520) {Li};
+\node[font=\tiny, above] at (axis cs:4,900) {Be};
+\node[font=\tiny, above] at (axis cs:5,801) {B};
+\node[font=\tiny, above] at (axis cs:7,1402) {N};
+\node[font=\tiny, above] at (axis cs:8,1314) {O};
+\node[font=\tiny, above] at (axis cs:10,2081) {Ne};
+\node[font=\tiny, above] at (axis cs:11,496) {Na};
+\node[font=\tiny, above] at (axis cs:12,738) {Mg};
+\node[font=\tiny, above] at (axis cs:13,578) {Al};
+\node[font=\tiny, above] at (axis cs:15,1012) {P};
+\node[font=\tiny, above] at (axis cs:16,1000) {S};
+\node[font=\tiny, above] at (axis cs:18,1521) {Ar};
+\node[font=\tiny, above] at (axis cs:19,419) {K};
+\end{axis}
+\end{tikzpicture}\\
+{\small First ionisation energies of the first 20 elements (Table 5-2; H: 1312).}
+\end{center}
+\begin{handout}{bullets and box of 5.3.2, trend of the ionisation energy}
+Hydrogen, missing in Table 5-2: $E_I = 13.6$~eV $= 1312\ \mathrm{kJ\,mol^{-1}}$.
+\begin{itemize}
+  \item $E_I$ \textbf{increases across a period} (Li 520 $\to$ Ne 2081): $Z_\mathrm{eff}$ increases and
+        the atom shrinks, so the electron is held more strongly. Noble gases have the highest values.
+  \item $E_I$ \textbf{decreases down a group} (He 2372 $\to$ Rn 1037; Li 520 $\to$ Cs 376): the electron
+        is further from the nucleus. Alkali metals have the lowest values.
+  \item The increase across a period has two small \textbf{dips}: group 2 $\to$ 13 (Be 900 $>$ B 801,
+        Mg 738 $>$ Al 578) and group 15 $\to$ 16 (N 1402 $>$ O 1314, P 1012 $>$ S 1000).
+\end{itemize}
+\begin{tabular}{p{0.46\linewidth}|p{0.46\linewidth}}
+\textbf{Be $>$ B:} the electron removed from B is its single 2p electron, which is higher in energy (and
+screened by 2s) than the 2s electron removed from Be. Be \obox{d}\;\obox{e,e,e} vs B \obox{d}\;\obox{u,e,e}. &
+\textbf{N $>$ O:} N has a half-filled 2p (\obox{u,u,u}), each electron alone in its orbital. In O
+(\obox{d,u,u}) one orbital holds a pair; their mutual repulsion makes one of them easier to remove.
+\end{tabular}
+\end{handout}
+\begin{concept}[Successive ionisation energies.]
+They increase slowly while valence electrons are removed, then jump enormously when the first core
+electron is reached. The position of the jump gives the number of valence electrons. Mg: 738, 1451,
+\textbf{7733}, 10\,543~$\mathrm{kJ\,mol^{-1}}$: the jump after the 2nd electron shows 2 valence electrons
+(group 2).
+\end{concept}
+
+\sect{5.4}{Polarisability}
+\begin{concept}[Polar entity and dipole moment.]
+An entity is polar when the barycentres of its positive and negative charges do not coincide. It is
+modelled by two charges $+q$ and $-q$ at a distance $d$, with dipole moment
+$\boxed{\vec\mu = q\,\vec d}$, from $-q$ to $+q$ (the chemists' convention). SI unit: C\,m; in chemistry the
+debye, $1\ \mathrm D = 3.336\times10^{-30}$~C\,m.
+\end{concept}
+\begin{concept}[Polarisability $\alpha$.]
+How easily the electron cloud of an atom is distorted by an external electric field $\vec E$, creating an
+induced dipole $\vec\mu_\mathrm{ind} = \alpha\vec E$. A large, diffuse, loosely held cloud is very
+polarisable.
+\end{concept}
+\textbf{Measurement}: from the change of the refractive index of the substance in an electric field
+(light itself is an oscillating field that distorts the clouds).
+\begin{handout}{bullets of 5.4.2, trend of the polarisability}
+\begin{itemize}
+  \item Polarisability \textbf{increases down a group}: larger atoms, valence electrons further from the
+        nucleus and better screened (I $>$ Br $>$ Cl $>$ F; Xe $>$ Kr $>$ Ar).
+  \item It \textbf{decreases across a period}: the atoms shrink and $Z_\mathrm{eff}$ holds the cloud
+        more tightly. It follows the atomic radius. Anions are more polarisable than cations.
+\end{itemize}
+\end{handout}
+Consequence: large polarisable atoms attract each other more (London forces), which is why the boiling
+points rise from $\ce{F2}$ (gas) to $\ce{I2}$ (solid) and from He to Rn.
+
+\sect{5.5}{Electronegativity}
+\begin{handout}{box of 5.5, bond A--A versus bond A--B}
+\begin{tabular}{p{0.46\linewidth}|p{0.46\linewidth}}
+\centering\textbf{A--A} (e.g.\ H--H, Cl--Cl) & \centering\textbf{A--B} (e.g.\ H--Cl)\tabularnewline
+\centering
+\begin{tikzpicture}
+  \shade[ball color=heading!25, opacity=0.8] (0,0) ellipse (1.5 and 0.55);
+  \fill (-0.6,0) circle (2pt) node[below=2pt, font=\scriptsize] {A};
+  \fill (0.6,0) circle (2pt) node[below=2pt, font=\scriptsize] {A};
+\end{tikzpicture} &
+\centering
+\begin{tikzpicture}
+  \shade[ball color=heading!25, opacity=0.8] (0.25,0) ellipse (1.55 and 0.6);
+  \fill (-0.6,0) circle (2pt) node[below=2pt, font=\scriptsize] {A};
+  \fill (0.6,0) circle (2pt) node[below=2pt, font=\scriptsize] {B};
+  \node[font=\scriptsize] at (-0.6,0.35) {$\delta+$}; \node[font=\scriptsize] at (0.75,0.35) {$\delta-$};
+\end{tikzpicture}\tabularnewline
+The shared electrons are equally attracted by both atoms: symmetric density, \textbf{non-polar} bond. &
+B attracts the bonding electrons more than A: the density is shifted towards B, which carries a partial
+charge $\delta-$ (A: $\delta+$). The bond is \textbf{polar} and has a dipole moment.
+\end{tabular}
+\end{handout}
+\begin{concept}[Electronegativity $\chi$.]
+The ability of an atom, \emph{in a bond}, to attract the shared electron density towards itself. It is a
+relative number without unit. The larger $\chi_B - \chi_A$, the more polar the bond A--B; for a very large
+difference ($\gtrsim 2$) the bond becomes ionic (NaCl).
+\end{concept}
+\subsect{5.5.1\quad Measurement: two scales}
+\textbf{Pauling (experimental).} A polar bond A--B is \emph{stronger} than expected from the bonds
+A--A and B--B, because the partial charges attract. The excess energy
+$\Delta = D_{AB} - \sqrt{D_{AA}\,D_{BB}}$ (bond dissociation energies in $\mathrm{kJ\,mol^{-1}}$) gives
+\[\boxed{|\chi_A - \chi_B| = 0.102\,\sqrt{\Delta}}\qquad\text{and the scale is anchored by }
+\chi_\mathrm H = 2.20\ \text{(or } \chi_\mathrm F = 3.98).\]
+\begin{worked}[: H--F from Table 5-3]
+$\sqrt{436\times158} = 262.5$;\ $\Delta = 567 - 262.5 = 304.5\ \mathrm{kJ\,mol^{-1}}$;\
+$|\chi_\mathrm F - \chi_\mathrm H| = 0.102\sqrt{304.5} = 1.78$, so $\chi_\mathrm F = 2.20 + 1.78 = 3.98$, the
+value of Table 5-4. For H--I the same formula gives 0.66 (so $\chi_\mathrm I \approx 2.86$ instead of 2.66):
+the tabulated values are a best fit over many molecules, and a single pair only gives an estimate.
+(Pauling's original version used the arithmetic mean $\frac12(D_{AA} + D_{BB})$ and energies in eV:
+$|\chi_A - \chi_B| = \sqrt{\Delta/(96.5\ \mathrm{kJ\,mol^{-1}})}$; use the version given in class.)
+\end{worked}
+\textbf{Allred--Rochow (theoretical).} Based on the electrostatic force felt by a valence electron at
+the covalent radius $r$: $\chi = 0.359\,Z_\mathrm{eff}/r^2 + 0.744$ ($r$ in \AA). Large $Z_\mathrm{eff}$
+and small radius mean high electronegativity. Both scales give very similar values.
+\begin{handout}{bullets of 5.5.2, trend of the electronegativity}
+\begin{itemize}
+  \item $\chi$ \textbf{increases across a period} (Li 0.98 $\to$ F 3.98): $Z_\mathrm{eff}$ increases
+        and the radius decreases. \textbf{Fluorine} is the most electronegative element, then O (3.44),
+        then N and Cl.
+  \item $\chi$ \textbf{decreases down a group} (F 3.98 $\to$ I 2.66; Li 0.98 $\to$ Cs 0.79): larger
+        atoms hold bonding electrons less. Noble gases have no value (they hardly form bonds).
+\end{itemize}
+Metals (bottom left) have low $\chi$ and form cations; non-metals (top right) have high $\chi$.
+\end{handout}
+
+\begin{center}\small
+\begin{tabular}{@{}l c c@{}}
+\toprule
+\textbf{Summary} & across a period $\rightarrow$ ($Z_\mathrm{eff}\nearrow$, same $n$) &
+down a group $\downarrow$ ($n\nearrow$)\\ \midrule
+atomic radius & decreases & increases\\
+ionisation energy & increases & decreases\\
+polarisability & decreases & increases\\
+electronegativity & increases & decreases\\
+atomic mass & increases & increases\\ \bottomrule
+\end{tabular}
+\end{center}
+\begin{trap}
+Do not mix up electronegativity (an atom \emph{in a bond} attracting shared electrons) and ionisation
+energy (an \emph{isolated} atom losing an electron). Compare radii only within the same type
+(covalent with covalent). ``Across a period'' trends apply to the s and p blocks; in the d block the
+changes are much smaller.
+\end{trap}
+
+% ------------------------------------------------------------------ recap
+\clearpage
+\begin{recap}{Unit 5: atomic properties and periodicity}
+\recapsub{Definitions}
+\textbf{Atomic mass}: mass of one atom in amu; tabulated value = abundance-weighted average of the isotopes,
+$\bar m = \sum x_i m_i$.\\
+\textbf{Atomic radius}: radius of the highest occupied AO; measured as covalent, metallic, van der Waals
+or ionic radius.\\
+\textbf{Ionisation energy}: minimum energy for $\mathrm X(\mathrm g)\to\mathrm X^+(\mathrm g) + \mathrm e^-$,
+in $\mathrm{kJ\,mol^{-1}}$.\\
+\textbf{Polarisability}: ease of distortion of the electron cloud by an electric field; dipole
+$\mu = qd$ (1~D $= 3.336\times10^{-30}$~C\,m).\\
+\textbf{Electronegativity} $\chi$: ability of an atom in a bond to attract the shared electrons; no unit.
+
+\recapsub{Trends}
+\begin{tabular}{@{}l c c l@{}}
+\toprule
+ & across a period $\rightarrow$ & down a group $\downarrow$ & extremes\\ \midrule
+radius & $\searrow$ & $\nearrow$ & Cs largest, He/F smallest\\
+ionisation energy & $\nearrow$ (dips at 13 and 16) & $\searrow$ & He highest, Cs lowest\\
+polarisability & $\searrow$ & $\nearrow$ & follows the radius\\
+electronegativity & $\nearrow$ & $\searrow$ & F 3.98 highest, Cs/Fr lowest\\ \bottomrule
+\end{tabular}\\[2pt]
+Explanation: across a period $Z_\mathrm{eff}$ increases with the same $n$; down a group $n$ increases.
+
+\recapsub{Formulas and numbers}
+$\bar m = \sum x_i m_i$\quad(Cl 35.45, K 39.09, Ar 39.95).\quad
+$1\ \mathrm{eV/atom} = 96.5\ \mathrm{kJ\,mol^{-1}}$.\quad PES: $E_I = h\nu - E_k$.\\
+Pauling: $|\chi_A - \chi_B| = 0.102\sqrt{\Delta}$, $\Delta = D_{AB} - \sqrt{D_{AA}D_{BB}}$ (kJ\,mol$^{-1}$).\quad
+Allred--Rochow: $\chi = 0.359\,Z_\mathrm{eff}/r^2 + 0.744$ ($r$ in \AA).
+
+\recapsub{You should be able to}
+\begin{itemize}
+  \item compute an average atomic mass, or an abundance from an average mass;
+  \item rank atoms and isoelectronic ions by radius, ionisation energy, polarisability or electronegativity,
+        and justify with $n$ and $Z_\mathrm{eff}$;
+  \item explain the Be/B and N/O anomalies with box diagrams;
+  \item read successive ionisation energies to find the group;
+  \item use the Pauling formula and judge the polarity of a bond.
+\end{itemize}
+\end{recap}

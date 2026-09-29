@@ -1,0 +1,12 @@
+\documentclass[11pt]{article}
+\usepackage{chemguide}
+\ifkey\renewcommand{\doctype}{Worksheet answers}\else\renewcommand{\doctype}{Worksheets}\fi
+\begin{document}
+\input{ws-cover}
+\newcommand{\wsunit}[1]{\clearpage\input{ws#1}}
+\wsunit{1}
+\IfFileExists{ws2.tex}{\wsunit{2}}{}
+\IfFileExists{ws3.tex}{\wsunit{3}}{}
+\IfFileExists{ws4.tex}{\wsunit{4}}{}
+\IfFileExists{ws5.tex}{\wsunit{5}}{}
+\end{document}

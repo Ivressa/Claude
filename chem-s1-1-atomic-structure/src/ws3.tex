@@ -1,0 +1,166 @@
+% ============================ WORKSHEET 3 ==================================
+\worksheetheading{3}{Quantum numbers and atomic orbitals}
+\data{$c = \SI{3.00e8}{\metre\per\second}$\quad $h = \SI{6.62e-34}{\joule\second}$\quad
+$1\ \mathrm{eV} = \SI{1.6e-19}{\joule}$\quad $a_0 = 52.9$~pm\quad
+hydrogen-like species: $E_n = -13.6\,Z^2/n^2$~eV, $r = n^2a_0/Z$. Calculator allowed.}
+
+\wq{1}{The third shell}
+For $n = 3$, list the allowed values of $\ell$ with the name of each subshell, and the values of
+$m_\ell$ for each. How many orbitals does the shell contain?
+\begin{solution}
+$\ell = 0$ (3s): $m_\ell = 0$.\quad $\ell = 1$ (3p): $m_\ell = -1, 0, +1$.\quad
+$\ell = 2$ (3d): $m_\ell = -2, -1, 0, +1, +2$.\quad Total $1 + 3 + 5 = 9 = 3^2$ orbitals.
+\end{solution}
+
+\wq{1}{Allowed or not?}
+Which of these sets $(n, \ell, m_\ell)$ are allowed? Name the orbital when it is, and give the reason
+when it is not: (a) $(2, 2, 0)$; (b) $(3, 1, -1)$; (c) $(1, 0, 1)$; (d) $(4, 3, -2)$;
+(e) $(2, 1, 2)$; (f) $(5, 0, 0)$.
+\begin{solution}
+(a) No: $\ell\le n-1 = 1$.\quad (b) Yes, 3p.\quad (c) No: $\ell = 0$ forces $m_\ell = 0$.\quad
+(d) Yes, 4f.\quad (e) No: $|m_\ell|\le\ell = 1$.\quad (f) Yes, 5s.
+\end{solution}
+
+\wq{1}{Naming wavefunctions}
+Name the orbital described by $\Psi_{2,0,0}$, $\Psi_{3,1,1}$, $\Psi_{4,2,-2}$ and $\Psi_{4,3,0}$.
+Conversely, give all the wavefunctions of the 2p subshell.
+\begin{solution}
+2s, 3p, 4d, 4f.\quad 2p: $\Psi_{2,1,-1}$, $\Psi_{2,1,0}$, $\Psi_{2,1,1}$.
+\end{solution}
+
+\wq{1}{Spin and boundary surfaces}
+(a) Which values can $m_s$ take, and how are they drawn? Which experiment revealed spin?
+(b) What is a boundary surface? What is the shape of the boundary surface of an s orbital, and of a p
+orbital?
+\begin{solution}
+(a) $m_s = +\frac12$ ($\uparrow$) or $-\frac12$ ($\downarrow$). The splitting of the sodium D line into
+two lines (589.0 and 589.6~nm).\\
+(b) A surface enclosing a given probability (usually 95\,\%) of finding the electron. s: a sphere
+centred on the nucleus; p: two lobes on either side of the nucleus along one axis (dumbbell), separated by
+a nodal plane.
+\end{solution}
+
+\wq{2}{Energies and degeneracy in hydrogen}
+(a) Give the energy of the electron of hydrogen described by $\Psi_{3,2,-1}$ and by $\Psi_{3,0,0}$.
+What word describes this situation? (b) How many degenerate orbitals are there in the shell $n = 4$ of
+hydrogen?
+\begin{solution}
+(a) Both have $n = 3$: $E_3 = -13.6/9 = -1.51$~eV. In hydrogen the energy depends only on $n$: the 3d
+and 3s orbitals are \textbf{degenerate}.\\
+(b) $n^2 = 16$ (one 4s, three 4p, five 4d, seven 4f).
+\end{solution}
+
+\wq{2}{Ground or excited?}
+For the hydrogen atom, say which orbital is occupied, whether the atom is in its ground state or an
+excited state, and its energy, when the electron is described by (a) $\Psi_{1,0,0}$,
+(b) $\Psi_{2,1,0}$, (c) $\Psi_{3,2,1}$. (d) How much energy is needed to go from (a) to (b)?
+\begin{solution}
+(a) 1s, ground state, $-13.6$~eV.\quad (b) 2p, excited, $-3.40$~eV.\quad (c) 3d, excited, $-1.51$~eV.\\
+(d) $-3.40 - (-13.6) = 10.2$~eV (a UV photon of 122~nm).
+\end{solution}
+
+\wq{2}{Counting nodes}
+Give the number of radial nodes, angular nodes and total nodes of the 2s, 3p, 3d, 4s and 4f orbitals.
+Check the 3s, 3p and 3d cases on Figure 3-3 of the handout.
+\begin{solution}
+Radial $n-\ell-1$, angular $\ell$, total $n-1$:\quad
+2s: 1, 0, 1;\quad 3p: 1, 1, 2;\quad 3d: 0, 2, 2;\quad 4s: 3, 0, 3;\quad 4f: 0, 3, 3.\\
+On Figure 3-3, the radial curve of 3s falls to zero twice before its main maximum (2 radial nodes),
+3p once (1) and 3d never (0).
+\end{solution}
+
+\wq{2}{The three p orbitals}
+For each of p$_x$, p$_y$ and p$_z$, give the axis along which it points and its nodal plane. Which
+one corresponds to $m_\ell = 0$? What happens to the sign of the wavefunction from one lobe to the other?
+\begin{solution}
+p$_x$: along $x$, nodal plane (yOz).\quad p$_y$: along $y$, nodal plane (xOz).\quad
+p$_z$: along $z$, nodal plane (xOy). p$_z$ corresponds to $m_\ell = 0$ (p$_x$ and p$_y$ are combinations of
+$m_\ell = \pm1$). The wavefunction changes sign across the nodal plane: the two lobes have opposite
+signs (opposite colours).
+\end{solution}
+
+\wq{3}{Size of orbitals}
+Using $r = n^2a_0/Z$, compute the radius of: (a) the 1s, 2s and 3s orbitals of hydrogen;
+(b) the 1s orbital of $\ce{He+}$ and of $\ce{Li^2+}$. (c) Explain in one sentence the effect of $n$ and
+of $Z$.
+\begin{solution}
+(a) H: 1s: 52.9~pm; 2s: $4\times52.9 = 212$~pm; 3s: $9\times52.9 = 476$~pm.\\
+(b) $\ce{He+}$ ($Z = 2$): $52.9/2 = 26.5$~pm; $\ce{Li^2+}$ ($Z = 3$): $52.9/3 = 17.6$~pm.\\
+(c) The orbital grows as $n^2$ (the electron is less bound and further out) and shrinks as $1/Z$
+(a larger nuclear charge pulls the electron closer).
+\end{solution}
+
+\wq{3}{Ordering subshells}
+Using Madelung's rule, write $n+\ell$ for each subshell and put them in order of increasing energy:
+5s, 4f, 3d, 4p, 6s, 4d, 5p, 4s.
+\begin{solution}
+$n+\ell$: 4s: 4;\ 3d: 5;\ 4p: 5;\ 5s: 5;\ 4d: 6;\ 5p: 6;\ 6s: 6;\ 4f: 7.\\
+Order (equal $n+\ell$ sorted by increasing $n$): 4s $<$ 3d $<$ 4p $<$ 5s $<$ 4d $<$ 5p $<$ 6s $<$ 4f.
+\end{solution}
+
+\wq{3}{Hydrogen versus potassium}
+In hydrogen the 3d orbitals have the same energy as 3s, and lie far below 4s. In potassium
+($Z = 19$) the 4s orbital is lower than 3d. (a) Which approximation lets us still use the labels
+1s, 2s, 2p \dots\ for many-electron atoms? (b) Explain why the energy now depends on $\ell$ and why 4s
+can drop below 3d.
+\begin{solution}
+(a) The orbital approximation: electron--electron repulsions are neglected in front of the attraction
+of the nucleus, so each electron occupies its own hydrogen-like AO.\\
+(b) The inner electrons screen the nucleus. An s electron penetrates close to the nucleus (small inner
+maxima of its radial density), feels a larger effective charge and is more strongly bound than p and d
+electrons of the same shell: $E$ now depends on $\ell$. The 4s orbital penetrates so much that its
+energy falls below that of 3d, which stays outside the core; Madelung's rule ($n+\ell = 4$ for 4s,
+5 for 3d) summarises this.
+\end{solution}
+
+\wq{3}{The Zeeman effect}
+(a) Into how many sublevels does a p subshell split in a magnetic field? a d subshell? an f
+subshell? (b) Hydrogen atoms emit the $2\mathrm p\to1\mathrm s$ line (122~nm). How many lines are seen in a
+magnetic field? (c) What does the Zeeman effect prove?
+\begin{solution}
+(a) $2\ell+1$ sublevels: p: 3, d: 5, f: 7.\\
+(b) 1s does not split ($\ell = 0$); 2p gives 3 sublevels, so 3 lines very close to 122~nm.\\
+(c) That the orbitals of a subshell have different orientations, labelled by $m_\ell$ with $2\ell+1$
+values; without a field they are degenerate.
+\end{solution}
+
+\wq{4}{How many electrons can a shell hold?}
+An electron is described by four quantum numbers $(n, \ell, m_\ell, m_s)$. (a) List all the allowed
+sets for $n = 2$. (b) Show that the number of sets for a shell $n$ is $2n^2$ and check it for
+$n = 1, 2, 3$. (Unit 4: no two electrons of an atom can share the same set, so this is the maximum
+number of electrons of the shell.)
+\begin{solution}
+(a) $(2,0,0,\pm\frac12)$; $(2,1,-1,\pm\frac12)$; $(2,1,0,\pm\frac12)$; $(2,1,1,\pm\frac12)$: 8 sets.\\
+(b) Number of orbitals: $\sum_{\ell=0}^{n-1}(2\ell+1) = 2\cdot\frac{(n-1)n}{2} + n = n^2$; each
+orbital has two values of $m_s$: $2n^2$. $n = 1$: 2;\ $n = 2$: 8;\ $n = 3$: 18.
+\end{solution}
+
+\wq{4}{The sodium doublet}
+The D line of sodium is a doublet: $\lambda_1 = 589.0$~nm and $\lambda_2 = 589.6$~nm. (a) Compute the
+energy of each photon in J and in eV (4 significant figures). (b) Compute the energy difference
+between the two upper levels in J and in meV. (c) Explain the origin of the doublet.
+\begin{solution}
+(a) $E_1 = hc/\lambda_1 = 6.62\times10^{-34}\times3.00\times10^8/589.0\times10^{-9} = 3.372\times10^{-19}$~J
+$= 2.107$~eV;\quad $E_2 = 3.368\times10^{-19}$~J $= 2.105$~eV.\\
+(b) $\Delta E = 3.43\times10^{-22}$~J $= 2.1\times10^{-3}$~eV $= 2.1$~meV (about 0.1\,\% of $E$). Keep
+all digits until the subtraction: the difference of two close numbers loses precision.\\
+(c) The line is the transition 3p$\,\to\,$3s of the outer electron. Its spin ($m_s = \pm\frac12$)
+interacts with its orbital motion, which splits 3p into two levels 2.1~meV apart; 3s ($\ell = 0$) is not
+split, so there are two lines.
+\end{solution}
+
+\wq{4}{Where is the 1s electron?}
+The radial probability density of the 1s orbital of hydrogen is
+$P(r) = \dfrac{4}{a_0^3}\,r^2\,\mathrm e^{-2r/a_0}$. (a) Show that $P$ is maximum at $r = a_0$.
+(b) Explain why the probability density is zero at $r = 0$ even though $|\Psi_{1s}|^2$ is largest
+at the nucleus. (c) For $\ce{He+}$, $P(r) \propto r^2\mathrm e^{-2Zr/a_0}$: where is its maximum?
+\begin{solution}
+(a) $\dfrac{\mathrm dP}{\mathrm dr} = \dfrac4{a_0^3}\,\mathrm e^{-2r/a_0}\left(2r - \dfrac{2r^2}{a_0}\right)
+= \dfrac{8r}{a_0^3}\,\mathrm e^{-2r/a_0}\left(1 - \dfrac r{a_0}\right)$, which is zero for $r = a_0$
+(positive before, negative after): maximum at $r = a_0 = 52.9$~pm, the Bohr radius.\\
+(b) $P(r)$ is the probability per unit distance of being in a thin shell of radius $r$, whose volume
+$4\pi r^2\mathrm dr$ tends to zero at the centre. The density per unit volume is largest at the nucleus,
+but there is almost no volume there.\\
+(c) Same calculation with $a_0/Z$ instead of $a_0$: maximum at $r = a_0/Z = 26.5$~pm, as given by
+$r = n^2a_0/Z$.
+\end{solution}

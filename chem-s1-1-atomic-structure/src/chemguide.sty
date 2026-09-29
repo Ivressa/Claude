@@ -1,0 +1,143 @@
+% chemguide.sty -- layout for the Chemistry S1-1 study guide, worksheets and answers
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{chemguide}[2026/09/29 Chemistry S1-1 study guide]
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage[scaled=0.92]{helvet}
+\RequirePackage[english]{babel}
+\RequirePackage[a4paper,left=22mm,right=22mm,top=20mm,bottom=22mm,headheight=14pt]{geometry}
+\RequirePackage{amsmath,amssymb,mathtools}
+\RequirePackage[dvipsnames,table]{xcolor}
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage[version=4]{mhchem}
+\RequirePackage{siunitx}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{array,booktabs,multirow,tabularx}
+\RequirePackage{microtype}
+\RequirePackage{comment}
+\RequirePackage{needspace}
+\RequirePackage[hidelinks]{hyperref}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing}
+\pgfplotsset{compat=1.18}
+\sisetup{exponent-product=\times, group-minimum-digits=5, per-mode=symbol,
+  inter-unit-product=\ensuremath{\cdot}}
+
+\definecolor{heading}{RGB}{20,90,110}
+\definecolor{defcol}{RGB}{20,90,110}
+\definecolor{fillcol}{RGB}{190,110,10}
+\definecolor{trapcol}{RGB}{180,30,40}
+\definecolor{keyblue}{RGB}{15,60,160}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist{nosep, leftmargin=6mm, topsep=2pt}
+
+% ---- answer toggle -------------------------------------------------------
+\newif\ifkey
+\@ifundefined{KEY}{\keyfalse}{\keytrue}
+\newcommand{\doctype}{Study guide}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\sffamily Chemistry S1-1 \,$\cdot$\, From atomic entities to physico-chemical systems}
+\fancyhead[R]{\small\sffamily \doctype}
+\fancyfoot[C]{\small\thepage\,/\,\pageref{LastPage}}
+\fancyfoot[R]{\scriptsize\color{black!45}Unofficial study material}
+
+% ---- headings ------------------------------------------------------------
+\newcounter{unit}
+\newcommand{\unitheading}[2]{% #1 number, #2 title
+  \clearpage\setcounter{unit}{#1}%
+  \begin{tcolorbox}[enhanced, colback=heading, colframe=heading, arc=1mm, boxrule=0pt,
+    left=4mm, top=3mm, bottom=3mm, fontupper=\color{white}\sffamily]
+    {\small UNIT #1}\\[2pt]{\bfseries\LARGE #2}
+  \end{tcolorbox}\vspace{2pt}}
+\newcommand{\partheading}[1]{\par\needspace{6\baselineskip}\bigskip\noindent{\sffamily\bfseries\Large\color{heading} #1}\par
+  \vspace{1pt}\noindent{\color{heading}\rule{\textwidth}{0.4pt}}\par\smallskip}
+\newcommand{\sect}[2]{\par\needspace{5\baselineskip}\medskip\noindent{\sffamily\bfseries\large\color{heading}#1\quad #2}\par\smallskip}
+\newcommand{\subsect}[1]{\par\needspace{4\baselineskip}\smallskip\noindent{\sffamily\bfseries\color{heading}#1}\par}
+
+% ---- boxes ---------------------------------------------------------------
+% definition box
+\newtcolorbox{concept}[1][]{enhanced, colback=defcol!5, colframe=defcol!70, boxrule=0.5pt,
+  arc=1mm, left=2mm, right=2mm, top=1mm, bottom=1mm, before skip=5pt, after skip=5pt,
+  fonttitle=\sffamily\bfseries\small, coltitle=defcol!85!black, title={#1}, attach title to upper={\enspace}}
+% completes a blank box / table of the handout
+\newtcolorbox{handout}[1]{enhanced, colback=fillcol!6, colframe=fillcol!75, boxrule=0.5pt,
+  arc=1mm, left=2mm, right=2mm, top=1mm, bottom=1mm, before skip=6pt, after skip=6pt,
+  title={\sffamily\bfseries\small Completing the handout: #1}, coltitle=white,
+  colbacktitle=fillcol!85, breakable}
+% common mistake
+\newtcolorbox{trap}{enhanced, colback=trapcol!4, colframe=trapcol!70, boxrule=0.5pt, arc=1mm,
+  left=2mm, right=2mm, top=1mm, bottom=1mm, before skip=5pt, after skip=5pt,
+  fontupper=\small, coltitle=trapcol, title={\sffamily\bfseries\small Common mistake}, attach title to upper={\enspace}}
+% worked example
+\newtcolorbox{worked}[1][]{enhanced, colback=black!2, colframe=black!40, boxrule=0.4pt, arc=1mm,
+  left=2mm, right=2mm, top=1mm, bottom=1mm, before skip=5pt, after skip=5pt, fontupper=\small,
+  coltitle=black!75, title={\sffamily\bfseries\small Worked example#1}, attach title to upper={\enspace}, breakable}
+% side note
+\newtcolorbox{going}{enhanced, colback=black!3, colframe=black!30, boxrule=0.4pt, arc=1mm,
+  left=2mm, right=2mm, top=1mm, bottom=1mm, before skip=5pt, after skip=5pt, fontupper=\small,
+  coltitle=black!75, title={\sffamily\bfseries\small Going further (not required)}, attach title to upper={\enspace}}
+% recap page
+\newtcolorbox{recap}[1]{enhanced, colback=white, colframe=heading, boxrule=0.8pt, arc=1.5mm,
+  left=3mm, right=3mm, top=2mm, bottom=2mm, title={\sffamily\bfseries Recap \,$\cdot$\, #1},
+  colbacktitle=heading, coltitle=white, breakable}
+\newcommand{\recapsub}[1]{\par\smallskip{\sffamily\bfseries\small\color{heading}#1}\par}
+
+% ---- worksheet -----------------------------------------------------------
+\newcounter{wq}
+\newcommand{\level}[1]{% 1..4
+  \ifcase#1\or
+    \tcbox[on line, colback=ForestGreen!15, colframe=ForestGreen, boxrule=0.4pt, arc=0.8mm,
+      left=1pt,right=1pt,top=0pt,bottom=0pt, fontupper=\sffamily\scriptsize]{Level 1 \,$\bullet$}\or
+    \tcbox[on line, colback=Goldenrod!20, colframe=Goldenrod!80!black, boxrule=0.4pt, arc=0.8mm,
+      left=1pt,right=1pt,top=0pt,bottom=0pt, fontupper=\sffamily\scriptsize]{Level 2 \,$\bullet\bullet$}\or
+    \tcbox[on line, colback=BurntOrange!15, colframe=BurntOrange, boxrule=0.4pt, arc=0.8mm,
+      left=1pt,right=1pt,top=0pt,bottom=0pt, fontupper=\sffamily\scriptsize]{Level 3 \,$\bullet\bullet\bullet$}\or
+    \tcbox[on line, colback=Maroon!12, colframe=Maroon, boxrule=0.4pt, arc=0.8mm,
+      left=1pt,right=1pt,top=0pt,bottom=0pt, fontupper=\sffamily\scriptsize]{Challenge \,$\bigstar$}\fi}
+% \wq{level}{title}
+\newcommand{\wq}[2]{\par\needspace{5\baselineskip}\medskip\stepcounter{wq}\noindent
+  {\sffamily\bfseries\color{heading}Q\thewq.}\enspace\level{#1}\enspace{\sffamily\bfseries #2}\par\nopagebreak\smallskip}
+\newcommand{\worksheetheading}[2]{% #1 unit, #2 title
+  \setcounter{wq}{0}\clearpage
+  \partheading{Worksheet #1 \,$\cdot$\, #2}}
+% solution environment: shown only in the answers
+\ifkey
+  \newenvironment{solution}{\begin{tcolorbox}[enhanced, breakable, colback=keyblue!4,
+    colframe=keyblue!60, boxrule=0.5pt, arc=1mm, left=2mm, right=2mm, top=1mm, bottom=1mm,
+    before skip=4pt, after skip=6pt, fontupper=\color{keyblue!85!black},
+    colbacktitle=keyblue!65, coltitle=white, toptitle=0.3mm, bottomtitle=0.3mm,
+    title={\sffamily\bfseries\small Answer}]}{\end{tcolorbox}}
+\else
+  \excludecomment{solution}
+\fi
+
+\newcommand{\data}[1]{\begin{tcolorbox}[enhanced, colback=black!3, colframe=black!40,
+  boxrule=0.4pt, arc=1mm, left=2mm, right=2mm, top=1mm, bottom=1mm, fontupper=\small,
+  coltitle=black!75, title={\sffamily\bfseries\small Data}, attach title to upper={\enspace}]#1\end{tcolorbox}}
+
+% ---- chemistry helpers ---------------------------------------------------
+\newcommand{\nuc}[3]{\ensuremath{{}^{#1}_{#2}\mathrm{#3}}}   % \nuc{A}{Z}{X}
+\newcommand{\iso}[2]{\ensuremath{{}^{#1}\mathrm{#2}}}        % \iso{A}{X}
+\newcommand{\up}{\ensuremath{\uparrow}}
+\newcommand{\dn}{\ensuremath{\downarrow}}
+\newcommand{\ml}{\ensuremath{m_\ell}}
+\newcommand{\ms}{\ensuremath{m_s}}
+\newcommand{\Psinlm}[3]{\ensuremath{\Psi_{#1,#2,#3}}}
+\newcommand{\conf}[1]{\ensuremath{\mathrm{#1}}}
+% orbital boxes: \obox{list}, entries u (one electron, up), w (one electron, down),
+% d (pair), e (empty). Example: \obox{d}\,\obox{d,u,u} for O (2s2 2p4).
+\def\cg@u{u}\def\cg@d{d}\def\cg@w{w}
+\newcommand{\obox}[1]{\tikz[baseline=0.4mm]{\foreach \s [count=\i] in {#1}{%
+    \draw (\i*3.4mm-3.4mm,0) rectangle ++(3.4mm,3.6mm);
+    \ifx\s\cg@u\draw[-{Stealth[length=1mm]}] (\i*3.4mm-1.7mm,0.5mm)--++(0,2.6mm);\fi
+    \ifx\s\cg@w\draw[-{Stealth[length=1mm]}] (\i*3.4mm-1.7mm,3.1mm)--++(0,-2.6mm);\fi
+    \ifx\s\cg@d\draw[-{Stealth[length=1mm]}] (\i*3.4mm-2.4mm,0.5mm)--++(0,2.6mm);
+               \draw[-{Stealth[length=1mm]}] (\i*3.4mm-1.0mm,3.1mm)--++(0,-2.6mm);\fi}}}
+\endinput

@@ -1,0 +1,171 @@
+% ============================ WORKSHEET 2 ==================================
+\worksheetheading{2}{Quantum model of the atom}
+\data{$c = \SI{3.00e8}{\metre\per\second}$\quad $h = \SI{6.62e-34}{\joule\second}$\quad
+$1\ \mathrm{eV} = \SI{1.6e-19}{\joule}$\quad $N_A = \SI{6.022e23}{\per\mole}$\quad
+$R_H = \SI{3.29e15}{\hertz}$\quad hydrogen: $E_n = -13.6/n^2$~eV; hydrogen-like ion:
+$E_n = -13.6\,Z^2/n^2$~eV. Calculator allowed.}
+
+\wq{1}{Ordering the spectrum}
+Put these radiations in order of increasing frequency: visible light, X-rays, radio waves, infrared,
+$\gamma$ rays, ultraviolet, microwaves. Which one has the longest wavelength? Which photons carry the
+most energy?
+\begin{solution}
+Radio waves $<$ microwaves $<$ infrared $<$ visible $<$ ultraviolet $<$ X-rays $<$ $\gamma$ rays.
+Radio waves have the longest wavelength ($\lambda = c/\nu$); $\gamma$ photons carry the most energy
+($E = h\nu$).
+\end{solution}
+
+\wq{1}{A red laser}
+A laser emits red light at $\lambda = 650$~nm. Compute its frequency $\nu$ and its period $T$.
+\begin{solution}
+$\nu = c/\lambda = 3.00\times10^8/650\times10^{-9} = 4.62\times10^{14}$~Hz;\quad
+$T = 1/\nu = \lambda/c = 2.17\times10^{-15}$~s.
+\end{solution}
+
+\wq{1}{Energy of one photon}
+Compute the energy of one photon of the laser of Q2, in joules and in electronvolts.
+\begin{solution}
+$E = hc/\lambda = 6.62\times10^{-34}\times3.00\times10^8/650\times10^{-9} = 3.06\times10^{-19}$~J;\quad
+$E = 3.06\times10^{-19}/1.6\times10^{-19} = 1.91$~eV.
+\end{solution}
+
+\wq{1}{Vocabulary of the Bohr model}
+Define ground state, excited state and ionised state for the hydrogen atom, and give the energy
+of the electron in each case (for the excited state, give $E_2$ and $E_3$).
+\begin{solution}
+Ground state: $n = 1$, lowest energy, $E_1 = -13.6$~eV. Excited state: any $n > 1$, higher energy,
+e.g.\ $E_2 = -13.6/4 = -3.40$~eV, $E_3 = -13.6/9 = -1.51$~eV. Ionised state: $n\to\infty$,
+$E_\infty = 0$, the electron is no longer bound to the proton.
+\end{solution}
+
+\wq{2}{Emission versus absorption}
+Describe the emission spectrum and the absorption spectrum of hydrogen gas in the visible. Explain
+why the lines appear at the same wavelengths in both.
+\begin{solution}
+Emission (gas excited by a discharge): four coloured lines on a black background at 656, 486, 434
+and 410~nm. Absorption (white light through the gas): a continuous rainbow with four black lines at
+the same wavelengths. Both involve the same pairs of levels: in emission an electron falls from $E_p$
+to $E_n$ and emits a photon $h\nu = E_p - E_n$; in absorption a photon of the same energy lifts it from
+$E_n$ to $E_p$. Same energy, same wavelength.
+\end{solution}
+
+\wq{2}{Why is permanganate purple?}
+An aqueous solution of $\ce{KMnO4}$ absorbs light between about 515 and 565~nm.
+(a) Which colour is absorbed? What colour does the solution appear? (b) Why is the absorption a
+broad band and not thin lines as for hydrogen gas?
+\begin{solution}
+(a) 515--565~nm is green. The eye receives the rest of the white light, mainly red and blue--violet,
+which looks purple/magenta: the complementary colour of green.\\
+(b) The absorbing species is a molecular ion in a liquid: it has very many closely spaced energy levels
+(vibrations, interactions with the solvent), so it absorbs a continuous range of energies. An
+isolated atom in a gas has only a few well-separated levels, hence thin lines.
+\end{solution}
+
+\wq{2}{The Balmer lines from Rydberg's formula}
+Using $\nu = R_H(1/n_1^2 - 1/n_2^2)$ with $n_1 = 2$, compute the wavelengths for $n_2 = 3, 4, 5, 6$
+and compare them with the handout values.
+\begin{solution}
+$\lambda = c/\nu$:\quad
+$n_2 = 3$: $\nu = 3.29\times10^{15}(\frac14-\frac19) = 4.57\times10^{14}$~Hz, $\lambda = 657$~nm;\quad
+$n_2 = 4$: $6.17\times10^{14}$~Hz, 486~nm;\quad
+$n_2 = 5$: $6.91\times10^{14}$~Hz, 434~nm;\quad
+$n_2 = 6$: $7.31\times10^{14}$~Hz, 410~nm.
+They agree with 656, 486, 434, 410~nm (the small gap for the first line comes from rounding $c$ and $R_H$).
+\end{solution}
+
+\wq{2}{Rydberg meets Bohr}
+(a) Using Bohr's levels, compute the energy (in eV and J) of the photon emitted in the transition
+$3\to2$, and its wavelength. (b) Show that Bohr's formula gives Rydberg's formula and that
+$R_H = 13.6\ \mathrm{eV}/h$. Check the numerical value.
+\begin{solution}
+(a) $\Delta E = E_3 - E_2 = 13.6(\frac14 - \frac19) = 1.89$~eV $= 3.02\times10^{-19}$~J;
+$\lambda = hc/\Delta E = 657$~nm (the red line).\\
+(b) $h\nu = E_{n_2} - E_{n_1} = 13.6\ \mathrm{eV}\,(1/n_1^2 - 1/n_2^2)$, so
+$\nu = (13.6\ \mathrm{eV}/h)(1/n_1^2 - 1/n_2^2)$: Rydberg's formula with
+$R_H = 13.6\times1.6\times10^{-19}/6.62\times10^{-34} = 3.29\times10^{15}$~Hz. \checkmark
+\end{solution}
+
+\wq{3}{Series and their limits}
+(a) Compute the wavelength of the first Lyman line ($2\to1$) and the Lyman series limit. In which
+region are they? (b) Compute the Paschen series limit ($n_1 = 3$). (c) Explain why only the Balmer
+series has lines in the visible.
+\begin{solution}
+(a) $2\to1$: $\nu = R_H\times\frac34 = 2.47\times10^{15}$~Hz, $\lambda = 122$~nm. Limit:
+$\nu = R_H$, $\lambda = c/R_H = 91.2$~nm. Both UV.\\
+(b) $\nu = R_H/9 = 3.66\times10^{14}$~Hz, $\lambda = 821$~nm (IR). All Paschen lines are beyond
+821~nm.\\
+(c) Lyman gaps are at least $E_2 - E_1 = 10.2$~eV (UV); Paschen gaps are at most 1.51~eV
+($\lambda\ge821$~nm, IR); Balmer gaps go from 1.89~eV (656~nm) to 3.40~eV (365~nm), which covers
+the visible range 400--700~nm.
+\end{solution}
+
+\wq{3}{Ionisation energy of hydrogen}
+(a) What energy is needed to ionise a hydrogen atom in its ground state? Give it in eV, in J per atom
+and in $\mathrm{kJ\,mol^{-1}}$. (b) What is the longest wavelength that can do it?
+(c) Unit 5 lists ionisation energies in $\mathrm{kJ\,mol^{-1}}$ but leaves hydrogen blank: fill it in.
+\begin{solution}
+(a) $E_\infty - E_1 = 13.6$~eV $= 13.6\times1.6\times10^{-19} = 2.18\times10^{-18}$~J per atom;
+$\times N_A$: $1.31\times10^{6}\ \mathrm{J\,mol^{-1}} = 1310\ \mathrm{kJ\,mol^{-1}}$.\\
+(b) $\lambda = hc/E = 91.2$~nm (the Lyman limit, UV); shorter wavelengths ionise too.\\
+(c) Hydrogen: about $1310\ \mathrm{kJ\,mol^{-1}}$ (the accepted value is 1312).
+\end{solution}
+
+\wq{3}{Counting emission lines}
+Hydrogen atoms are excited to $n = 4$ and then return to the ground state by all possible paths.
+(a) How many different lines can be emitted? List the transitions. (b) Sort them into series and
+spectral regions. (c) Which ones can you see?
+\begin{solution}
+(a) Any pair of levels among $\{1,2,3,4\}$: $\binom42 = 6$ lines:
+$4\to3$, $4\to2$, $4\to1$, $3\to2$, $3\to1$, $2\to1$.\\
+(b) Lyman (to 1, UV): $4\to1$ (97~nm), $3\to1$ (103~nm), $2\to1$ (122~nm). Balmer (to 2):
+$4\to2$ (486~nm), $3\to2$ (656~nm), both visible. Paschen (to 3): $4\to3$ (1876~nm, IR).\\
+(c) Only $4\to2$ (blue-green) and $3\to2$ (red).
+\end{solution}
+
+\wq{3}{Which photons are absorbed?}
+Hydrogen atoms in their ground state are hit by photons of energy (a) 10.2~eV, (b) 11.0~eV,
+(c) 12.09~eV, (d) 15.0~eV. For each, say whether it is absorbed and what happens to the atom.
+\begin{solution}
+The possible gaps from $n = 1$ are $E_p - E_1 = 13.6(1 - 1/p^2)$: 10.20 ($p = 2$), 12.09 ($p = 3$),
+12.75 ($p = 4$) \dots\ up to 13.6~eV (ionisation).\\
+(a) Absorbed, $n = 1\to2$. (b) Not absorbed: 11.0~eV matches no gap and is below 13.6~eV.
+(c) Absorbed, $n = 1\to3$. (d) Absorbed: $15.0 > 13.6$~eV, the atom is ionised and the electron leaves
+with kinetic energy $15.0 - 13.6 = 1.4$~eV.
+\end{solution}
+
+\wq{4}{Identify the transition}
+A line of the hydrogen emission spectrum is measured at $\lambda = 1876$~nm. Find $n_1$ and $n_2$.
+Explain your method.
+\begin{solution}
+$\nu = c/\lambda = 3.00\times10^8/1876\times10^{-9} = 1.599\times10^{14}$~Hz, so
+$1/n_1^2 - 1/n_2^2 = \nu/R_H = 0.0486$. The line is in the IR, and the Balmer limit is 365~nm, so
+$n_1\ge3$. Try $n_1 = 3$: $1/n_2^2 = 1/9 - 0.0486 = 0.0625 = 1/16$, so $n_2 = 4$.
+The line is $4\to3$, the first Paschen line. (With $n_1 = 4$, $1/n_2^2 = 0.0625 - 0.0486 = 0.0139$ gives
+$n_2 = 8.5$, not an integer.)
+\end{solution}
+
+\wq{4}{The helium ion}
+$\ce{He+}$ ($Z = 2$) has a single electron. (a) Give its energy levels $E_1$, $E_2$, $E_3$ and its
+ionisation energy. (b) Compute the wavelength of its $3\to2$ transition; in which region is it?
+(c) Show that the $\ce{He+}$ transition $6\to4$ has exactly the same wavelength as the red line of
+hydrogen. Why is this so?
+\begin{solution}
+(a) $E_n = -13.6\times4/n^2 = -54.4/n^2$~eV: $E_1 = -54.4$, $E_2 = -13.6$, $E_3 = -6.04$~eV.
+Ionisation energy 54.4~eV.\\
+(b) $\Delta E = 54.4(\frac14-\frac19) = 7.56$~eV; $\lambda = hc/\Delta E = 164$~nm (UV).\\
+(c) $6\to4$: $\Delta E = 54.4(\frac1{16}-\frac1{36}) = 13.6\times4\times\frac{5}{144} =
+13.6\times\frac5{36} = 13.6(\frac14-\frac19)$, the same energy as H $3\to2$, so $\lambda = 656$~nm.
+Because $Z^2/n^2 = (Z/n)^2$ and $4/6 = 2/3$, $2/4 = 1/2$: every $\ce{He+}$ level with even $n = 2k$ has the
+same energy as the H level $k$.
+\end{solution}
+
+\wq{4}{Photons in a laser beam}
+A green laser pointer emits 1.0~mW at 532~nm. (a) How many photons does it emit per second?
+(b) How many moles of photons per hour? (c) Why do we not notice that light comes in packets?
+\begin{solution}
+(a) One photon: $E = hc/\lambda = 6.62\times10^{-34}\times3.00\times10^8/532\times10^{-9} = 3.73\times10^{-19}$~J.
+Per second: $1.0\times10^{-3}/3.73\times10^{-19} = 2.7\times10^{15}$ photons.\\
+(b) $2.7\times10^{15}\times3600/6.022\times10^{23} = 1.6\times10^{-5}$~mol per hour.\\
+(c) Each packet is tiny ($\sim10^{-19}$~J) and there are $\sim10^{15}$ of them per second: the beam looks
+continuous, just as water looks continuous although it is made of molecules.
+\end{solution}

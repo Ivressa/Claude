@@ -1,0 +1,11 @@
+\documentclass[11pt]{article}
+\usepackage{chemguide}
+\renewcommand{\doctype}{Study guide}
+\begin{document}
+\input{cover}
+\input{unit1}\input{ws1}
+\IfFileExists{unit2.tex}{\input{unit2}\input{ws2}}{}
+\IfFileExists{unit3.tex}{\input{unit3}\input{ws3}}{}
+\IfFileExists{unit4.tex}{\input{unit4}\input{ws4}}{}
+\IfFileExists{unit5.tex}{\input{unit5}\input{ws5}}{}
+\end{document}

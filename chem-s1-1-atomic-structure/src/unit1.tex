@@ -1,0 +1,165 @@
+% ============================== UNIT 1 =====================================
+\unitheading{1}{Classical description of the atom}
+
+\textit{Handout chapter 1, sections 1.1--1.3.} The aim of this unit is to know what an atom is made of,
+how we found out, and how to describe a nucleus with the two numbers $Z$ and $A$.
+
+\partheading{Concepts in detail}
+
+\sect{1.1}{Imaging atoms: from an idea to an object}
+\begin{concept}[Atom.]
+The smallest particle of a chemical element that keeps the identity of that element. The word comes
+from the Greek \emph{atomos}, ``that cannot be cut''.
+\end{concept}
+\begin{itemize}
+  \item \textbf{Democritus} (5th century BC): matter cannot be divided forever; there must be
+        indivisible building blocks, the atoms. This was a philosophical idea with no experiment behind it.
+  \item \textbf{Dalton} (1808): the first \emph{scientific} atomic theory. Each element is made of
+        one type of atom with its own mass, and a given compound always contains the same ratio of
+        atoms (for example water always has 2 H for 1 O). This explains the law of definite proportions.
+  \item \textbf{Scanning tunnelling microscopy} (STM, 1980s): a sharp metal tip is moved a few
+        tenths of a nanometre above a surface; the tiny current that ``tunnels'' between tip and surface
+        depends very strongly on the distance, so the surface can be mapped atom by atom. The same tip
+        can push atoms around: Figure~1-1 of the handout is an ellipse of cobalt atoms placed one by one
+        on a copper surface. The atom went from a hypothesis to a real object that can be seen and moved.
+\end{itemize}
+
+\sect{1.2}{Internal structure: the atom is not indivisible}
+\subsect{1.2.1\quad The electron (Thomson, 1897)}
+A high voltage between two electrodes in a tube containing a gas at low pressure produces a beam
+coming out of the negative electrode (the cathode): a \emph{cathode ray}.
+\begin{itemize}
+  \item The beam is deflected by an electric field \emph{towards the positive plate}: it carries a
+        \textbf{negative} charge.
+  \item The deflection is the same whatever the gas and the metal of the electrodes: the particles are
+        a component of \emph{all} atoms.
+  \item From the deflection in electric and magnetic fields, Thomson measured the charge-to-mass ratio
+        $e/m_e \approx \SI{1.76e11}{\coulomb\per\kilo\gram}$, about 1800 times larger than for the lightest
+        ion (H$^+$). The particle is therefore much lighter than an atom: the \textbf{electron}.
+\end{itemize}
+Consequence: atoms contain electrons, and since matter is neutral they must also contain positive
+charge. Thomson imagined the ``plum pudding'' model: electrons embedded in a uniform positive sphere.
+
+\subsect{1.2.2\quad The nucleus (Rutherford, 1911)}
+$\alpha$-particles (He$^{2+}$ ions, positive and heavy) are fired at a very thin gold foil, and a
+detector all around the foil records where they go.
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{62mm} >{\raggedright\arraybackslash}p{88mm}@{}}
+\toprule
+\textbf{Observation} & \textbf{Conclusion}\\ \midrule
+Almost all $\alpha$-particles pass straight through. & The atom is mostly \textbf{empty space}.\\
+A few are deflected by large angles. & They pass close to a small region of concentrated
+\textbf{positive} charge that repels them.\\
+Very rarely (about 1 in 10\,000) one bounces back. & That region is tiny but contains almost
+\textbf{all the mass} of the atom: the \textbf{nucleus}.\\ \bottomrule
+\end{tabular}
+\end{center}
+The plum-pudding model cannot explain the bounce-backs: a diffuse positive charge would never stop a
+fast, heavy $\alpha$-particle. Rutherford's model: a tiny, dense, positive nucleus surrounded by
+electrons at comparatively huge distances.
+
+\subsect{1.2.3\quad Sizes, charges and masses}
+\begin{itemize}
+  \item Size of an atom: about \SI{100}{\pico\metre} $= \SI{e-10}{\metre}$ ($1\ \mathrm{pm} =
+        \SI{e-12}{\metre}$; the older unit $1$~\AA{} $= \SI{100}{\pico\metre}$).
+  \item Size of a nucleus: $10^{-3}$ to $10^{-2}$~pm, that is 1 to 10~femtometres
+        ($1\ \mathrm{fm} = \SI{e-15}{\metre}$). The atom is $10^4$ to $10^5$ times larger than its nucleus:
+        if the nucleus were a marble of 1~cm, the atom would be a sphere of about 1~km.
+  \item \textbf{Millikan} (1909, oil-drop experiment): every charge he measured was a whole multiple of
+        the same value, the \textbf{elementary charge} $e = \SI{1.6e-19}{\coulomb}$. Electron: $-e$;
+        proton: $+e$; neutron: 0.
+  \item Masses (Table 1-1): $m_e = \SI{9.1094e-31}{\kilo\gram}$, $m_p = \SI{1.6727e-27}{\kilo\gram}$,
+        $m_n = \SI{1.6749e-27}{\kilo\gram}$. The proton and neutron have almost the same mass, and are
+        about \textbf{1836 times} heavier than the electron. Almost all the mass of an atom is in its nucleus.
+\end{itemize}
+\begin{concept}[Atomic mass unit (amu, also written u or Da).]
+Exactly $\frac1{12}$ of the mass of one unbound carbon-12 atom, at rest and in its ground state:
+$1\ \mathrm{amu} = \SI{1.6605e-27}{\kilo\gram}$. It is chosen so that protons and neutrons have
+masses close to 1~amu, and it links to the mole: $1\ \mathrm{amu}\times N_A = \SI{1}{\gram\per\mole}$.
+\end{concept}
+\begin{worked}[: converting Table 1-1 into amu]
+$m_p/(1\ \mathrm{amu}) = 1.6727/1.6605 = 1.0073$;\quad $m_e/(1\ \mathrm{amu}) = 9.1094\times10^{-31}/1.6605\times10^{-27}
+= 5.49\times10^{-4} = 1/1823$;\quad gold atom: $3.2707\times10^{-25}/1.6605\times10^{-27} = 196.97$.
+(For the hydrogen atom the same division gives 1.0078, which rounds to 1.008.)
+\end{worked}
+
+\sect{1.3}{Chemical element and isotopes}
+\begin{concept}[Atomic number $Z$ and mass number $A$.]
+$Z$ = number of protons in the nucleus (also the number of electrons in the neutral atom).
+$A$ = number of nucleons (protons + neutrons). The number of neutrons is $N = A - Z$.
+A nucleus (or atom) is written $\nuc{A}{Z}{X}$, where X is the symbol of the element, for example
+$\nuc{12}{6}{C}$, $\nuc{35}{17}{Cl}$, $\nuc{56}{26}{Fe}$.
+\end{concept}
+\begin{concept}[Chemical element.]
+The set of all atoms and ions that have the same atomic number $Z$. $Z$ alone fixes the element:
+every atom with 6 protons is carbon, whatever its number of neutrons or electrons.
+\end{concept}
+\begin{concept}[Isotopes.]
+Atoms of the same element (same $Z$) with different numbers of neutrons, hence different $A$.
+Example: $\nuc{12}{6}{C}$ (6 neutrons), $\nuc{13}{6}{C}$ (7) and $\nuc{14}{6}{C}$ (8). Isotopes have the
+same electrons, hence the same chemistry; only their mass (and nuclear stability) differ.
+\end{concept}
+\begin{concept}[Ions.]
+An atom that has lost or gained electrons. The nucleus is unchanged. A cation $\mathrm{X}^{q+}$ has
+$Z-q$ electrons; an anion $\mathrm{X}^{q-}$ has $Z+q$ electrons. Species with the same number of electrons
+are called \textbf{isoelectronic} (for example $\ce{F-}$, Ne, $\ce{Na+}$, $\ce{Mg^2+}$ all have 10 electrons).
+\end{concept}
+\begin{trap}
+$A$ is a \emph{count} of nucleons (an integer), not the atomic mass. The mass of $\nuc{35}{17}{Cl}$ is
+34.97~amu, and the atomic mass of chlorine found in tables (35.45) is an average over its isotopes
+(Unit 5). Also, changing the number of electrons makes an ion, not an isotope.
+\end{trap}
+
+% ------------------------------------------------------------------ recap
+\clearpage
+\begin{recap}{Unit 1: classical description of the atom}
+\recapsub{Timeline}
+\begin{tabular}{@{}l l l@{}}
+5th c. BC & Democritus & indivisible atoms (philosophy)\\
+1808 & Dalton & each element has its own atoms and mass; fixed ratios\\
+1897 & Thomson & electron: cathode rays, negative, $e/m_e$ very large\\
+1909 & Millikan & charge is quantised: $e = \SI{1.6e-19}{\coulomb}$\\
+1911 & Rutherford & gold foil: tiny, dense, positive nucleus; the atom is mostly empty\\
+1980s & STM & individual atoms imaged and moved
+\end{tabular}
+
+\recapsub{Particles}
+\begin{tabular}{@{}l c c c@{}}
+\toprule
+ & charge & mass (kg) & mass (amu)\\ \midrule
+electron & $-e$ & $9.1094\times10^{-31}$ & $1/1823 \approx 0.00055$\\
+proton & $+e$ & $1.6727\times10^{-27}$ & 1.0073\\
+neutron & 0 & $1.6749\times10^{-27}$ & 1.0087\\ \bottomrule
+\end{tabular}\hfill
+\begin{minipage}[t]{40mm}\small
+$1\ \mathrm{amu} = \SI{1.6605e-27}{\kilo\gram}$\\ $= \frac1{12}\,m(\iso{12}{C})$\\[2pt]
+$m_p/m_e \approx 1836$\\[2pt]
+$1\ \mathrm{amu}\times N_A = 1\ \mathrm{g\,mol^{-1}}$
+\end{minipage}
+
+\recapsub{Orders of magnitude}
+Atom $\sim\SI{100}{\pico\metre} = \SI{e-10}{\metre}$; nucleus $\sim 10^{-3}$--$10^{-2}$~pm (1--10~fm);
+ratio $10^4$--$10^5$. The nucleus holds $>99.9\,\%$ of the mass.
+
+\recapsub{Notation and counting}
+$\nuc{A}{Z}{X}$:\quad protons $=Z$,\quad neutrons $N = A-Z$,\quad electrons $= Z - q$ for charge $q$
+(so $Z+|q|$ for an anion).\\
+Element $\Leftrightarrow$ same $Z$.\quad Isotopes $\Leftrightarrow$ same $Z$, different $A$.\quad
+Isoelectronic $\Leftrightarrow$ same number of electrons.
+
+\recapsub{You should be able to}
+\begin{itemize}
+  \item describe the Thomson and Rutherford experiments and say what each observation proves;
+  \item convert between pm, nm, \AA{}, fm and m, and between kg and amu;
+  \item give $Z$, $A$, $N$ and the electron count of any atom or ion written $\nuc{A}{Z}{X}^{q\pm}$;
+  \item recognise isotopes and isoelectronic species.
+\end{itemize}
+
+\recapsub{Watch out}
+\begin{itemize}
+  \item Cathode rays bend \emph{towards} the positive plate (they are negative).
+  \item A cation has \emph{fewer} electrons than protons; an anion has \emph{more}.
+  \item $A$ is an integer count; masses in amu are not integers (except $\iso{12}{C}$, by definition).
+\end{itemize}
+\end{recap}

@@ -1,0 +1,329 @@
+% ============================== UNIT 2 =====================================
+\unitheading{2}{Quantum model of the atom}
+
+\textit{Handout chapter 2, sections 2.1--2.5.} Light is both a wave and a stream of photons; atoms
+absorb and emit light only at particular wavelengths; Bohr explains this with quantised energy levels.
+
+% colours of the four visible hydrogen lines
+\newcommand{\wavecol}[2]{\convertcolorspec{wave}{#2}{rgb}\tmpcol\definecolor{#1}{rgb}{\tmpcol}}
+\wavecol{Hd}{410}\wavecol{Hg}{434}\wavecol{Hb}{486}\wavecol{Ha}{656}
+
+\partheading{Concepts in detail}
+
+\sect{2.1}{Electromagnetic radiation}
+\begin{concept}[Energy.]
+Energy is the capacity of a system to produce work or heat. It exists in several forms that can be
+converted into one another; electromagnetic (EM) radiation is one of them.
+\end{concept}
+\begin{handout}{Table 2-1, the 8 forms of energy}
+The usual classification has two families of four. The top wide row is ``kinetic energy'' (energy of
+motion), the bottom wide row ``potential energy'' (stored energy).
+\begin{center}\small
+\begin{tabular}{|p{33mm}|p{33mm}|p{33mm}|p{33mm}|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Kinetic energy} (motion of waves, particles, objects)}\\ \hline
+\textbf{Radiant} (EM radiation: light, X-rays, radio\dots) & \textbf{Thermal} (random motion of
+particles) & \textbf{Motion} (mechanical, of a moving object) & \textbf{Sound} (vibration of matter)\\ \hline
+\multicolumn{4}{|c|}{\textbf{Potential energy} (stored, due to position or structure)}\\ \hline
+\textbf{Chemical} (in bonds between atoms) & \textbf{Nuclear} (in the nucleus) & \textbf{Elastic}
+(stored mechanical: spring, stretched material) & \textbf{Gravitational} (position in a gravity field)\\ \hline
+\end{tabular}
+\end{center}
+Some textbooks list \emph{electrical} energy instead of sound or elastic energy; use the list given
+in class if it differs. The point for this course: EM radiation is \emph{radiant} energy.
+\end{handout}
+
+\begin{concept}[EM radiation as a wave.]
+Coupled oscillations of an electric field and a magnetic field, perpendicular to each other and to
+the direction of travel. In a vacuum it travels at $c = \SI{3.00e8}{\metre\per\second}$, whatever its
+wavelength.
+\end{concept}
+\begin{center}
+\begin{tabular}{@{}l l l@{}}
+\toprule
+Quantity & Definition & SI unit\\ \midrule
+Temporal period $T$ & duration of one oscillation & s\\
+Wavelength $\lambda$ & distance travelled during one period (spatial period) & m\\
+Frequency $\nu$ & number of oscillations per second & Hz $=\mathrm{s^{-1}}$\\ \bottomrule
+\end{tabular}
+\[
+\boxed{\lambda = cT} \qquad \boxed{\nu = \frac1T} \qquad\Longrightarrow\qquad \boxed{\lambda = \frac{c}{\nu}}
+\quad\text{or}\quad \nu = \frac c\lambda .
+\]
+\end{center}
+Short wavelength means high frequency. The \textbf{EM spectrum} orders the radiations by
+wavelength:
+\begin{center}
+\begin{tikzpicture}[x=0.52cm]
+  \foreach \a/\b/\t/\c in {0/3/$\gamma$ rays/black!18, 3/6/X-rays/black!12, 6/8/UV/violet!25,
+      8/9/{}/white, 9/12/IR/red!18, 12/16/microwaves/black!8, 16/24/radio waves/black!4}
+    {\fill[\c] (\a,0) rectangle (\b,0.8); \draw (\a,0) rectangle (\b,0.8);
+     \node[font=\scriptsize] at ({(\a+\b)/2},0.4) {\t};}
+  \shade[left color=violet, right color=red, middle color=green!70!yellow] (8,0) rectangle (9,0.8);
+  \draw (8,0) rectangle (9,0.8);
+  \foreach \x/\l in {0/$10^{-14}$,3/$10^{-11}$,6/$10^{-8}$,9/$10^{-6}$,12/$10^{-3}$,16/$10^{0}$,24/$10^{4}$}
+    {\draw (\x,0)--(\x,-0.12); \node[font=\scriptsize, below] at (\x,-0.1) {\l};}
+  \node[font=\scriptsize, anchor=west] at (24.2,-0.35) {$\lambda$ (m)};
+  \draw[-{Stealth}] (24,1.15)--(0,1.15) node[midway, above, font=\scriptsize]
+    {increasing frequency $\nu$ and photon energy $E$};
+  \draw[decorate, decoration={brace, amplitude=3pt, mirror}] (8,-0.75)--(9,-0.75)
+    node[midway, below=2pt, font=\scriptsize] {visible: 400--700 nm};
+\end{tikzpicture}
+\end{center}
+Visible light goes from violet (about 400~nm) to red (about 700~nm): violet $<$ blue $<$ green
+$<$ yellow $<$ orange $<$ red in wavelength. UV is just below 400~nm, IR just above 700~nm.
+
+\sect{2.2}{Quantisation: the photon}
+\begin{concept}[Photon.]
+A particle of EM radiation with no mass, travelling at $c$. Its energy is fixed by the frequency
+(Planck):
+\[\boxed{E = h\nu = \frac{hc}{\lambda}}\qquad h = \SI{6.62e-34}{\joule\second}\ \text{(Planck's constant)}.\]
+\end{concept}
+\begin{concept}[Wave--particle duality.]
+EM radiation behaves like a wave in some experiments (diffraction, interference) and like a stream of
+particles in others (absorption and emission of energy in packets $h\nu$). Both descriptions are
+needed.
+\end{concept}
+\begin{concept}[Electronvolt.]
+The energy gained by one electron accelerated through 1~V: $1\ \mathrm{eV} = \SI{1.6e-19}{\joule}$.
+Atomic energies are a few eV. Handy shortcut: $E\,(\mathrm{eV}) \approx \dfrac{1240}{\lambda\,(\mathrm{nm})}$
+(with the handout's constants, $hc/e = 1241$~eV\,nm).
+\end{concept}
+\begin{worked}[: a red photon]
+$\lambda = 656\ \mathrm{nm}$: $\nu = c/\lambda = 3.00\times10^{8}/656\times10^{-9} = 4.57\times10^{14}$~Hz;
+$E = h\nu = 6.62\times10^{-34}\times4.57\times10^{14} = 3.03\times10^{-19}$~J $= 1.89$~eV.
+\end{worked}
+\begin{trap}
+Convert nm to m before using $\lambda = c/\nu$ ($1\ \mathrm{nm} = 10^{-9}$~m), and joules to eV by
+\emph{dividing} by $1.6\times10^{-19}$. A blue photon has \emph{more} energy than a red one.
+\end{trap}
+
+\sect{2.3}{Interaction between EM radiation and matter}
+\begin{itemize}
+  \item \textbf{Reflection}: the radiation bounces back at a surface. \textbf{Refraction}: it changes
+        direction when it enters another medium, because it travels at a different speed there.
+  \item \textbf{Scattering}: the radiation is re-emitted in all directions by particles (why the sky
+        is blue: short wavelengths are scattered most).
+  \item \textbf{Absorption}: the energy of the photon is taken up by the matter. Only photons whose
+        energy matches a possible change of energy of the matter are absorbed.
+\end{itemize}
+\begin{concept}[Absorption spectrum and colour.]
+The spectrum of the light that has passed through a sample; missing wavelengths appear black.
+A solution of $\ce{KMnO4}$ absorbs a \emph{broad band} (about 515--565~nm, green): molecules in a
+solution have very many closely spaced energy levels, so the absorbed wavelengths form a continuous
+band. What we see is the transmitted light, mainly red and violet--blue: the solution looks purple
+(magenta), the \textbf{complementary colour} of the absorbed green.
+\end{concept}
+\textit{Note: on Figures 2-2 to 2-4 of the handout, the right-hand axis label ``650'' is a typo for 700.}
+
+\sect{2.4}{Atomic spectra}
+\subsect{2.4.1\quad Absorption spectrum of hydrogen}
+White light through hydrogen gas: the spectrum shows only four thin black lines in the visible,
+at 656, 486, 434 and 410~nm. The hydrogen atom absorbs only certain wavelengths, so it can only
+take in certain amounts of energy: its energy is \textbf{quantised}.
+\begin{handout}{box of 2.4.1, why only a few lines?}
+\begin{minipage}{0.52\linewidth}\small
+A photon is absorbed only if its energy is exactly the difference between two energy levels of the
+atom: $h\nu = E_p - E_n$. The atom has a discrete set of levels, so only a discrete set of
+wavelengths is absorbed. The four visible lines all start from level $n = 2$ and go to
+$p = 3, 4, 5, 6$ (arrows on the right). Transitions from $n = 1$ need more energy (UV) and those from
+$n = 3$ less (IR); they are outside the visible window.\\[3pt]
+\emph{Note:} at room temperature almost every H atom is in $n = 1$, so the visible absorption lines are
+seen when the gas is hot (in a discharge, or in the atmosphere of a star); the important idea is the
+match between photon energy and level spacing.
+\end{minipage}\hfill
+\begin{minipage}{0.44\linewidth}\centering
+\begin{tikzpicture}[y=0.36cm]
+  \foreach \n in {2,3,4,5,6} {\pgfmathsetmacro\E{-13.6/(\n*\n)}
+     \draw (0,{\E*3}) -- (4.4,{\E*3}); \node[font=\scriptsize, left] at (0,{\E*3}) {$n=\n$};}
+  \draw[dashed] (0,0)--(4.4,0) node[right, font=\scriptsize] {$0$};
+  \foreach \p/\c/\x/\l in {3/Ha/0.5/656,4/Hb/1.4/486,5/Hg/2.3/434,6/Hd/3.2/410}
+    {\pgfmathsetmacro\E{-13.6/(\p*\p)}
+     \draw[very thick, \c, -{Stealth}] (\x,-10.2) -- (\x,{\E*3});
+     \node[font=\tiny, \c!80!black] at (\x+0.38,-9.6) {\l};}
+  \node[font=\scriptsize, right] at (4.4,-10.2) {$-3.40$ eV};
+  \node[font=\scriptsize, right] at (4.4,-4.53) {$-1.51$};
+\end{tikzpicture}
+\end{minipage}
+\end{handout}
+
+\subsect{2.4.2\quad Emission spectrum of hydrogen}
+An electric discharge excites hydrogen gas, which then emits light. Its spectrum is a black background
+with four coloured lines at exactly the same wavelengths as the absorption lines:
+\begin{center}
+\begin{tikzpicture}[x=0.024cm]
+  \fill[black] (380,0) rectangle (750,0.7);
+  \foreach \l/\c in {410/Hd,434/Hg,486/Hb,656/Ha} {\draw[\c, line width=1.4pt] (\l,0)--(\l,0.7);
+     \node[font=\scriptsize, above] at (\l,0.7) {\l};}
+  \foreach \x in {400,450,...,750} {\draw (\x,0)--(\x,-0.08) node[below, font=\tiny] {\x};}
+  \node[font=\scriptsize, right] at (752,0.35) {emission};
+  \begin{scope}[yshift=-1.25cm]
+  \shade[left color=violet, right color=red!80!black, middle color=green!80!yellow] (380,0) rectangle (750,0.7);
+  \foreach \l in {410,434,486,656} {\draw[black, line width=1.4pt] (\l,0)--(\l,0.7);}
+  \foreach \x in {400,450,...,750} {\draw (\x,0)--(\x,-0.08) node[below, font=\tiny] {\x};}
+  \node[font=\scriptsize, right] at (752,0.35) {absorption};
+  \end{scope}
+  \node[font=\scriptsize] at (565,-1.95) {$\lambda$ (nm)};
+\end{tikzpicture}
+\end{center}
+The same lines appear in emission and absorption because the same pairs of levels are involved: in
+emission the electron goes \emph{down} and a photon is produced; in absorption a photon is used to
+push the electron \emph{up}. The spectrum is a fingerprint of the element.
+
+\subsect{2.4.3\quad Spectral series: Balmer and Rydberg}
+Balmer (1885) found that the frequencies of the four visible lines follow
+$\nu \propto \frac14 - \frac1{n^2}$ with $n = 3, 4, 5, 6$ (the handout writes $n = 1, 2, 3\dots$, but
+$n$ must be larger than 2 for the frequency to be positive). Rydberg generalised this to every series:
+\[\boxed{\nu = R_H\left(\frac1{n_1^2} - \frac1{n_2^2}\right)}\qquad n_1 < n_2 \text{ positive integers},
+\quad R_H = \SI{3.29e15}{\hertz}.\]
+Each value of $n_1$ gives a \textbf{series}; the lines of a series crowd together towards the
+\textbf{series limit} ($n_2\to\infty$, $\nu = R_H/n_1^2$).
+\begin{center}\small
+\begin{tabular}{@{}l c l l@{}}
+\toprule
+Series & $n_1$ & Region & Wavelengths\\ \midrule
+Lyman & 1 & UV & 122~nm ($2\to1$) down to the limit 91.2~nm\\
+Balmer & 2 & visible (and near UV) & 656, 486, 434, 410~nm \dots\ limit 365~nm\\
+Paschen & 3 & IR & 1876~nm ($4\to3$) \dots\ limit 821~nm\\
+Brackett, Pfund & 4, 5 & far IR & \\ \bottomrule
+\end{tabular}
+\end{center}
+
+\sect{2.5}{Electronic energy levels: Bohr's model (1913)}
+\begin{concept}[Bohr's two postulates.]
+(1) The electron of a hydrogen atom can only have certain energies:
+$\boxed{E_n = -\dfrac{13.6}{n^2}\ \text{eV}}$, $n = 1, 2, 3, \dots$: its energy is \textbf{quantised}.
+(2) The atom emits or absorbs light only when the electron makes a \textbf{transition} between two
+levels; the photon carries the difference of energy.
+\end{concept}
+\begin{itemize}
+  \item \textbf{Ground state}: $n = 1$, $E_1 = -13.6$~eV, lowest energy, strongest interaction with the proton.
+  \item \textbf{Excited states}: $n > 1$ ($E_2 = -3.40$, $E_3 = -1.51$, $E_4 = -0.85$~eV \dots), higher
+        energy, weaker interaction.
+  \item \textbf{Ionised state}: $n\to\infty$, $E_\infty = 0$: the electron is free. The energies are
+        negative because the bound electron has \emph{less} energy than a free one at rest.
+  \item \textbf{Ionisation energy} of H from the ground state: $E_\infty - E_1 = 13.6$~eV.
+\end{itemize}
+\begin{handout}{side box of 2.5, energy-level diagram of hydrogen}
+\begin{minipage}{0.5\linewidth}
+\centering
+\begin{tikzpicture}[y=0.5cm]
+  \foreach \n in {1,2,3,4,5} {\pgfmathsetmacro\E{-13.6/(\n*\n)}
+     \draw[thick] (0,\E) -- (5.2,\E);
+     \ifnum\n<5 \node[font=\scriptsize, left] at (0,\E) {$n=\n$};\fi}
+  \node[font=\scriptsize, right] at (5.2,-0.85) {$-0.85$};
+  \node[font=\scriptsize, right] at (5.2,-13.6) {$-13.6$ eV};
+  \node[font=\scriptsize, right] at (5.2,-3.4) {$-3.40$};
+  \node[font=\scriptsize, right] at (5.2,-1.51) {$-1.51$};
+  \draw[thick, dashed] (0,0) -- (5.2,0) node[right, font=\scriptsize, yshift=2pt] {$0$};
+  \node[font=\scriptsize, left] at (0,0.25) {$n=\infty$};
+  % Lyman
+  \foreach \p/\x in {2/0.3,3/0.6,4/0.9,5/1.2} {\pgfmathsetmacro\E{-13.6/(\p*\p)}
+     \draw[-{Stealth[length=1.3mm]}, violet] (\x,\E) -- (\x,-13.6);}
+  \node[font=\tiny, violet, below] at (0.75,-13.6) {Lyman (UV)};
+  % Balmer
+  \foreach \p/\x/\c in {3/2.0/Ha,4/2.3/Hb,5/2.6/Hg,6/2.9/Hd} {\pgfmathsetmacro\E{-13.6/(\p*\p)}
+     \draw[-{Stealth[length=1.3mm]}, \c, thick] (\x,\E) -- (\x,-3.4);}
+  \node[font=\tiny, below, fill=white, inner sep=1pt] at (2.45,-3.6) {Balmer (visible)};
+  % Paschen
+  \foreach \p/\x in {4/3.9,5/4.2,6/4.5} {\pgfmathsetmacro\E{-13.6/(\p*\p)}
+     \draw[-{Stealth[length=1.3mm]}, red!60!black] (\x,\E) -- (\x,-1.51);}
+  \node[font=\tiny, red!60!black, below, fill=white, inner sep=1pt] at (4.2,-1.8) {Paschen (IR)};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}{0.46\linewidth}\small
+Each horizontal line is an allowed energy $E_n = -13.6/n^2$~eV. The levels get closer and closer
+as $n$ increases and pile up under $E = 0$ (ionisation).\\[3pt]
+Each downward arrow is an emission line. All arrows ending on the same level form one series:
+on $n = 1$ the Lyman series (large gaps, UV), on $n = 2$ the Balmer series (visible), on $n = 3$
+the Paschen series (IR).\\[3pt]
+Rydberg's formula is Bohr's model in disguise:
+$h\nu = 13.6\,\mathrm{eV}\,(1/n_1^2 - 1/n_2^2)$, so $R_H = 13.6\ \mathrm{eV}/h =
+13.6\times1.6\times10^{-19}/6.62\times10^{-34} = 3.29\times10^{15}$~Hz.
+\end{minipage}
+\end{handout}
+
+\begin{handout}{table after 2.5, emission and absorption}
+\begin{center}
+\begin{tabular}{p{0.46\linewidth}|p{0.46\linewidth}}
+\textbf{Emission}: an electron on level $E_p$ falls to a lower level $E_n$ and a photon is emitted. &
+\textbf{Absorption}: an electron on level $E_n$ takes in a photon and is promoted to $E_p$.\\
+\centering
+\begin{tikzpicture}
+  \draw[thick] (0,0)--(2.6,0) node[right, font=\small] {$E_n$};
+  \draw[thick] (0,1.6)--(2.6,1.6) node[right, font=\small] {$E_p$};
+  \fill (0.9,1.6) circle (2pt); \draw[very thick, -{Stealth}] (0.9,1.52)--(0.9,0.08);
+  \draw[decorate, decoration={snake, amplitude=1.2pt, segment length=5pt}, -{Stealth}, red!70!black]
+     (1.2,0.8)--(2.4,0.8) node[right, font=\scriptsize] {$h\nu$ out};
+\end{tikzpicture} &
+\centering
+\begin{tikzpicture}
+  \draw[thick] (0,0)--(2.6,0) node[right, font=\small] {$E_n$};
+  \draw[thick] (0,1.6)--(2.6,1.6) node[right, font=\small] {$E_p$};
+  \fill (1.8,0) circle (2pt); \draw[very thick, -{Stealth}] (1.8,0.08)--(1.8,1.52);
+  \draw[decorate, decoration={snake, amplitude=1.2pt, segment length=5pt}, -{Stealth}, red!70!black]
+     (0.1,0.8)--(1.5,0.8); \node[font=\scriptsize, red!70!black, above] at (0.8,0.9) {$h\nu$ in};
+\end{tikzpicture}\tabularnewline
+\end{tabular}
+\end{center}
+In both cases the photon carries exactly the energy difference:
+$\boxed{\Delta E = E_p - E_n = h\nu = \dfrac{hc}{\lambda}}$.
+A photon whose energy does not match any gap is not absorbed (unless it has enough energy to ionise
+the atom; the excess then becomes kinetic energy of the free electron).
+\end{handout}
+
+\begin{worked}[: the red Balmer line from Bohr's levels]
+$3\to2$: $\Delta E = E_3 - E_2 = -1.51 - (-3.40) = 13.6\,(\tfrac14-\tfrac19) = 1.89$~eV
+$= 1.89\times1.6\times10^{-19} = 3.02\times10^{-19}$~J, so
+$\lambda = hc/\Delta E = 6.62\times10^{-34}\times3.00\times10^8/3.02\times10^{-19} = 657$~nm, the observed
+656~nm line.
+\end{worked}
+\begin{concept}[Hydrogen-like ions.]
+A nucleus of charge $Z$ with a single electron ($\ce{He+}$, $\ce{Li^2+}$ \dots):
+$E_n = -13.6\,Z^2/n^2$~eV. The electron is held $Z^2$ times more strongly.
+\end{concept}
+
+% ------------------------------------------------------------------ recap
+\clearpage
+\begin{recap}{Unit 2: quantum model of the atom}
+\recapsub{Key equations}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}l l@{}}
+Wave & $\lambda = cT$,\quad $\nu = 1/T$,\quad $\lambda = c/\nu$\\
+Photon (Planck) & $E = h\nu = hc/\lambda$\\
+Bohr levels (H) & $E_n = -13.6/n^2$~eV;\quad hydrogen-like ion: $E_n = -13.6\,Z^2/n^2$~eV\\
+Transition & $\Delta E = E_p - E_n = h\nu = hc/\lambda$ \quad($p > n$)\\
+Rydberg & $\nu = R_H\,(1/n_1^2 - 1/n_2^2)$,\quad $R_H = 3.29\times10^{15}$~Hz $= 13.6\ \mathrm{eV}/h$
+\end{tabular}
+
+\recapsub{Constants and conversions}
+$c = 3.00\times10^8\ \mathrm{m\,s^{-1}}$,\quad $h = 6.62\times10^{-34}$~J\,s,\quad
+$1\ \mathrm{eV} = 1.6\times10^{-19}$~J,\quad $E(\mathrm{eV})\approx1240/\lambda(\mathrm{nm})$,\quad
+$1\ \mathrm{nm} = 10^{-9}$~m.
+
+\recapsub{Key numbers for hydrogen}
+$E_1 = -13.6$,\ $E_2 = -3.40$,\ $E_3 = -1.51$,\ $E_4 = -0.85$,\ $E_\infty = 0$~eV.
+Visible lines (Balmer, to $n = 2$): 656 (red, $3\to2$), 486 (blue-green, $4\to2$), 434 (violet,
+$5\to2$), 410~nm (violet, $6\to2$). Lyman to $n = 1$: UV; Paschen to $n = 3$: IR.
+Ionisation energy of H: 13.6~eV, i.e.\ $1310\ \mathrm{kJ\,mol^{-1}}$ (tabulated: 1312).
+
+\recapsub{Vocabulary}
+wavelength, frequency, period; photon; wave--particle duality; absorption / emission spectrum;
+line vs band spectrum; quantised energy; transition; ground, excited, ionised state; series and series
+limit; complementary colour.
+
+\recapsub{You should be able to}
+\begin{itemize}
+  \item convert between $\lambda$, $\nu$, $T$ and $E$ (in J and eV), and place a radiation on the spectrum;
+  \item explain why atoms give line spectra and why emission and absorption lines coincide;
+  \item compute $E_n$, the energy and wavelength of any transition of H or of a hydrogen-like ion;
+  \item decide whether a photon of given energy is absorbed by a hydrogen atom.
+\end{itemize}
+
+\recapsub{Watch out}
+\begin{itemize}
+  \item $E_n$ is negative; $\Delta E$ for a photon is always taken positive.
+  \item Short $\lambda$ = high $\nu$ = high energy (UV $>$ visible $>$ IR).
+  \item In Rydberg's formula $n_1$ is the \emph{lower} level: $n_1 < n_2$.
+\end{itemize}
+\end{recap}

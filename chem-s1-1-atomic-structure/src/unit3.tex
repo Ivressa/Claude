@@ -1,0 +1,302 @@
+% ============================== UNIT 3 =====================================
+\unitheading{3}{Quantum numbers and atomic orbitals}
+
+\textit{Handout chapter 3, sections 3.1--3.4.} The electron is described by a wavefunction labelled by
+quantum numbers; each set of quantum numbers is an atomic orbital with a given energy, size, shape and
+orientation.
+
+\partheading{Concepts in detail}
+
+\sect{3.1}{The nature of the electron}
+\begin{concept}[Wave--particle duality of the electron.]
+Like light, the electron is both a particle (it has a mass and a charge) and a wave (a beam of electrons
+is diffracted by a crystal, like X-rays).
+\end{concept}
+Consequence: the electron does not follow a trajectory (no orbit as in a solar system). We can only give
+the \textbf{probability} of finding it at each point around the nucleus. The classical picture of
+Figure~3-1 (an ellipse) is replaced by an electron \emph{cloud}, dense where the probability is high.
+
+\sect{3.2}{The hydrogen electron and its quantum numbers $n$, $\ell$, $m_\ell$}
+The wavefunction $\Psi$ of the single electron of hydrogen is fixed by three whole numbers:
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}l l l l@{}}
+\toprule
+Quantum number & Allowed values & Fixes & Name of the group\\ \midrule
+principal $n$ & $1, 2, 3, \dots$ & energy (in H) and size & shell\\
+secondary (azimuthal) $\ell$ & $0 \le \ell \le n-1$ & shape & subshell\\
+magnetic $m_\ell$ & $-\ell \le m_\ell \le +\ell$ (integer) & orientation in space & one orbital\\ \bottomrule
+\end{tabular}
+\end{center}
+\begin{itemize}
+  \item For a given $n$ there are $n$ values of $\ell$; for a given $\ell$ there are $2\ell+1$ values
+        of $m_\ell$; a shell contains $n^2$ orbitals in total.
+  \item Subshells are named by letters: $\ell = 0$: \textbf{s};\ $\ell = 1$: \textbf{p};\ $\ell = 2$:
+        \textbf{d};\ $\ell = 3$: \textbf{f}. The name is $n$ followed by the letter: 1s, 2p, 3d, 4f.
+  \item The $2\ell+1$ orbitals of a subshell point in different directions but have the same energy
+        (they are \emph{degenerate}), as long as no magnetic field is applied.
+\end{itemize}
+\begin{handout}{box after 3.2.3, the Zeeman effect}
+\begin{minipage}{0.55\linewidth}\small
+In a magnetic field, the orbitals of one subshell no longer have the same energy: each value of
+$m_\ell$ gets a slightly different energy. A p level ($\ell = 1$) splits into $2\ell+1 = 3$ sublevels
+($m_\ell = -1, 0, +1$), a d level into 5. A transition such as 2p$\,\to\,$1s then gives three close lines
+instead of one: the line is \emph{split}. Zeeman's observation is the experimental proof that
+$m_\ell$ exists and takes $2\ell+1$ values.
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}\centering
+\begin{tikzpicture}[scale=0.9]
+  \draw[thick] (0,2)--(1,2) node[midway, above, font=\scriptsize] {2p, $B = 0$};
+  \foreach \m/\y in {+1/2.35,0/2,-1/1.65} {\draw[thick] (2,\y)--(3,\y) node[right, font=\scriptsize] {$m_\ell = \m$};
+     \draw[dotted] (1,2)--(2,\y);}
+  \node[font=\scriptsize, above] at (2.5,2.4) {$B \ne 0$};
+  \draw[thick] (0,0)--(3,0) node[right, font=\scriptsize] {1s};
+  \draw[-{Stealth}] (0.5,1.97)--(0.5,0.05);
+  \foreach \y/\x in {2.35/2.2,2/2.5,1.65/2.8} \draw[-{Stealth}] (\x,\y)--(\x,0.05);
+  \node[font=\scriptsize] at (0.5,-0.3) {1 line}; \node[font=\scriptsize] at (2.5,-0.3) {3 lines};
+\end{tikzpicture}
+\end{minipage}
+\end{handout}
+
+\sect{3.3}{Atomic orbitals of hydrogen}
+\begin{concept}[Atomic orbital (AO).]
+The wavefunction $\Psi_{n,\ell,m_\ell}$ defined by one set of three quantum numbers, and by extension the
+region of space where the electron described by it is likely to be found. $|\Psi|^2$ is the
+probability density of presence of the electron.
+\end{concept}
+\begin{handout}{Table 3-1, quantum numbers, wavefunctions and atomic orbitals}
+\begin{center}\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$n$ & $E$ (eV) & $\ell$ & $m_\ell$ & wavefunction & atomic orbital\\ \hline
+1 & $-13.6$ & 0 & 0 & $\Psi_{1,0,0}$ & 1s\\ \hline
+\multirow{4}{*}{2} & \multirow{4}{*}{$-3.40$} & 0 & 0 & $\Psi_{2,0,0}$ & 2s\\ \cline{3-6}
+ & & \multirow{3}{*}{1} & $-1$ & $\Psi_{2,1,-1}$ & \multirow{3}{*}{2p (3 AOs)}\\ \cline{4-5}
+ & & & 0 & $\Psi_{2,1,0}$ & \\ \cline{4-5}
+ & & & $+1$ & $\Psi_{2,1,1}$ & \\ \hline
+\multirow{9}{*}{3} & \multirow{9}{*}{$-1.51$} & 0 & 0 & $\Psi_{3,0,0}$ & 3s\\ \cline{3-6}
+ & & \multirow{3}{*}{1} & $-1$ & $\Psi_{3,1,-1}$ & \multirow{3}{*}{3p (3 AOs)}\\ \cline{4-5}
+ & & & 0 & $\Psi_{3,1,0}$ & \\ \cline{4-5}
+ & & & $+1$ & $\Psi_{3,1,1}$ & \\ \cline{3-6}
+ & & \multirow{5}{*}{2} & $-2$ & $\Psi_{3,2,-2}$ & \multirow{5}{*}{3d (5 AOs)}\\ \cline{4-5}
+ & & & $-1$ & $\Psi_{3,2,-1}$ & \\ \cline{4-5}
+ & & & 0 & $\Psi_{3,2,0}$ & \\ \cline{4-5}
+ & & & $+1$ & $\Psi_{3,2,1}$ & \\ \cline{4-5}
+ & & & $+2$ & $\Psi_{3,2,2}$ & \\ \hline
+\end{tabular}
+\end{center}
+Count: shell 1 has 1 AO, shell 2 has 4, shell 3 has 9: $n^2$ AOs per shell.
+\end{handout}
+
+\subsect{3.3.1\quad Energy levels of the atomic orbitals of hydrogen}
+In hydrogen the energy depends \emph{only} on $n$: $E_n = -13.6/n^2$~eV. All AOs of the same shell are
+\textbf{degenerate} (2s and 2p have the same energy; 3s, 3p and 3d too).
+\begin{handout}{Figure 3-2, energy diagram of the AOs of hydrogen (one stroke = one AO)}
+\begin{center}
+\begin{tikzpicture}[y=0.42cm]
+  \draw[-{Stealth}] (0,-14.5)--(0,1.2) node[above, font=\scriptsize] {$E$ (eV)};
+  \draw[dashed] (0,0)--(9,0) node[right, font=\scriptsize] {$0$: ionisation};
+  \newcommand{\strokes}[4]{% x0, y, count, label
+    \foreach \k in {1,...,#3} \draw[very thick] ({#1+(\k-1)*0.55},#2)--({#1+(\k-1)*0.55+0.4},#2);
+    \node[font=\scriptsize, below] at ({#1+(#3*0.55-0.15)/2},#2) {#4};}
+  \strokes{1.0}{-13.6}{1}{1s}
+  \strokes{1.0}{-3.4}{1}{2s}\strokes{2.2}{-3.4}{3}{2p}
+  \strokes{1.0}{-1.51}{1}{3s}\strokes{2.2}{-1.51}{3}{3p}\strokes{4.4}{-1.51}{5}{3d}
+  \foreach \y/\t in {-13.6/{$n = 1$: $-13.6$}, -3.4/{$n = 2$: $-3.40$}, -1.51/{$n = 3$: $-1.51$}}
+     {\draw[densely dotted] (0,\y)--(0.9,\y); \node[font=\scriptsize, left] at (0,\y) {\t};}
+\end{tikzpicture}
+\end{center}
+\small The scale is linear in energy: the gap $1\to2$ (10.2~eV) is much larger than $2\to3$ (1.89~eV).
+\end{handout}
+\begin{concept}[Hydrogen-like ions.]
+$E_n = -13.6\,Z^2/n^2$~eV. $E = 0$ means no interaction between the nucleus and the electron.
+\end{concept}
+
+\subsect{3.3.2\quad Occupied and unoccupied orbitals}
+An AO is \textbf{occupied} when the electron is described by that wavefunction; all the others are
+\textbf{unoccupied} (empty, but they still exist and can receive the electron after absorption of a
+photon). Hydrogen is in its ground state when the electron occupies 1s, in an excited state otherwise.
+\begin{handout}{Table 3-2, occupied and unoccupied AOs}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$\Psi_{n,\ell,m_\ell}$ & 1s & 2p & 3d & state\\ \hline
+$\Psi_{1,0,0}$ & occupied & unoccupied & unoccupied & ground state\\ \hline
+$\Psi_{3,2,-1}$ & unoccupied & unoccupied & occupied & excited state\\ \hline
+\end{tabular}
+\end{center}
+$\Psi_{3,2,-1}$: $n = 3$, $\ell = 2$ (d), so the electron is in a 3d orbital, with energy
+$-1.51$~eV instead of $-13.6$~eV.
+\end{handout}
+
+\subsect{3.3.3\quad Shapes of the atomic orbitals}
+\begin{concept}[Boundary surface.]
+A surface that encloses a given probability of finding the electron, usually 95\,\%. Its shape is the
+``shape of the orbital'' drawn in books.
+\end{concept}
+\begin{concept}[Radial probability density.]
+The probability of finding the electron at a distance between $r$ and $r + \mathrm dr$ from the nucleus,
+per unit $\mathrm dr$ (Figure 3-3). Its maximum gives the most probable distance.
+\end{concept}
+\begin{concept}[Bohr radius $a_0$.]
+The most probable distance between the nucleus and the electron of hydrogen in its ground state (1s):
+$a_0 = 52.9$~pm. The size of an AO of a hydrogen-like species grows with $n$ and shrinks with $Z$:
+$\boxed{r = \dfrac{n^2}{Z}\,a_0}$.
+\end{concept}
+\begin{concept}[Nodes and phase.]
+A \textbf{node} is a place where $\Psi = 0$ (zero probability). Crossing a node, the wavefunction changes
+sign (phase shift of $\pi$); the two signs are shown with two colours or $+/-$ labels. An AO has
+$n - \ell - 1$ \textbf{radial nodes} (spheres) and $\ell$ \textbf{angular nodes} (planes or cones):
+$n-1$ nodes in total.
+\end{concept}
+\begin{center}\small
+\begin{tabular}{@{}l *{7}{c}@{}}
+\toprule
+AO & 1s & 2s & 2p & 3s & 3p & 3d & 4s\\ \midrule
+radial nodes $n-\ell-1$ & 0 & 1 & 0 & 2 & 1 & 0 & 3\\
+angular nodes $\ell$ & 0 & 0 & 1 & 0 & 1 & 2 & 0\\ \bottomrule
+\end{tabular}
+\end{center}
+You can check the radial nodes on Figure 3-3: the curve of 3s touches zero twice before its main peak,
+3p once, 3d never.
+\begin{itemize}
+  \item \textbf{s orbitals} ($\ell = 0$): spherical. They get larger as $n$ increases, and ns has $n-1$
+        spherical nodes inside (the ``onion layers'' of Figure 3-4).
+  \item \textbf{p orbitals} ($\ell = 1$): two lobes of opposite sign on each side of the nucleus
+        (``diabolo'' or dumbbell), separated by a \textbf{nodal plane} through the nucleus. The three p
+        orbitals point along $x$, $y$ and $z$.
+  \item \textbf{d orbitals} ($\ell = 2$): mostly four lobes (cloverleaf) with two nodal surfaces; they
+        appear in Units 4--5 through the transition metals.
+\end{itemize}
+\begin{handout}{Table 3-3, spatial orientation of the p orbitals}
+The columns (xOy), (xOz), (yOz) ask whether each plane is a \textbf{nodal plane} of the orbital
+(the plane where $\Psi = 0$, between the two lobes).
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+AO & $m_\ell$ & (xOy) & (xOz) & (yOz) & spatial orientation\\ \hline
+p$_x$ & $\pm1$ (combination) & no & no & \textbf{nodal plane} & along the $x$ axis\\ \hline
+p$_y$ & $\pm1$ (combination) & no & \textbf{nodal plane} & no & along the $y$ axis\\ \hline
+p$_z$ & 0 & \textbf{nodal plane} & no & no & along the $z$ axis\\ \hline
+\end{tabular}
+\end{center}
+Only p$_z$ corresponds to a single value, $m_\ell = 0$. The orbitals with $m_\ell = +1$ and $-1$ are
+complex; p$_x$ and p$_y$ are the two real combinations of them. Some courses simply write
+p$_x$: $+1$ and p$_y$: $-1$; follow the convention used in class.
+\end{handout}
+
+\sect{3.4}{Many-electron atoms}
+With two or more electrons, the electrons repel each other and the equations can no longer be solved
+exactly: approximations are needed.
+\begin{concept}[Orbital approximation.]
+Electron--electron interactions are treated as small compared with the nucleus--electron
+attraction. The wavefunction of $N$ electrons becomes a product of one-electron AOs,
+$\psi(1,2,\dots,N) = \psi(1)\,\psi(2)\cdots\psi(N)$: each electron occupies its own AO,
+\textbf{independently} of the others, and the AOs keep the labels $n$, $\ell$, $m_\ell$ of hydrogen.
+\end{concept}
+\begin{concept}[Energy of AOs in a many-electron atom.]
+The energy now depends on $n$, $\ell$ and $Z$: within a shell, $\mathrm{ns} < \mathrm{np} < \mathrm{nd}$.
+The degeneracy of a shell is lifted, but the $2\ell+1$ orbitals of a subshell remain degenerate.
+\end{concept}
+Why? The other electrons partly \emph{screen} the nucleus. An s electron spends some time very close to
+the nucleus (it \emph{penetrates} the inner shells, see the small inner peaks of 2s and 3s on Figure 3-3),
+so it feels a larger charge and is more strongly bound than a p electron of the same shell, which is
+itself more strongly bound than a d electron.
+\begin{concept}[Madelung's rule ($n + \ell$ rule).]
+(1) The energy of an AO increases with $n + \ell$. (2) For equal $n + \ell$, the energy increases with $n$.
+\end{concept}
+\begin{handout}{box after Madelung's rule, order of the subshells}
+\begin{minipage}{0.52\linewidth}\small
+\begin{center}
+\begin{tabular}{@{}c l@{}}
+\toprule
+$n + \ell$ & subshells (increasing energy)\\ \midrule
+1 & 1s\\ 2 & 2s\\ 3 & 2p, 3s\\ 4 & 3p, 4s\\ 5 & 3d, 4p, 5s\\ 6 & 4d, 5p, 6s\\
+7 & 4f, 5d, 6p, 7s\\ 8 & 5f, 6d, 7p\\ \bottomrule
+\end{tabular}
+\end{center}
+\textbf{Order:} 1s $<$ 2s $<$ 2p $<$ 3s $<$ 3p $<$ \textbf{4s $<$ 3d} $<$ 4p $<$ 5s $<$ 4d $<$ 5p $<$ 6s
+$<$ 4f $<$ 5d $<$ 6p $<$ 7s $<$ 5f $<$ 6d $<$ 7p.\\[2pt]
+The key surprise: 4s ($n+\ell = 4$) is below 3d ($n+\ell = 5$).
+\end{minipage}\hfill
+\begin{minipage}{0.44\linewidth}\centering
+\begin{tikzpicture}[x=0.72cm, y=0.52cm]
+  \foreach \n in {1,...,7} {\foreach \l/\L in {0/s,1/p,2/d,3/f} {
+     \pgfmathtruncatemacro\ok{(\l<\n) && (\l<4) && (\n+\l<=8)}
+     \ifnum\ok=1 \node[font=\scriptsize] (o\n\l) at (\l,-\n) {\n\L};\fi}}
+  % diagonal arrows: each follows constant n+l, read from top-right to bottom-left
+  \foreach \s in {1,...,8} {
+     \pgfmathtruncatemacro\lmax{min(3,floor((\s-1)/2))}
+     \pgfmathtruncatemacro\nmin{\s-\lmax}
+     \pgfmathtruncatemacro\nmax{min(7,\s)}
+     \pgfmathtruncatemacro\lend{\s-\nmax}
+     \draw[-{Stealth[length=1.2mm]}, heading!70, shorten >=5pt, shorten <=5pt]
+        (\lmax+0.3,-\nmin+0.3) -- (\lend-0.3,-\nmax-0.3);}
+\end{tikzpicture}\\[-2pt]
+{\scriptsize Follow the arrows from the top, one after the other.}
+\end{minipage}
+\end{handout}
+
+\subsect{3.4.3\quad Spin: the fourth quantum number}
+\begin{concept}[Spin magnetic quantum number $m_s$.]
+The electron has an intrinsic angular momentum, its \textbf{spin}. Its projection has only two values:
+$m_s = +\frac12$ (drawn $\uparrow$, ``spin up'') or $m_s = -\frac12$ ($\downarrow$, ``spin down'').
+An electron in an atom is therefore described by \textbf{four} quantum numbers
+$(n, \ell, m_\ell, m_s)$.
+\end{concept}
+\begin{handout}{after the sodium D line, what the doublet shows}
+The yellow light of sodium comes from the transition $3\mathrm p\to3\mathrm s$ of its outer electron.
+Without spin, the 3p level would be a single level and give one line. The spin of the electron interacts
+with its orbital motion around the nucleus (\emph{spin--orbit coupling}); the two orientations of
+the spin give two 3p levels with slightly different energies, hence two lines:
+\[E = \frac{hc}{\lambda}:\quad \frac{hc}{589.0\ \mathrm{nm}} = 2.1074\ \mathrm{eV},\qquad
+\frac{hc}{589.6\ \mathrm{nm}} = 2.1052\ \mathrm{eV},\qquad \Delta E \approx 2.1\times10^{-3}\ \mathrm{eV}.\]
+The splitting is a thousand times smaller than the transition energy, but it is well resolved in a
+spectrometer. It is an experimental proof that a fourth quantum number exists.
+\end{handout}
+\begin{trap}
+$\ell$ goes up to $n - 1$, not $n$ (there is no 2d or 1p orbital). $m_\ell$ is an integer between
+$-\ell$ and $+\ell$; $m_s$ is a half-integer and can only be $\pm\frac12$. In hydrogen 2s and 2p have the
+same energy; in every other atom 2s is lower.
+\end{trap}
+
+% ------------------------------------------------------------------ recap
+\clearpage
+\begin{recap}{Unit 3: quantum numbers and atomic orbitals}
+\recapsub{The four quantum numbers}
+\begin{tabular}{@{}l l l l@{}}
+$n$ & $1, 2, 3, \dots$ & shell: energy (H) and size & $n^2$ AOs per shell\\
+$\ell$ & $0, 1, \dots, n-1$ & subshell: shape (s, p, d, f) & $2\ell+1$ AOs per subshell\\
+$m_\ell$ & $-\ell, \dots, +\ell$ & orientation of the AO & \\
+$m_s$ & $+\frac12$ ($\uparrow$) or $-\frac12$ ($\downarrow$) & spin & $2n^2$ electron states per shell
+\end{tabular}
+
+\recapsub{Key formulas}
+Hydrogen and hydrogen-like ions: $E_n = -13.6\,Z^2/n^2$~eV (depends on $n$ only: all AOs of a shell
+are degenerate).\quad Size: $r = n^2 a_0/Z$, $a_0 = 52.9$~pm.\quad
+Nodes: $n-\ell-1$ radial, $\ell$ angular, $n-1$ in total.
+
+\recapsub{Shapes}
+s: sphere;\quad p: two lobes along $x$, $y$ or $z$ with a nodal plane (p$_x$: plane yOz, p$_y$: xOz,
+p$_z$: xOy);\quad d: mostly four lobes. Boundary surface = 95\,\% probability. Sign change across a node.
+
+\recapsub{Many-electron atoms}
+Orbital approximation: each electron in its own hydrogen-like AO. Energy depends on $n$ and $\ell$
+(and $Z$). Madelung: increasing $n+\ell$, then increasing $n$:\\
+1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f 6d 7p.
+
+\recapsub{Experiments}
+Electron diffraction $\Rightarrow$ the electron is a wave.\quad Zeeman effect (lines split in a
+magnetic field) $\Rightarrow$ $m_\ell$, $2\ell+1$ orientations.\quad Sodium D doublet (589.0 and
+589.6~nm) $\Rightarrow$ spin, $m_s = \pm\frac12$.
+
+\recapsub{You should be able to}
+\begin{itemize}
+  \item list the allowed quantum numbers of a shell, name the AOs and count them;
+  \item say whether a set $(n, \ell, m_\ell, m_s)$ is allowed and name the corresponding AO;
+  \item give the energy and the size of an AO of H or of a hydrogen-like ion;
+  \item count the nodes of an AO and describe s and p boundary surfaces;
+  \item order subshells with Madelung's rule.
+\end{itemize}
+\end{recap}
